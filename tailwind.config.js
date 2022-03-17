@@ -3,7 +3,17 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+  
     extend: {
+      colors: {
+        mint: '#b1fea7',
+        blue: '#31354b',
+        creme: '#f5f3ee',
+        white: '#ffffff',
+        black: '#0b0b09',
+        disable: '#c6c7cd',
+        error: '#9f1d27',
+      },
       fontFamily: {
         Inter: ['Inter', 'sans-serif'],
         Spinnaker: ['Spinnaker', 'sans-serif'],

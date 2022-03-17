@@ -16,13 +16,13 @@ import StepProduct from './components/StepProduct';
 export default function App() {
   const [showBackground, setShowBackground] = useState(false);
   return (
-    <div className='App mt-3 font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 container mx-auto'>
+    <div className='font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-10 mt-10 mb-24'>
       {/* <Router> */}
 
         <Header /> 
 
         <main>
-          <div id='editWrapper'>
+          <div id='editWrapper' className='min-h-[70vh] bg-red-500'>
 
             {/* <Switch> */}
               {/* <Route path='/steg-1-logga' component={StepLogo} />  */}
@@ -62,3 +62,5 @@ export default function App() {
 {/* <p className='max-w-xl container mx-auto'>
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 </p> */}
+
+// min-h-screen
