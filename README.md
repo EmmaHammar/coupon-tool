@@ -1,3 +1,67 @@
+# About project
+The aim of this project is to launch a user-friendly coupon tool where a user can create a branded digital coupon from a template. 
+
+# Start project
+Heroku:
+- X
+- X
+
+Start locally:
+Frontend repo:
+- git clone: https://github.com/EmmaHammar/coupon-tool
+- npm start
+
+Backend repo: 
+- XX
+- XX
+
+# Task
+Du ska skapa en webbsida/tjänst/applikation till ett företag eller kommande företag. Projektet ska vara avgränsat så du börjar och slutar projektet under tiden för examensarbete. Kursen är 6 veckor lång på heltid dvs 240 timmars jobb inklusive projektbeskrivning, projektplan, själva "produkten" samt redovisning.
+Arbetet görs enskilt.
+
+## Ska vara med & användas:
+- GitHub (om du jobbar med ett skarpt projekt som använder ett annat versionshanteringssystem, så löser vi det)
+Dynamiskt innehåll (använd ett API eller en databas)
+Sidan ska vara interaktiv (ej enbart HTML och CSS)
+Genomfört någon typ av testning (enhetstestning, integrationstest, gränssnittstest eller motsv.)
+Hållbar och dokumenterad kod
+Tjänsten/produkten ska vara tillgänglighetsgranskad och -anpassad
+
+## Obligatoriska moment – välj (minst) 3 av dessa:
+- Använd minst 1 ramverk eller bibliotek (t.ex. React, Vue, Next.js osv.).
+Det ska vara korrekt använt och en diskussion kring valet ska finnas i dokumentationen tillsammans med begränsningar i form av beroenden, versionskrav med mera.
+- “Produkten” ska vara responsiv, dvs. anpassad för alla enheter.
+Med anpassning menas att utseende OCH funktion förändras på så sätt att inga av sitens kommunikations- och funktionskrav är otillgängliga eller icke fungerande samt enhetens möjligheter och begränsningar nyttjas maximalt.
+- All data på webbplatsen laddas och visas asynkront (inga omladdningar av sidan) samtidigt som allt innehåll är länkbart via läsbara URL:ar.
+- Stilmallar ska implementeras med hjälp av en preprocessor (Less, Sass) eller liknande (t.ex. styled components) och dess funktioner och struktur ska användas enligt respektive best practice.
+
+## För Godkänt:
+Nått samtliga mål för kursen och uppgiften, samt följt instruktionerna.
+
+## För Väl Godkänt:
+Visar på fördjupad kunskap kring mål och syfte, och för en reflektion kring detta under projektets gång.
+Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning och kreativ idé.
+
+# Techniques
+React - frontend
+Node.js - backend
+MongoDB - database
+TinyMCE - WYSIWYG editor
+Context - state manager
+TailWind - CSS
+
+# Files
+- Planning KANBAN: https://github.com/users/EmmaHammar/projects/1
+- Wireframe, component tree, function analysis: https://www.figma.com/file/H8dU1CUZJiLaYCsFYE93mT/coupon-tool?node-id=0%3A1
+- Prototype: se design folder. For interactions, see Adobe XD file.
+
+
+
+
+
+
+
+//TODO cleaning:
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
