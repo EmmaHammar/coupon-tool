@@ -44,11 +44,19 @@ Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning oc
 
 # Techniques
 React - frontend
+Routing: npm install react-router-dom
+
 Node.js - backend
 MongoDB - database
+
 TinyMCE - WYSIWYG editor
 Context - state manager
-TailWind - CSS
+
+TailWind - CSS: https://tailwindcss.com/docs/guides/create-react-app, 
+- kom igång m TailWind: https://www.linkedin.com/learning/search?keywords=react%20tailwind&u=57075785,
+- essential training: https://www.linkedin.com/learning/tailwind-css-essential-training/custom-builds?autoplay=true&resume=false&u=57075785 
+- install PostCSS Language Support in VCS extension (else lint(?) errors)
+- install VCS extension helping with "syntax": Tailwind CSS IntelliSense
 
 # Files
 - Planning KANBAN: https://github.com/users/EmmaHammar/projects/1
@@ -132,3 +140,54 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+@import "_normalize"; ADDERA I TAILWIND??
+
+//mobile version 375px x 667px
+@import "_base.scss"; 
+
+// ipad mini 
+@media screen and (min-width: 736px) {
+    @import "_ipad-mini.scss";
+}
+
+//desktop, height: 1024px
+@media screen and (min-width: 1440px) { 
+    @import "_desktop.scss";
+}
+
+======
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* so I can add custom classes. These are my layers: */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* layer=choose which layer to target, base styles: headline or paragraph, apply=call one of the tailwind styles */
+
+//if want to style default for all normal elements:
+@layer base {
+    h1 {
+        @apply text-red-500;
+        background: salmon; /*can add normal css also in this file*/
+    }
+}
+
+//own components
+@layer components {
+    .btn {
+        @apply active:bg-gray-500
+        hover:bg-red-500
+        hover:text-white
+        cursor-pointer
+        border-gray-500
+        border-4
+        rounded-md
+        inline-block
+        p-2
+        mt-2
+        mb-4;
+    }
+}
