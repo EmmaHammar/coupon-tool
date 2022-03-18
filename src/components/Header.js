@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <header className='outline'>
         <div className='flex justify-between'>
+          <Link to='/'>
             <h1 className='font-bold hover-text'>Adoveo</h1>
+          </Link>
             <div className='btn'>LOGGA UT</div>
         </div>
         <div className='lg:flex justify-start'>

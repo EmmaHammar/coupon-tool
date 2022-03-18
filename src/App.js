@@ -29,7 +29,7 @@ export default function App() {
 
         <Header /> 
           <main>
-
+            <div id='userPageWrapper' className='outline mt-6 mb-20 md:mt-10 md:mb-24'>
               <Routes>
                 <Route exact path='/' element={<UserPage />}></Route>
                 <Route exact path='/steg1' element={<StepLogo />}></Route>
@@ -39,7 +39,7 @@ export default function App() {
                 <Route exact path='/steg5' element={<StepSummary />}></Route>
                 <Route exact path='*' element={<NotFound />}></Route>
               </Routes>
-
+            </div>
           </main>
 
         <Footer /> 
