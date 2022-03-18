@@ -23,7 +23,22 @@ switch (props.stepType) {
     break;
   default:
     break;
+
 }
+
+
+// if (props.stepType === 'logo') {
+//   console.log("fr logo");
+//   toolBarOptions = `undo redo | image | alignleft aligncenter alignright | help`;
+// }
+// if (props.stepType === 'background') {
+//   console.log("fr background");
+//   toolBarOptions = `undo redo | image | help`;
+// }
+// if (props.stepType === 'text') {
+//   console.log("fr text");
+//   toolBarOptions = `undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright | help`;
+// }
 
   return (
     <div>
@@ -35,7 +50,7 @@ switch (props.stepType) {
               height: 500,
               menubar: false,
               plugins: [
-                'advlist lists charmap print preview anchor',
+                'advlist autolink lists image charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
                 'insertdatetime media table paste code help wordcount'
               ],
