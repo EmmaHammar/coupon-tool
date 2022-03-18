@@ -43,22 +43,31 @@ Visar på fördjupad kunskap kring mål och syfte, och för en reflektion kring 
 Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning och kreativ idé.
 
 # Techniques
-React - frontend
+## React - frontend
+- React: npx create-react-app
 - Routing: npm install react-router-dom
 - TinyMCE - WYSIWYG editor: 
 TODO: remove npm install tinymce https://www.npmjs.com/package/tinymce
 Only keep: npm install --save @tinymce/tinymce-react https://www.tiny.cloud/docs/integrations/react/ and useRef Hook: https://www.geeksforgeeks.org/react-js-useref-hook/
-- Context - state manager
+- Context - state manager. https://www.youtube.com/watch?v=AoS-lMO4Ad0
 
-Node.js - backend
-MongoDB - database
+## Node.js - backend
+Express server with node.js
+- npx express-generator --no-view
+- npm install
+- npm start
+
+already (npm install -g nodemon -> npm nodemon in dev mode)
+
+## MongoDB - database
+- npm install mongodb (in backend repo)
+
 user:
 username: mongodbUser
 pass: mongodb
 
-
-
-TailWind - CSS: https://tailwindcss.com/docs/guides/create-react-app, 
+## TailWind 
+- CSS: https://tailwindcss.com/docs/guides/create-react-app, 
 - kom igång m TailWind: https://www.linkedin.com/learning/search?keywords=react%20tailwind&u=57075785,
 - essential training: https://www.linkedin.com/learning/tailwind-css-essential-training/custom-builds?autoplay=true&resume=false&u=57075785 
 - install PostCSS Language Support in VCS extension (else lint(?) errors)
