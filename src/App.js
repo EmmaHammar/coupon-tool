@@ -1,48 +1,60 @@
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route,
-  Link
-} from 'react-router-dom';
+} from "react-router-dom";
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
+
+import UserPage from './views/UserPage';
 import StepLogo from './components/StepLogo';
 import StepBackground from './components/StepBackground';
 import StepText from './components/StepText';
 import StepProduct from './components/StepProduct';
+import StepSummary from './components/StepSummary';
 
 export default function App() {
-  const [showBackground, setShowBackground] = useState(false);
+  const [showBackground, setShowBackground] = useState(true); //test context
+
+  // add tailwind style to root, need reg css?
+  // const rootStyle = 'outline font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-10 mt-10 mb-24';
+  // document.getElementById('root').classList.add(rootStyle);
+
   return (
-    <div className='font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-10 mt-10 mb-24'>
-      {/* <Router> */}
+    <BrowserRouter>
+      <div id='styleRoot' className='outline font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>
 
         <Header /> 
+          <main>
 
-        <main>
-          <div id='editWrapper' className='min-h-[70vh] bg-red-500'>
+              <Routes>
+                <Route exact path='/' element={<UserPage />}></Route>
+                <Route exact path='/steg1' element={<StepLogo />}></Route>
+                <Route exact path='/steg2' element={<StepBackground />}></Route>
+                <Route exact path='/steg3' element={<StepText />}></Route>
+                <Route exact path='/steg4' element={<StepProduct />}></Route>
+                <Route exact path='/steg5' element={<StepSummary />}></Route>
+                <Route exact path='*' element={<NotFound />}></Route>
+              </Routes>
 
-            {/* <Switch> */}
-              {/* <Route path='/steg-1-logga' component={StepLogo} />  */}
+          </main>
 
-              <StepLogo />
-              { showBackground ? <StepBackground /> : ''}
-              <StepText />
-              <StepProduct /> 
-            {/* </Switch> */}
-
-          </div>
-        
-        </main>
         <Footer /> 
 
-      {/* </Router> */}
-    </div>
+      </div>
+    </BrowserRouter>
+
   )
 };
 
+
+// TODO:
+// Change root style with js and CSS (not tailwind?)? 
+
+//REMEMBER:
 //mobile: pink
 //sm: 
 
