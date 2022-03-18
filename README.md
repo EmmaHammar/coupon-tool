@@ -44,13 +44,16 @@ Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning oc
 
 # Techniques
 React - frontend
-Routing: npm install react-router-dom
+- Routing: npm install react-router-dom
+- TinyMCE - WYSIWYG editor: 
+TODO: remove npm install tinymce https://www.npmjs.com/package/tinymce
+Only keep: npm install --save @tinymce/tinymce-react https://www.tiny.cloud/docs/integrations/react/ and useRef Hook: https://www.geeksforgeeks.org/react-js-useref-hook/
+- Context - state manager
 
 Node.js - backend
 MongoDB - database
 
-TinyMCE - WYSIWYG editor
-Context - state manager
+
 
 TailWind - CSS: https://tailwindcss.com/docs/guides/create-react-app, 
 - kom igång m TailWind: https://www.linkedin.com/learning/search?keywords=react%20tailwind&u=57075785,

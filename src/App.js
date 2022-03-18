@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+import { Editor } from '@tinymce/tinymce-react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,6 +19,13 @@ import StepSummary from './components/StepSummary';
 
 export default function App() {
   const [showBackground, setShowBackground] = useState(true); //test context
+
+  const editorRef = useRef(null);
+   const log = () => {
+     if (editorRef.current) {
+       console.log(editorRef.current.getContent());
+     }
+   }; //useRef Hook directly create a reference to the DOM element in the functional component. Returns a mutable ref obj. 
 
   // add tailwind style to root, need reg css?
   // const rootStyle = 'outline font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-10 mt-10 mb-24';
@@ -41,6 +49,28 @@ export default function App() {
               </Routes>
             </div>
           </main>
+
+          <Editor
+            apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
+            onInit={(evt, editor) => editorRef.current = editor}
+            initialValue="<p>This is the initial content of the editor.</p>"
+            init={{
+              height: 500,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar: 'undo redo | formatselect | ' +
+              'bold italic backcolor | alignleft aligncenter ' +
+              'alignright alignjustify | bullist numlist outdent indent | ' +
+              'removeformat | help',
+              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+            }}
+          />
+          <button onClick={log}>Log editor content</button>
+
 
         <Footer /> 
 
