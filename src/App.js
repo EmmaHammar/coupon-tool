@@ -54,6 +54,7 @@ export default function App() {
 
 // TODO:
 // Change root style with js and CSS (not tailwind?)? 
+//regroup header -> nav is in this doc? or move menuitems to context
 
 //REMEMBER:
 //mobile: pink
