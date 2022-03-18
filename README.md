@@ -52,6 +52,9 @@ Only keep: npm install --save @tinymce/tinymce-react https://www.tiny.cloud/docs
 
 Node.js - backend
 MongoDB - database
+user:
+username: mongodbUser
+pass: mongodb
 
 
 
@@ -194,3 +197,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
         mb-4;
     }
 }
+
+
+
+=============
+Context: https://www.youtube.com/watch?v=AoS-lMO4Ad0 
+providers = skicka neråt
+consumers = ta emot
+Men använd ej för mkt för skapar onödigt många omrenderingar
+
+//OBS nedan blir ERROR: can only have 1 child(...) -> 
+    <UserContext.Consumer>
+      <div id='userPageWrapper' className='outline'>
+        <h2>HEJ {user.userName}!</h2>
+        <button className='btn' onClick={handleClick}>Skapa ny kampanj</button>
+      </div>
+    </UserContext.Consumer>
+LÖSNING: wrappa upp med ditt värde du skickade i <UserContext.Provider value={ user }>
+Då blir det såhär:
+
+    <UserContext.Consumer>
+      { user => 
+      <div id='userPageWrapper' className='outline'>
+        <h2>HEJ {user.userName}!</h2>
+        <button className='btn' onClick={handleClick}>Skapa ny kampanj</button>
+      </div>
+      }
+    </UserContext.Consumer>

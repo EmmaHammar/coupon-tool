@@ -2,21 +2,28 @@ import React, { useState, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
 export default function TinyEditor(props) {
+
 const editorRef = useRef(null);
-
-//send from components
-// let toolBarOptions;
-// toolBarOptions = 'undo redo | formatselect | ' +
-// 'bold italic backcolor | alignleft aligncenter ' +
-// 'alignright alignjustify | image | ' + 'help';
-// toolBarOptions = `undo redo | image | alignleft aligncenter alignright`;
-// console.log("toolBarOptions", toolBarOptions);
-
 const log = () => {
-    if (editorRef.current) {
-    console.log(editorRef.current.getContent());
-    }
+  if (editorRef.current) {
+  console.log(editorRef.current.getContent());
+  }
 }; //useRef Hook directly create a reference to the DOM element in the functional component. Returns a mutable ref obj. 
+
+let toolBarOptions;
+switch (props.stepType) {
+  case 'logo':
+    toolBarOptions = `undo redo | image | alignleft aligncenter alignright | help`;
+    break;
+  case 'background':
+    toolBarOptions = `undo redo | image | help`;
+    break;
+  case 'text':
+    toolBarOptions = `undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`;
+    break;
+  default:
+    break;
+}
 
   return (
     <div>
@@ -28,12 +35,12 @@ const log = () => {
               height: 500,
               menubar: false,
               plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
+                'advlist lists charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
                 'insertdatetime media table paste code help wordcount'
               ],
-              toolbar: `${ props.toolBarOptions }`,
-              content_style: 'body { font-family:Inter,Arial,sans-serif; font-size:14px; background:red}'
+              toolbar: `${ toolBarOptions }`,
+              content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; background:red}'
             }}
           />
           <button onClick={log}>Log editor content</button>
