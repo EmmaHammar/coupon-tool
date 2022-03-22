@@ -9,28 +9,19 @@ export default function StepLogo() {
   //get couponId from Context
   const pickedCouponId = useContext(AccountContext).pickedCouponId;
 
-  useEffect( () => {
-    fetch('http://localHost:3001/coupons')
-    .then(response => response.json())
-    .then(data => {
-      console.log("updateCoupon response:", data);
-    })
-
-        
-  
-  });
-
   const updateCoupon = (msg) => {
     //get what to update from TinyEditor
     console.log("i StepLogo:", msg);
 
     console.log("pickedCouponId from context:", pickedCouponId);
 
-    
+    //send to db, fetch + get response
+    fetch('http://localHost:3001/coupons')
+    .then(response => response.json())
+    .then(data => {
+      console.log("updateCoupon be-response:", data);
+    })
 
-    //send to db, fetch
-
-    //get response
     //save to state
 
 
