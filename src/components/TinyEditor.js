@@ -6,7 +6,8 @@ export default function TinyEditor(props) {
 const editorRef = useRef(null);
 const log = () => {
   if (editorRef.current) {
-  console.log(editorRef.current.getContent());
+    console.log("what changed:", editorRef.current.getContent());
+    //save to state?
   }
 }; //useRef Hook directly create a reference to the DOM element in the functional component. Returns a mutable ref obj. 
 

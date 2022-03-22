@@ -12,8 +12,8 @@ Frontend repo:
 - npm start
 
 Backend repo: 
-- XX
-- XX
+- https://github.com/EmmaHammar/coupon-tool-backend
+- npm start (dev mode: nodemon start)
 
 # Task
 Du ska skapa en webbsida/tjänst/applikation till ett företag eller kommande företag. Projektet ska vara avgränsat så du börjar och slutar projektet under tiden för examensarbete. Kursen är 6 veckor lång på heltid dvs 240 timmars jobb inklusive projektbeskrivning, projektplan, själva "produkten" samt redovisning.
