@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -14,14 +14,16 @@ import StepBackground from './components/StepBackground';
 import StepText from './components/StepText';
 import StepProduct from './components/StepProduct';
 import StepSummary from './components/StepSummary';
+import UpdateCoupon from './services/UpdateCoupon';
 
 //global state TODO: move to separate file if have time
 export const AccountContext = React.createContext();
 export const SaveContext = React.createContext();
 
 export default function App() {
-  const [couponLogo, setCouponLogo] = useState('');
+  // const [couponLogo, setCouponLogo] = useState('');
   const [currentStep, setCurrentStep] = useState('');
+  const [logo, setLogo] = useState(false);
 
   const account = {
     accountId: 'accountId1',
@@ -30,24 +32,26 @@ export default function App() {
     pickedCouponId: '1',
   };
 
-  //catch saveclick
+   //get couponId from Context
+  // console.log("account pickedId", account.pickedCouponId);
+
+  //TODO MOVE THIS FUNCTION TO APP.JS
+  const updateCouponDB = (newContent) => {
+    
+    //TODO remove p wrapper in tinyMCE
+
+    let newCoupon = {
+      'couponId': account.pickedCouponId,
+      'couponLogo': newContent //from TinyEditor
+    }; 
+
+    UpdateCoupon(newCoupon); //update coupon in db
+  };
+
+  //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = () => {
-    console.log("click save from Footer.js-> context");
-
-    // if (editorRef.current) {
-    //   let logoString = editorRef.current.getContent();
-    //   props.updateCoupon(logoString); //cb in StepLogo.js
-    // }
+    updateCouponDB(logo); //save updated coupon to db
   }; 
-
-  useEffect( () => {
-    setCouponLogo('default');
-
-  }, []);
-  
-
-
-  //set state
 
   return (
     <BrowserRouter>
@@ -64,10 +68,10 @@ export default function App() {
                     exact path='/steg1' 
                     element= { 
                       <StepLogo 
-                        couponLogo={couponLogo} 
-                        setCouponLogo={setCouponLogo} 
                         currentStep={currentStep} 
                         setCurrentStep={setCurrentStep}
+                        logo={logo}
+                        setLogo={setLogo}
                       />
                     }>
                   </Route>
@@ -131,7 +135,14 @@ export default function App() {
 
 //regroup header -> nav is in this doc? or move menuitems to context
 
+//REMEMBER DON'T CHANGE STATE DIRECTLY, MAKE COPY
+    //save new logo to state 
+    // let couponLogoCopy = {...couponLogo}; //copy state
+    // couponLogoCopy = {'couponLogo': newCoupon.couponLogo}; //add new logo 
+    // console.log("couponLogoCopy:", couponLogoCopy);
 
+    // setCouponLogo(couponLogoCopy); //update state with new logo
+    
 
 //REMEMBER:
 //mobile: pink

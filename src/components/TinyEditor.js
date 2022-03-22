@@ -5,14 +5,14 @@ export default function TinyEditor(props) {
 
 const editorRef = useRef(null);
 const [isPickedLogo, setIsPickedLogo] = useState(false);
-const [logo, setLogo] = useState(false);
 
 const handleClick = () => {
   if (editorRef.current) {
-    let logoString = editorRef.current.getContent();
-    props.updateCoupon(logoString); //cb in StepLogo.js
+    let logoString = editorRef.current.getContent(); //save textAreaContent
     setIsPickedLogo(true);
-    setLogo(logoString);
+    props.setLogo(logoString); //update state owned by App.js
+
+    //TODO toogle saveBtn to Active
   }
 }; 
 
