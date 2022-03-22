@@ -10,7 +10,10 @@ export default function StepProduct(props) {
 
 
   return (
-    <div id='stepProductWrapper' className='outline'>StepProduct</div>
+    <div id='stepProductWrapper' className='outline'>
+      <h4>4. Välj vilka produkter du vill skicka.</h4>
+      <p>Via en QR-kod kan mottagaren hämta produkten på Pressbyrån eller 7Eleven.</p>
+    </div>
   )
 };
 
