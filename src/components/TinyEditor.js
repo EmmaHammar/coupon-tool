@@ -4,18 +4,17 @@ import { Editor } from '@tinymce/tinymce-react';
 export default function TinyEditor(props) {
 
 const editorRef = useRef(null);
-const log = () => {
+const [isPickedLogo, setIsPickedLogo] = useState(false);
+const [logo, setLogo] = useState(false);
+
+const handleClick = () => {
   if (editorRef.current) {
-
     let logoString = editorRef.current.getContent();
-    // console.log("logoString", logoString);
-
-    //cb in StepLogo.js
-    props.updateCoupon(logoString);
-
-    //save to state?
+    props.updateCoupon(logoString); //cb in StepLogo.js
+    setIsPickedLogo(true);
+    setLogo(logoString);
   }
-}; //useRef Hook directly create a reference to the DOM element in the functional component. Returns a mutable ref obj. 
+}; 
 
 let toolBarOptions;
 switch (props.stepType) {
@@ -30,22 +29,7 @@ switch (props.stepType) {
     break;
   default:
     break;
-
-}
-
-
-// if (props.stepType === 'logo') {
-//   console.log("fr logo");
-//   toolBarOptions = `undo redo | image | alignleft aligncenter alignright | help`;
-// }
-// if (props.stepType === 'background') {
-//   console.log("fr background");
-//   toolBarOptions = `undo redo | image | help`;
-// }
-// if (props.stepType === 'text') {
-//   console.log("fr text");
-//   toolBarOptions = `undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright | help`;
-// }
+};
 
   return (
     <div>
@@ -54,21 +38,29 @@ switch (props.stepType) {
             onInit={(evt, editor) => editorRef.current = editor}
             initialValue="<p></p>"
             init={{
-              height: 500,
+              height: 300,
               menubar: false,
               plugins: [
-                'advlist autolink lists image charmap print preview anchor',
+                'advlist autolink lists image charmap print preview',
                 'searchreplace visualblocks code fullscreen',
                 'insertdatetime media table paste code help wordcount'
               ],
               toolbar: `${ toolBarOptions }`,
-              content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; background:red}'
+              content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; background:red}',
             }}
           />
-          <button onClick={log}>Log editor content</button>
+          <button className='btn btn-secondary-reverse' onClick={handleClick}>LADDA UPP LOGGA</button>
+          {isPickedLogo ? 
+          <div>
+            <h4>Din fil är uppladdad.</h4>
+          </div>
+          : ''}
+          
     </div>
   )
 };
+
+//TODO remove p tag wrapper
 
 //https://www.tiny.cloud/blog/tinymce-add-menu-item-dynamically/
 

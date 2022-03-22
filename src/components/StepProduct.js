@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
-export default function StepProduct() {
-
+export default function StepProduct(props) {
+  const [stepType, setStepType] = useState('product');
   
-  
+  useEffect( () => {
+    props.setCurrentStep(stepType);
+  })
 
 
   return (

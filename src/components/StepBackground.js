@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TinyEditor from './TinyEditor';
 
-export default function StepBackground() {
+export default function StepBackground(props) {
   const [stepType, setStepType] = useState('background');
+
+  useEffect( () => {
+    props.setCurrentStep(stepType);
+  });
 
   return (
     <div id='stepBackgroundWrapper' className='outline'>

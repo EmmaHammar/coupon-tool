@@ -19,8 +19,8 @@ import StepSummary from './components/StepSummary';
 export const AccountContext = React.createContext();
 
 export default function App() {
-
-  const [coupon, setCoupon] = useState({});
+  const [couponLogo, setCouponLogo] = useState('');
+  const [currentStep, setCurrentStep] = useState('');
 
   const account = {
     accountId: 'accountId1',
@@ -30,36 +30,75 @@ export default function App() {
   };
 
   useEffect( () => {
-    setCoupon({
-      'couponLogo': '',
-      'couponLogoPosition': 'topLeft',
-      'couponBackground': '',
-      'couponHeading': 'Det våras!',
-      'couponText': '',
-      'prodId': 'pickedProdId'
-    })
-
-    //mock DB data TODO: move to separate file if have time
+    setCouponLogo('default');
 
   }, []);
   
+  //catch saveclick
+  const handleClick = (evt) => {
+    console.log("click save from Footer.js:", evt);
+
+    // if (editorRef.current) {
+    //   let logoString = editorRef.current.getContent();
+    //   props.updateCoupon(logoString); //cb in StepLogo.js
+    // }
+  }; 
 
   //set state
 
   return (
     <BrowserRouter>
     <AccountContext.Provider value={ account }>
-      <div id='styleRoot' className='outline font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>
+      <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>
 
         <Header /> 
           <main>
             <div id='userPageWrapper' className='outline mt-6 mb-20 md:mt-10 md:mb-24'>
               <Routes>
                 <Route exact path='/' element={<UserPage />}></Route>
-                <Route exact path='/steg1' element={<StepLogo coupon={coupon} />}></Route>
-                <Route exact path='/steg2' element={<StepBackground />}></Route>
-                <Route exact path='/steg3' element={<StepText />}></Route>
-                <Route exact path='/steg4' element={<StepProduct />}></Route>
+                <Route 
+                  exact path='/steg1' 
+                  element= { 
+                    <StepLogo 
+                      couponLogo={couponLogo} 
+                      setCouponLogo={setCouponLogo} 
+                      currentStep={currentStep} 
+                      setCurrentStep={setCurrentStep}
+                    />
+                  }>
+                </Route>
+
+                <Route 
+                  exact path='/steg2' 
+                  element= {
+                    <StepBackground 
+                      currentStep={currentStep} 
+                      setCurrentStep={setCurrentStep}
+                    />
+                  }>
+                </Route>
+
+                <Route 
+                  exact path='/steg3' 
+                  element= {
+                    <StepText 
+                      currentStep={currentStep} 
+                      setCurrentStep={setCurrentStep}  
+                    />
+                  }>
+                </Route>
+
+                <Route 
+                  exact path='/steg4' 
+                  element= {
+                    <StepProduct 
+                      currentStep={currentStep} 
+                      setCurrentStep={setCurrentStep}   
+                    />
+                  }>
+
+                </Route>
+
                 <Route exact path='/steg5' element={<StepSummary />}></Route>
                 <Route exact path='*' element={<NotFound />}></Route>
               </Routes>
@@ -67,7 +106,7 @@ export default function App() {
           </main>
 
 
-        <Footer /> 
+        <Footer onClick={handleClick}/> 
 
       </div>
       </AccountContext.Provider>

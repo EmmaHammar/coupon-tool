@@ -40,28 +40,60 @@
         @apply text-xs
         md:text-base;
     }
+
     .btn {
         @apply text-sm
         md:text-base
         lg:text-2xl
-        active:bg-gray-500
-        hover:bg-red-500
-        hover:text-white
-        cursor-pointer
-        border-gray-500
-        border-4
-        rounded-md
-        inline-block
-        p-2
+        font-bold
+        border-2
+        p-1
+        px-4
         mt-2
-        mb-4;
+        mb-4
+        cursor-pointer
+        inline-block
     }
-  
+    
+    .btn-primary {
+        @apply
+        text-blue
+        bg-mint
+        border-mint
 
-    .btn-royal {
-        @apply hover:bg-purple-500
-        border-purple-50;
+        hover:text-mint
+        hover:bg-blue
+        hover:border-mint
+
+
     }
+    .btn-primary-reverse {
+        @apply text-mint
+        bg-blue
+        border-mint
+
+        hover:text-blue
+        hover:bg-mint
+        hover:border-mint
+    }
+    .btn-secondary {
+        @apply text-blue
+        bg-creme
+        border-blue
+
+        hover:text-creme
+        hover:bg-blue
+        hover:border-blue
+    }  
+    .btn-secondary-reverse{
+        @apply text-creme
+        bg-blue
+        border-blue
+
+        hover:text-blue
+        hover:bg-creme
+        hover:border-blue
+    }  
 
 
 }

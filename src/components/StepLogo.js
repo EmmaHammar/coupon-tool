@@ -5,16 +5,18 @@ import UpdateCoupon from '../services/UpdateCoupon';
 
 export default function StepLogo(props) {
   const [stepType, setStepType] = useState('logo');
-  const [coupon, setCoupon] = useState({});
-
-  useEffect( () => {
-    setCoupon(props.coupon);
-  }, [props.coupon]);
 
   //get couponId from Context
   const pickedCouponId = useContext(AccountContext).pickedCouponId;
 
+  useEffect( () => {
+    props.setCurrentStep(stepType);
+  })
+
   const updateCoupon = (newContent) => {
+    
+    //remove p wrapper
+
 
     let newCoupon = {
       'couponId': pickedCouponId,
@@ -24,12 +26,13 @@ export default function StepLogo(props) {
     UpdateCoupon(newCoupon); //update coupon in db
 
     //save new logo to state
-    const couponCopy = {...coupon}; //copy state
-    couponCopy.couponLogo = newCoupon.couponLogo; //add new logo 
-    console.log("couponCopy uppdateras:", couponCopy);
+    let couponLogoCopy = {...props.couponLogo}; //copy state
+    couponLogoCopy = {'couponLogo': newCoupon.couponLogo}; //add new logo 
+    console.log("couponLogoCopy:", couponLogoCopy);
 
-    //TODO not working
-    setCoupon(couponCopy); //update state with new logo
+
+
+    props.setCouponLogo(couponLogoCopy); //update state with new logo
     
   };
   
