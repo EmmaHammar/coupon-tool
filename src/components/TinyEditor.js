@@ -6,7 +6,13 @@ export default function TinyEditor(props) {
 const editorRef = useRef(null);
 const log = () => {
   if (editorRef.current) {
-    console.log("what changed:", editorRef.current.getContent());
+
+    let logoString = editorRef.current.getContent();
+    // console.log("logoString", logoString);
+
+    //cb in StepLogo.js
+    props.updateCoupon(logoString);
+
     //save to state?
   }
 }; //useRef Hook directly create a reference to the DOM element in the functional component. Returns a mutable ref obj. 

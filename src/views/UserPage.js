@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../App';
+import { AccountContext } from '../App';
 
 export default function UserPage() {
   const navigate = useNavigate(); 
@@ -10,14 +10,14 @@ export default function UserPage() {
     navigate('/steg1');
   }
   return (
-    <UserContext.Consumer>
-      { user => 
+    <AccountContext.Consumer>
+      { account => 
       <div id='userPageWrapper' className='outline'>
-        <h2>HEJ {user.userName}!</h2>
+        <h2>HEJ {account.userId}!</h2>
         <button className='btn' onClick={handleClick}>Skapa ny kampanj</button>
       </div>
       }
-    </UserContext.Consumer>
+    </AccountContext.Consumer>
   )
 };
 
