@@ -6,7 +6,7 @@
 
 @layer base {
     h1 {
-        @apply text-mint 
+        @apply text-blue 
         cursor-pointer 
         hover:bg-green-300
         text-3xl
@@ -21,10 +21,12 @@
     h3 {
         @apply text-sm
         lg:text-lg;
+
     }
     h4 {
         @apply text-lg
-        lg:text-3xl;
+        font-bold
+        lg:text-xl;
     }
     h5 {
         @apply text-base
@@ -44,13 +46,10 @@
     .btn {
         @apply text-sm
         md:text-base
-        lg:text-2xl
         font-bold
         border-2
-        p-1
-        px-4
-        mt-2
-        mb-4
+        p-2
+        px-6
         cursor-pointer
         inline-block
     }
@@ -85,7 +84,7 @@
         hover:bg-blue
         hover:border-blue
     }  
-    .btn-secondary-reverse{
+    .btn-secondary-reverse {
         @apply text-creme
         bg-blue
         border-blue
@@ -95,5 +94,9 @@
         hover:border-blue
     }  
 
-
+    .nav-menu-item {
+        @apply
+        hover:underline 
+        decoration-4
+    }
 }

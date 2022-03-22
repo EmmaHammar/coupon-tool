@@ -46,10 +46,10 @@ switch (props.stepType) {
                 'insertdatetime media table paste code help wordcount'
               ],
               toolbar: `${ toolBarOptions }`,
-              content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; background:red}',
+              content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer;}',
             }}
           />
-          <button className='btn btn-secondary-reverse' onClick={handleClick}>LADDA UPP LOGGA</button>
+          <button className='btn btn-secondary-reverse mt-4' onClick={handleClick}>LADDA UPP LOGGA</button>
           {isPickedLogo ? 
           <div>
             <h4>Din fil är uppladdad.</h4>
