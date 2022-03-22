@@ -17,6 +17,7 @@ import StepSummary from './components/StepSummary';
 
 //global state TODO: move to separate file if have time
 export const AccountContext = React.createContext();
+export const SaveContext = React.createContext();
 
 export default function App() {
   const [couponLogo, setCouponLogo] = useState('');
@@ -29,20 +30,22 @@ export default function App() {
     pickedCouponId: '1',
   };
 
-  useEffect( () => {
-    setCouponLogo('default');
-
-  }, []);
-  
   //catch saveclick
-  const handleClick = (evt) => {
-    console.log("click save from Footer.js:", evt);
+  const saveClick = () => {
+    console.log("click save from Footer.js-> context");
 
     // if (editorRef.current) {
     //   let logoString = editorRef.current.getContent();
     //   props.updateCoupon(logoString); //cb in StepLogo.js
     // }
   }; 
+
+  useEffect( () => {
+    setCouponLogo('default');
+
+  }, []);
+  
+
 
   //set state
 
@@ -54,59 +57,63 @@ export default function App() {
         <Header /> 
           <main>
             <div id='userPageWrapper' className='mt-6 mb-20 md:mt-10 md:mb-24'>
-              <Routes>
-                <Route exact path='/' element={<UserPage />}></Route>
-                <Route 
-                  exact path='/steg1' 
-                  element= { 
-                    <StepLogo 
-                      couponLogo={couponLogo} 
-                      setCouponLogo={setCouponLogo} 
-                      currentStep={currentStep} 
-                      setCurrentStep={setCurrentStep}
-                    />
-                  }>
-                </Route>
+              <SaveContext.Provider value={ saveClick }>
+                <Routes>
+                  <Route exact path='/' element={<UserPage />}></Route>
+                  <Route 
+                    exact path='/steg1' 
+                    element= { 
+                      <StepLogo 
+                        couponLogo={couponLogo} 
+                        setCouponLogo={setCouponLogo} 
+                        currentStep={currentStep} 
+                        setCurrentStep={setCurrentStep}
+                      />
+                    }>
+                  </Route>
 
-                <Route 
-                  exact path='/steg2' 
-                  element= {
-                    <StepBackground 
-                      currentStep={currentStep} 
-                      setCurrentStep={setCurrentStep}
-                    />
-                  }>
-                </Route>
+                  <Route 
+                    exact path='/steg2' 
+                    element= {
+                      <StepBackground 
+                        currentStep={currentStep} 
+                        setCurrentStep={setCurrentStep}
+                      />
+                    }>
+                  </Route>
 
-                <Route 
-                  exact path='/steg3' 
-                  element= {
-                    <StepText 
-                      currentStep={currentStep} 
-                      setCurrentStep={setCurrentStep}  
-                    />
-                  }>
-                </Route>
+                  <Route 
+                    exact path='/steg3' 
+                    element= {
+                      <StepText 
+                        currentStep={currentStep} 
+                        setCurrentStep={setCurrentStep}  
+                      />
+                    }>
+                  </Route>
 
-                <Route 
-                  exact path='/steg4' 
-                  element= {
-                    <StepProduct 
-                      currentStep={currentStep} 
-                      setCurrentStep={setCurrentStep}   
-                    />
-                  }>
+                  <Route 
+                    exact path='/steg4' 
+                    element= {
+                      <StepProduct 
+                        currentStep={currentStep} 
+                        setCurrentStep={setCurrentStep}   
+                      />
+                    }>
 
-                </Route>
+                  </Route>
 
-                <Route exact path='/steg5' element={<StepSummary />}></Route>
-                <Route exact path='*' element={<NotFound />}></Route>
-              </Routes>
+                  <Route exact path='/steg5' element={<StepSummary />}></Route>
+                  <Route exact path='*' element={<NotFound />}></Route>
+                </Routes>
+              </SaveContext.Provider>
+
+
             </div>
           </main>
 
 
-        <Footer onClick={handleClick}/> 
+        {/* <Footer onClick={handleClick}/>  */}
 
       </div>
       </AccountContext.Provider>
