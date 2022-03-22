@@ -1,31 +1,36 @@
 import React, { useState, useEffect, useContext } from 'react';
 import TinyEditor from './TinyEditor';
 import { AccountContext } from '../App';
+import UpdateCoupon from '../services/UpdateCoupon';
 
-
-export default function StepLogo() {
+export default function StepLogo(props) {
   const [stepType, setStepType] = useState('logo');
+  const [coupon, setCoupon] = useState({});
+
+  useEffect( () => {
+    setCoupon(props.coupon);
+  }, [props.coupon]);
 
   //get couponId from Context
   const pickedCouponId = useContext(AccountContext).pickedCouponId;
 
-  const updateCoupon = (msg) => {
-    //get what to update from TinyEditor
-    console.log("i StepLogo:", msg);
+  const updateCoupon = (newContent) => {
 
-    console.log("pickedCouponId from context:", pickedCouponId);
+    let newCoupon = {
+      'couponId': pickedCouponId,
+      'couponLogo': newContent //from TinyEditor
+    }; 
 
-    //send to db, fetch + get response
-    fetch('http://localHost:3001/coupons')
-    .then(response => response.json())
-    .then(data => {
-      console.log("updateCoupon be-response:", data);
-    })
+    UpdateCoupon(newCoupon); //update coupon in db
 
-    //save to state
+    //save new logo to state
+    const couponCopy = {...coupon}; //copy state
+    couponCopy.couponLogo = newCoupon.couponLogo; //add new logo 
+    console.log("couponCopy uppdateras:", couponCopy);
 
-
-
+    //TODO not working
+    setCoupon(couponCopy); //update state with new logo
+    
   };
   
   return (

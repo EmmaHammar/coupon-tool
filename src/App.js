@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -19,17 +19,30 @@ import StepSummary from './components/StepSummary';
 export const AccountContext = React.createContext();
 
 export default function App() {
-  const [showBackground, setShowBackground] = useState(true); //test context
 
-  //mock DB data TODO: move to separate file if have time
+  const [coupon, setCoupon] = useState({});
+
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
     couponIds: ['1', '2', '3'],
-    pickedCouponId: '3',
+    pickedCouponId: '1',
   };
-  console.log("account:", account);
 
+  useEffect( () => {
+    setCoupon({
+      'couponLogo': '',
+      'couponLogoPosition': 'topLeft',
+      'couponBackground': '',
+      'couponHeading': 'Det våras!',
+      'couponText': '',
+      'prodId': 'pickedProdId'
+    })
+
+    //mock DB data TODO: move to separate file if have time
+
+  }, []);
+  
 
   //set state
 
@@ -43,7 +56,7 @@ export default function App() {
             <div id='userPageWrapper' className='outline mt-6 mb-20 md:mt-10 md:mb-24'>
               <Routes>
                 <Route exact path='/' element={<UserPage />}></Route>
-                <Route exact path='/steg1' element={<StepLogo />}></Route>
+                <Route exact path='/steg1' element={<StepLogo coupon={coupon} />}></Route>
                 <Route exact path='/steg2' element={<StepBackground />}></Route>
                 <Route exact path='/steg3' element={<StepText />}></Route>
                 <Route exact path='/steg4' element={<StepProduct />}></Route>
