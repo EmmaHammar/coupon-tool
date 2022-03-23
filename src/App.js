@@ -3,7 +3,9 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  // useNavigate,
 } from "react-router-dom";
+import { Redirect } from 'react-router';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -21,11 +23,12 @@ export const AccountContext = React.createContext();
 export const SaveContext = React.createContext();
 
 export default function App() {
-  // const [couponLogo, setCouponLogo] = useState('');
   const [currentStep, setCurrentStep] = useState('');
-  const [couponLogo, setCouponLogo] = useState({}); //change to newContent, setNewContent
+  // const [couponLogo, setCouponLogo] = useState({}); //change to newContent, setNewContent
+  const [content, setContent] = useState({}); 
   const [linkPath, setLinkPath] = useState('');
 
+  // const navigate = useNavigate();
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
@@ -33,47 +36,23 @@ export default function App() {
     pickedCouponId: '1',
   };
 
-   //get couponId from Context
-  // console.log("account pickedId", account.pickedCouponId);
-
-  //TODO: change newContent to {'key': value}, ex 'couponLogo':logoString
-  // const updateCouponDB = (newContent) => {
-    
-  //   //TODO remove p wrapper in tinyMCE
-
-  //   let newCoupon = {
-  //     'couponId': account.pickedCouponId,
-  //     'couponLogo': newContent //from TinyEditor
-  //   }; 
-
-  //   UpdateCoupon(newCoupon); //update coupon in db
-  // };
-
   //click Save/NextBtn in Footer.js, this function is in Context:
+  //TODO fix so no fetch to db if style disabled btn
   const saveClick = () => {
-    // updateCouponDB(logo); //save updated coupon to db
 
-    // Test Object.assign instead? https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign 
     let newCouponObj = {
       'couponId': account.pickedCouponId
-    }; //target
-    //source: couponLogo
-    Object.assign(newCouponObj, couponLogo);
-    console.log("newCouponObj after assign:", newCouponObj);
-
-    //get couponLogo:null;
-
-
-    // let newCouponObj = {
-    //   'couponId': account.pickedCouponId,
-    //   couponLogo
-    // };
-    console.log("couponLogo", couponLogo.logo);
-    console.log("newCouponObj", newCouponObj); //TODO couponLogo: couponLogo: {logo: '<p><img src="hej.se" alt="" /></p>'}, change to: logo: '<p><img src="hej.se" alt="" /></p>'}
-
-    UpdateCoupon(newCouponObj);
-    //go to next step
+    }; 
+    Object.assign(newCouponObj, content); //add content state to newCouponObj
     
+    console.log("newCouponObj after assign:", newCouponObj);
+    console.log("content.logo:", content.logo);
+    console.log("newCouponObj", newCouponObj); 
+
+    UpdateCoupon(newCouponObj); //update db
+
+    //navigate
+    // navigate(`${linkPath}`);
   }; 
 
   return (
@@ -93,8 +72,8 @@ export default function App() {
                       <StepLogo 
                         currentStep={currentStep} 
                         setCurrentStep={setCurrentStep}
-                        couponLogo={couponLogo}
-                        setCouponLogo={setCouponLogo}
+                        content={content}
+                        setContent={setContent}
                         linkPath={linkPath}
                         setLinkPath={setLinkPath}
                       />
@@ -107,6 +86,8 @@ export default function App() {
                       <StepBackground 
                         currentStep={currentStep} 
                         setCurrentStep={setCurrentStep}
+                        content={content}
+                        setContent={setContent}
                         linkPath={linkPath}
                         setLinkPath={setLinkPath}
                       />
@@ -138,14 +119,8 @@ export default function App() {
                   <Route exact path='*' element={<NotFound />}></Route>
                 </Routes>
               </SaveContext.Provider>
-
-
             </div>
           </main>
-
-
-        {/* <Footer onClick={handleClick}/>  */}
-
       </div>
       </AccountContext.Provider>
     </BrowserRouter>

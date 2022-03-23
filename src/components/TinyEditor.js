@@ -22,13 +22,14 @@ const changeEditor = () => {
 };
 
 const handleClick = () => {
+  
   if (editorRef.current) {
-    let logoString = editorRef.current.getContent(); //save textAreaContent
+    let contentString = editorRef.current.getContent(); //save textAreaContent
     setIsPicked(true);
 
-    if (logoString !== '') {
+    if (contentString !== '') {
       setFileUploadMsg('Din fil är uppladdad.');
-      // console.log("Din fil är uppladdad.", logoString);
+      // console.log("Din fil är uppladdad.", contentString);
     
       //uploadBtn inactive if file is already uploaded
       document.getElementById('uploadBtn').classList.remove('btn-secondary-reverse');
@@ -40,18 +41,16 @@ const handleClick = () => {
         
     } else {
       setFileUploadMsg('Du behöver välja en logga först.');
-      // console.log('Du behöver välja en logga först.', logoString);
+      // console.log('Du behöver välja en logga först.', contentString);
     };
 
     let contentObj = {
-      [props.stepType]:logoString
-    }
+      [props.stepType]:contentString
+    };
     console.log("contentObj", contentObj);
 
-    props.setCouponLogo(contentObj); //update state owned by App.js
-
-    // props.setCouponLogo(logoString); //update state owned by App.js
-  }
+    props.setContent(contentObj); //update state owned by App.js
+  };
 }; 
 
 let toolBarOptions;
@@ -89,7 +88,7 @@ switch (props.stepType) {
             onChange={changeEditor}
           />
           {showUploadBtn ? 
-            <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClick}>LADDA UPP LOGGA</button>
+            <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClick}>LADDA UPP</button>
           : ''}
          
           {isPicked ? 
