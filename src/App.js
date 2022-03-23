@@ -100,6 +100,10 @@ export default function App() {
                       <StepText 
                         currentStep={currentStep} 
                         setCurrentStep={setCurrentStep}  
+                        content={content}
+                        setContent={setContent}
+                        linkPath={linkPath}
+                        setLinkPath={setLinkPath}
                       />
                     }>
                   </Route>

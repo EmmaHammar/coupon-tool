@@ -8,11 +8,13 @@ Heroku:
 
 Start locally:
 Frontend repo:
-- git clone: https://github.com/EmmaHammar/coupon-tool
+- git clone https://github.com/EmmaHammar/coupon-tool
+- npm install
 - npm start
 
 Backend repo: 
-- https://github.com/EmmaHammar/coupon-tool-backend
+- git clone https://github.com/EmmaHammar/coupon-tool-backend
+- npm instsall
 - npm start (dev mode: nodemon start)
 
 # Task
