@@ -63,8 +63,13 @@
         hover:text-mint
         hover:bg-blue
         hover:border-mint
-
-
+    }
+    .btn-primary-inactive {
+        @apply
+        text-disableText
+        bg-disableBg
+        border-disableBg
+        cursor-not-allowed
     }
     .btn-primary-reverse {
         @apply text-mint

@@ -12,7 +12,8 @@ module.exports = {
         creme: '#ffffff',
         white: '#ffffff',
         black: '#0b0b09',
-        disable: '#c6c7cd',
+        disableBg: '#c6c7cd',
+        disableText: '#4c5272',
         error: '#9f1d27',
       },
       fontFamily: {

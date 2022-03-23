@@ -11,7 +11,7 @@ export default function Footer(props) {
         <footer className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10'>
           <div className='flex justify-between items-baseline'>
             <button id='backBtn' className='btn btn-primary-reverse mt-4'>TILLBAKA</button>
-            <button id='nextBtn' className='btn btn-primary' onClick={saveClick}>{nextBtnText}</button>
+            <button id='nextBtn' className='btn btn-primary-inactive' onClick={saveClick}>{nextBtnText}</button>
           </div>
             
         </footer>

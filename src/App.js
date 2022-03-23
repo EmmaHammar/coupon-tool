@@ -35,7 +35,6 @@ export default function App() {
    //get couponId from Context
   // console.log("account pickedId", account.pickedCouponId);
 
-  //TODO MOVE THIS FUNCTION TO APP.JS
   const updateCouponDB = (newContent) => {
     
     //TODO remove p wrapper in tinyMCE
