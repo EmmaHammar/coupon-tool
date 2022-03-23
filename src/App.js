@@ -23,7 +23,8 @@ export const SaveContext = React.createContext();
 export default function App() {
   // const [couponLogo, setCouponLogo] = useState('');
   const [currentStep, setCurrentStep] = useState('');
-  const [logo, setLogo] = useState(false);
+  const [couponLogo, setCouponLogo] = useState({}); //change to newContent, setNewContent
+  const [linkPath, setLinkPath] = useState('');
 
   const account = {
     accountId: 'accountId1',
@@ -35,21 +36,44 @@ export default function App() {
    //get couponId from Context
   // console.log("account pickedId", account.pickedCouponId);
 
-  const updateCouponDB = (newContent) => {
+  //TODO: change newContent to {'key': value}, ex 'couponLogo':logoString
+  // const updateCouponDB = (newContent) => {
     
-    //TODO remove p wrapper in tinyMCE
+  //   //TODO remove p wrapper in tinyMCE
 
-    let newCoupon = {
-      'couponId': account.pickedCouponId,
-      'couponLogo': newContent //from TinyEditor
-    }; 
+  //   let newCoupon = {
+  //     'couponId': account.pickedCouponId,
+  //     'couponLogo': newContent //from TinyEditor
+  //   }; 
 
-    UpdateCoupon(newCoupon); //update coupon in db
-  };
+  //   UpdateCoupon(newCoupon); //update coupon in db
+  // };
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = () => {
-    updateCouponDB(logo); //save updated coupon to db
+    // updateCouponDB(logo); //save updated coupon to db
+
+    // Test Object.assign instead? https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign 
+    let newCouponObj = {
+      'couponId': account.pickedCouponId
+    }; //target
+    //source: couponLogo
+    Object.assign(newCouponObj, couponLogo);
+    console.log("newCouponObj after assign:", newCouponObj);
+
+    //get couponLogo:null;
+
+
+    // let newCouponObj = {
+    //   'couponId': account.pickedCouponId,
+    //   couponLogo
+    // };
+    console.log("couponLogo", couponLogo.logo);
+    console.log("newCouponObj", newCouponObj); //TODO couponLogo: couponLogo: {logo: '<p><img src="hej.se" alt="" /></p>'}, change to: logo: '<p><img src="hej.se" alt="" /></p>'}
+
+    UpdateCoupon(newCouponObj);
+    //go to next step
+    
   }; 
 
   return (
@@ -69,8 +93,10 @@ export default function App() {
                       <StepLogo 
                         currentStep={currentStep} 
                         setCurrentStep={setCurrentStep}
-                        logo={logo}
-                        setLogo={setLogo}
+                        couponLogo={couponLogo}
+                        setCouponLogo={setCouponLogo}
+                        linkPath={linkPath}
+                        setLinkPath={setLinkPath}
                       />
                     }>
                   </Route>
@@ -81,6 +107,8 @@ export default function App() {
                       <StepBackground 
                         currentStep={currentStep} 
                         setCurrentStep={setCurrentStep}
+                        linkPath={linkPath}
+                        setLinkPath={setLinkPath}
                       />
                     }>
                   </Route>
@@ -133,6 +161,9 @@ export default function App() {
   // document.getElementById('root').classList.add(rootStyle);
 
 //regroup header -> nav is in this doc? or move menuitems to context
+
+//change so footer not wrapped in main
+
 
 //REMEMBER DON'T CHANGE STATE DIRECTLY, MAKE COPY
     //save new logo to state 

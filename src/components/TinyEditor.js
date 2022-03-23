@@ -4,7 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 export default function TinyEditor(props) {
 
 const editorRef = useRef(null);
-const [isPickedLogo, setIsPickedLogo] = useState(false); //clickUploadLogo
+const [isPicked, setIsPicked] = useState(false); //clickUpload
 const [fileUploadMsg, setFileUploadMsg] = useState('');
 const [showUploadBtn, setShowUploadBtn] = useState(false);
 
@@ -12,9 +12,9 @@ const changeEditor = () => {
   setShowUploadBtn(true);
   setFileUploadMsg('');
 
-  //uploadLogoBtn active if change in editor (i.e. upload new file a second time)
-  document.getElementById('uploadLogoBtn').classList.remove('btn-primary-inactive');
-  document.getElementById('uploadLogoBtn').classList.add('btn-secondary-reverse');
+  //uploadBtn active if change in editor (i.e. upload new file a second time)
+  document.getElementById('uploadBtn').classList.remove('btn-primary-inactive');
+  document.getElementById('uploadBtn').classList.add('btn-secondary-reverse');
 
     //nextBtn inactive if change in editor (need to upload the new file before click nextBtn)
   document.getElementById('nextBtn').classList.remove('btn-primary');
@@ -24,15 +24,15 @@ const changeEditor = () => {
 const handleClick = () => {
   if (editorRef.current) {
     let logoString = editorRef.current.getContent(); //save textAreaContent
-    setIsPickedLogo(true);
+    setIsPicked(true);
 
     if (logoString !== '') {
       setFileUploadMsg('Din fil är uppladdad.');
       // console.log("Din fil är uppladdad.", logoString);
     
-      //uploadLogoBtn inactive if file is already uploaded
-      document.getElementById('uploadLogoBtn').classList.remove('btn-secondary-reverse');
-      document.getElementById('uploadLogoBtn').classList.add('btn-primary-inactive');
+      //uploadBtn inactive if file is already uploaded
+      document.getElementById('uploadBtn').classList.remove('btn-secondary-reverse');
+      document.getElementById('uploadBtn').classList.add('btn-primary-inactive');
       
       //nextBtn active if file is uploaded
       document.getElementById('nextBtn').classList.remove('btn-primary-inactive');
@@ -43,7 +43,14 @@ const handleClick = () => {
       // console.log('Du behöver välja en logga först.', logoString);
     };
 
-    props.setLogo(logoString); //update state owned by App.js
+    let contentObj = {
+      [props.stepType]:logoString
+    }
+    console.log("contentObj", contentObj);
+
+    props.setCouponLogo(contentObj); //update state owned by App.js
+
+    // props.setCouponLogo(logoString); //update state owned by App.js
   }
 }; 
 
@@ -82,10 +89,10 @@ switch (props.stepType) {
             onChange={changeEditor}
           />
           {showUploadBtn ? 
-            <button id='uploadLogoBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClick}>LADDA UPP LOGGA</button>
+            <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClick}>LADDA UPP LOGGA</button>
           : ''}
          
-          {isPickedLogo ? 
+          {isPicked ? 
           <div>
             <h4>{fileUploadMsg}</h4>
           </div>

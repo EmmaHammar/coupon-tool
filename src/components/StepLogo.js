@@ -8,6 +8,7 @@ export default function StepLogo(props) {
 
   useEffect( () => {
     props.setCurrentStep(stepType);
+    props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
   })
 
   return (
@@ -17,9 +18,9 @@ export default function StepLogo(props) {
         <div id='stepLogoWrapper' className=''>
           <h3>StepLogo: Woho, nu är du igång att skapa ditt digitala kupongerbjudande!</h3>
           <h4>1. Börja med att ladda upp din företagslogga.</h4>
-          <TinyEditor stepType={stepType} logo={props.logo} setLogo={props.setLogo}/>
+          <TinyEditor stepType={stepType} couponLogo={props.couponLogo} setCouponLogo={props.setCouponLogo}/>
         </div>
-        <Footer /> 
+        <Footer linkPath={props.linkPath} setLinkPath={props.setLinkPath}/> 
         </>
       }
     </AccountContext.Consumer>
