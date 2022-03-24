@@ -12,9 +12,9 @@ export default function UserPage() {
   return (
     <AccountContext.Consumer>
       { account => 
-      <div id='userPageWrapper' className='outline'>
+      <div id='userPageWrapper' className=''>
         <h2>HEJ {account.userId}!</h2>
-        <button className='btn' onClick={handleClick}>Skapa ny kampanj</button>
+        <button className='btn btn-primary-reverse mt-4' onClick={handleClick}>Skapa ny kampanj</button>
       </div>
       }
     </AccountContext.Consumer>

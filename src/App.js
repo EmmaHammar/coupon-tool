@@ -5,10 +5,8 @@ import {
   Route,
   // useNavigate,
 } from "react-router-dom";
-import { Redirect } from 'react-router';
 
 import Header from './components/Header';
-import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import UserPage from './views/UserPage';
 import StepLogo from './components/StepLogo';
@@ -60,7 +58,7 @@ export default function App() {
     <AccountContext.Provider value={ account }>
       <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>
 
-        <Header /> 
+        <Header currentStep={currentStep}/> 
           <main>
             <div id='userPageWrapper' className='mt-6 mb-20 md:mt-10 md:mb-24'>
               <SaveContext.Provider value={ saveClick }>

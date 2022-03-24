@@ -8,7 +8,7 @@
     h1 {
         @apply text-blue 
         cursor-pointer 
-        hover:bg-green-300
+        hover:bg-mint
         text-3xl
         md:text-5xl;
         font-family: Spinnaker;
@@ -103,5 +103,11 @@
         @apply
         hover:underline 
         decoration-4
+    }
+
+    .picked-step {
+        @apply bg-mint
+        p-1
+        px-2
     }
 }
