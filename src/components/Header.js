@@ -9,21 +9,21 @@ export default function Header(props) {
       document.getElementById('nav-logo').classList.add('picked-step');
       document.getElementById('nav-background').classList.remove('picked-step');
       document.getElementById('nav-text').classList.remove('picked-step');
-      document.getElementById('nav-product').classList.remove('picked-text');
+      document.getElementById('nav-product').classList.remove('picked-step');
       document.getElementById('nav-summary').classList.remove('picked-step');
       break;
     case 'background':
       document.getElementById('nav-background').classList.add('picked-step');
       document.getElementById('nav-logo').classList.remove('picked-step');
       document.getElementById('nav-text').classList.remove('picked-step');
-      document.getElementById('nav-product').classList.remove('picked-text');
+      document.getElementById('nav-product').classList.remove('picked-step');
       document.getElementById('nav-summary').classList.remove('picked-step');
       break;
     case 'text':
       document.getElementById('nav-text').classList.add('picked-step');
       document.getElementById('nav-logo').classList.remove('picked-step');
       document.getElementById('nav-background').classList.remove('picked-step');
-      document.getElementById('nav-product').classList.remove('picked-text');
+      document.getElementById('nav-product').classList.remove('picked-step');
       document.getElementById('nav-summary').classList.remove('picked-step');
       break;
     case 'product':

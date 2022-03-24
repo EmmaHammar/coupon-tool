@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import TinyEditor from './TinyEditor';
-// import TinyEditorText from './TinyEditorText';
-
 import Footer from './Footer';
 
 export default function StepText(props) {
@@ -18,7 +16,6 @@ export default function StepText(props) {
       <h4>3. Skriv en personlig hälsning</h4>
       <p>Här skriver du rubrik och brödtext:</p>
       <TinyEditor stepType={ stepType }/>
-      {/* <TinyEditorText />  */}
       <Footer 
         linkPath={props.linkPath} 
         setLinkPath={props.setLinkPath}

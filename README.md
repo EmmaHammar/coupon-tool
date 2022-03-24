@@ -48,8 +48,8 @@ Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning oc
 ## React - frontend
 - React: npx create-react-app
 - Routing: npm install react-router-dom
-- TinyMCE - WYSIWYG editor: 
-TODO: remove npm install tinymce https://www.npmjs.com/package/tinymce
+- TinyMCE - WYSIWYG editor: https://www.youtube.com/watch?v=R-k5i1Qp6Oc
+TODO: remove npm install tinymce https://www.npmjs.com/package/tinymce ?
 Only keep: npm install --save @tinymce/tinymce-react https://www.tiny.cloud/docs/integrations/react/ and useRef Hook: https://www.geeksforgeeks.org/react-js-useref-hook/
 - Context - state manager. https://www.youtube.com/watch?v=AoS-lMO4Ad0
 

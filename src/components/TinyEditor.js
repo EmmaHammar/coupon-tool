@@ -43,6 +43,9 @@ const handleClick = () => {
   
   if (editorRef.current) {
     let contentString = editorRef.current.getContent(); //save textAreaContent
+    // var str = "{TinyMCE HTML string}"; 
+    contentString = contentString.replace(`/^\<p\>/,""`).replace(`/\<\/p\>$/,""`);
+    console.log("contentString after replace()", contentString);
 
     setIsPicked(true);
 

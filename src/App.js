@@ -110,14 +110,29 @@ export default function App() {
                     exact path='/steg4' 
                     element= {
                       <StepProduct 
-                        currentStep={currentStep} 
-                        setCurrentStep={setCurrentStep}   
+                      currentStep={currentStep} 
+                      setCurrentStep={setCurrentStep}  
+                      content={content}
+                      setContent={setContent}
+                      linkPath={linkPath}
+                      setLinkPath={setLinkPath}
                       />
                     }>
 
                   </Route>
 
-                  <Route exact path='/steg5' element={<StepSummary />}></Route>
+                  <Route exact path='/steg5' element= {
+                    <StepSummary 
+                      currentStep={currentStep} 
+                      setCurrentStep={setCurrentStep}  
+                      content={content}
+                      setContent={setContent}
+                      linkPath={linkPath}
+                      setLinkPath={setLinkPath}
+                    />
+                  }>
+
+                  </Route>
                   <Route exact path='*' element={<NotFound />}></Route>
                 </Routes>
               </SaveContext.Provider>
