@@ -3,10 +3,8 @@ import TinyEditor from './TinyEditor';
 import Footer from './Footer';
 
 export default function StepBackground(props) {
-  const [stepType, setStepType] = useState('background');
-
   useEffect( () => {
-    props.setCurrentStep(stepType);
+    props.setCurrentStep('background');
     props.setLinkPath('/steg3'); //send linkPath to Footer.js so nextBtn navigate to next step
   });
 
@@ -15,11 +13,11 @@ export default function StepBackground(props) {
       <h4>2. Välj vad du vill ha som bakgrundsbild. </h4>
       <p>Ladda upp en bild eller välj en färg.</p>
       <TinyEditor 
-        stepType={ stepType }
+        currentStep={props.currentStep}
         content={props.content} 
         setContent={props.setContent}
       />
-      <Footer linkPath={props.linkPath} setLinkPath={props.setLinkPath}/> 
+      <Footer linkPath={props.linkPath} /> 
     </div>
   )
 };

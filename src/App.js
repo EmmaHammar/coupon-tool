@@ -26,6 +26,7 @@ export default function App() {
   const [content, setContent] = useState({}); 
   const [linkPath, setLinkPath] = useState('');
 
+
   // const navigate = useNavigate();
   const account = {
     accountId: 'accountId1',
@@ -39,12 +40,13 @@ export default function App() {
   const saveClick = () => {
 
     let newCouponObj = {
-      'couponId': account.pickedCouponId
+      'couponId': account.pickedCouponId, 
+      [currentStep] : content
     }; 
-    Object.assign(newCouponObj, content); //add content state to newCouponObj
+    // Object.assign(newCouponObj, content); //add content state to newCouponObj
     
-    console.log("newCouponObj after assign:", newCouponObj);
-    console.log("content.logo:", content.logo);
+    // console.log("newCouponObj after assign:", newCouponObj);
+    console.log("content:", content);
     console.log("newCouponObj", newCouponObj); 
 
     UpdateCoupon(newCouponObj); //update db
