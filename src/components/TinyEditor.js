@@ -112,6 +112,8 @@ switch (props.currentStep) {
 };
 
 //TODO 
+//bug when click stepper OR nextBtn -> tiny mce baroptions is not following (only correct with first reload, move option state to App.js?)
 //remove p tag wrapper
 //handle ie replace() or similar for åäö etc in tinyMCE
 //show disable btns if textarea is filled but then empty again
+//when printing tinyEditor - check if data in db exists - if true -> print saved ex logo, bg, text?
