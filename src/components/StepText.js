@@ -6,6 +6,7 @@ export default function StepText(props) {
   useEffect( () => {
     props.setCurrentStep('text');
     props.setLinkPath('/steg4'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setToolBarOptions(`undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`);
   });
   
   return (
@@ -16,6 +17,8 @@ export default function StepText(props) {
         currentStep={props.currentStep}
         content={props.content}
         setContent={props.setContent}
+        toolBarOptions={props.toolBarOptions}
+        setToolBarOptions={props.setToolBarOptions}
       />
       <Footer 
         linkPath={props.linkPath} 

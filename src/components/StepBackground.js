@@ -6,6 +6,7 @@ export default function StepBackground(props) {
   useEffect( () => {
     props.setCurrentStep('background');
     props.setLinkPath('/steg3'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setToolBarOptions(`undo redo | image | help`);
   });
 
   return (
@@ -16,6 +17,8 @@ export default function StepBackground(props) {
         currentStep={props.currentStep}
         content={props.content} 
         setContent={props.setContent}
+        toolBarOptions={props.toolBarOptions}
+        setToolBarOptions={props.setToolBarOptions}
       />
       <Footer linkPath={props.linkPath} /> 
     </div>

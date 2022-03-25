@@ -24,6 +24,7 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState('');
   const [content, setContent] = useState({}); 
   const [linkPath, setLinkPath] = useState('');
+  const [toolBarOptions, setToolBarOptions] = useState('');
 
   const account = {
     accountId: 'accountId1',
@@ -65,6 +66,8 @@ export default function App() {
                         setContent={setContent}
                         linkPath={linkPath}
                         setLinkPath={setLinkPath}
+                        toolBarOptions={toolBarOptions}
+                        setToolBarOptions={setToolBarOptions}
                       />
                     }>
                   </Route>
@@ -79,6 +82,8 @@ export default function App() {
                         setContent={setContent}
                         linkPath={linkPath}
                         setLinkPath={setLinkPath}
+                        toolBarOptions={toolBarOptions}
+                        setToolBarOptions={setToolBarOptions}
                       />
                     }>
                   </Route>
@@ -93,6 +98,8 @@ export default function App() {
                         setContent={setContent}
                         linkPath={linkPath}
                         setLinkPath={setLinkPath}
+                        toolBarOptions={toolBarOptions}
+                        setToolBarOptions={setToolBarOptions}
                       />
                     }>
                   </Route>

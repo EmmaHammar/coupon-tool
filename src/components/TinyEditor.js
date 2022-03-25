@@ -7,13 +7,19 @@ const editorRef = useRef(null);
 const [isPicked, setIsPicked] = useState(false); //clickUpload
 const [fileUploadMsg, setFileUploadMsg] = useState('');
 const [showUploadBtn, setShowUploadBtn] = useState(false);
+const [isToolBar, setIsToolBar] = useState(false);
 
-//every change in editor
+//prevent printing Editor before right toolbarOptions is added:
+useEffect( () => {
+  setIsToolBar(true)
+}, [props.toolBarOptions]);
+
+//TODO: every change in editor, keydown?
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
 };
 
-//only first change? TODO make uploadBtn + nextBtn inactive if textArea is empty 
+//TODO: only first change? TODO make uploadBtn + nextBtn inactive if textArea is empty 
 const changeEditor = () => {
 
   //TODO move to app? 
@@ -57,27 +63,12 @@ const handleClickUpload = () => {
         
     } else {
       setFileUploadMsg('Du behöver välja en logga först.');
-      // console.log('Du behöver välja en logga först.', contentString);
     };
 }; 
 
-let toolBarOptions;
-switch (props.currentStep) {
-  case 'logo':
-    toolBarOptions = `undo redo | image | alignleft aligncenter alignright | help`;
-    break;
-  case 'background':
-    toolBarOptions = `undo redo | image | help`;
-    break;
-  case 'text':
-    toolBarOptions = `undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`;
-    break;
-  default:
-    break;
-};
-
   return (
     <div>
+      {isToolBar ? 
         <Editor
             apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
             onInit={(evt, editor) => editorRef.current = editor}
@@ -90,12 +81,13 @@ switch (props.currentStep) {
                 'searchreplace visualblocks code fullscreen',
                 'insertdatetime media table paste code help wordcount'
               ],
-              toolbar: `${ toolBarOptions }`,
+              toolbar: `${ props.toolBarOptions }`,
               content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer;}',
             }}
             onChange={changeEditor}
             onEditorChange={onEditorChange}
           />
+          : ''}    
 
           {showUploadBtn ? 
             <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClickUpload}>LADDA UPP</button>
@@ -106,13 +98,11 @@ switch (props.currentStep) {
             <h4>{fileUploadMsg}</h4>
           </div>
           : ''}
-          
     </div>
   )
 };
 
 //TODO 
-//bug when click stepper OR nextBtn -> tiny mce baroptions is not following (only correct with first reload, move option state to App.js?)
 //remove p tag wrapper
 //handle ie replace() or similar for åäö etc in tinyMCE
 //show disable btns if textarea is filled but then empty again
