@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import ProdCard from './ProdCard';
+import ProductCard from './ProductCard';
 import GetProducts from '../services/GetProducts';
 
 export default function StepProduct(props) {
   const [stepType, setStepType] = useState('product');
+  const [productList, setProductList] = useState([]);
   
   useEffect( () => {
+    //get all products from db
+    GetProducts( (products) => {
+      setProductList(products);
+    });
     props.setCurrentStep(stepType);
-    GetProducts();
-  })
-
-  //get prodArr from db
-
-  let products = {
-    
-  }
+  }, []);
 
   //in return, map prodArr and print each prodCard with new return 
 
@@ -23,7 +21,25 @@ export default function StepProduct(props) {
     <div id='stepProductWrapper' className=''>
       <h4>4. Välj vilka produkter du vill skicka.</h4>
       <p>Via en QR-kod kan mottagaren hämta produkten på Pressbyrån eller 7Eleven.</p>
-      <ProdCard /> 
+      <div id="prodCardWrapper" className='mt-6 flex'>
+        {
+          productList.map( (product, index) => {
+            return (
+              <ProductCard 
+                prodId={product.prodId}
+                prodImgLink={product.imgLink}
+                prodImgAltText={product.imgAltText}
+                prodHeading={product.heading}
+                prodDescription={product.description}
+                prodPrice={product.price}
+                prodTerms={product.terms}
+                codeLink={product.codeLink}
+                key={index}
+              /> 
+            )
+          })
+        }
+      </div>
     </div>
   )
 };
