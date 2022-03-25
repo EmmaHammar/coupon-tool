@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Loader from './Loader';
 import TinyEditor from './TinyEditor';
 import { AccountContext } from '../App';
 import Footer from './Footer';
@@ -18,13 +19,13 @@ export default function StepLogo(props) {
           <div id='stepLogoWrapper' className=''>
             <h3>StepLogo: Woho, nu är du igång att skapa ditt digitala kupongerbjudande!</h3>
             <h4>1. Börja med att ladda upp din företagslogga.</h4>
-            <TinyEditor 
-              currentStep={props.currentStep}
-              content={props.content} 
-              setContent={props.setContent}
-              toolBarOptions={props.toolBarOptions}
-              setToolBarOptions={props.setToolBarOptions}
-            />
+              <TinyEditor 
+                currentStep={props.currentStep}
+                content={props.content} 
+                setContent={props.setContent}
+                toolBarOptions={props.toolBarOptions}
+                setToolBarOptions={props.setToolBarOptions}
+              />
           </div>
           <Footer 
             linkPath={props.linkPath} 

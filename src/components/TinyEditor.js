@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import Loader from './Loader';
 
 export default function TinyEditor(props) {
 
@@ -8,11 +9,18 @@ const [isPicked, setIsPicked] = useState(false); //clickUpload
 const [fileUploadMsg, setFileUploadMsg] = useState('');
 const [showUploadBtn, setShowUploadBtn] = useState(false);
 const [isToolBar, setIsToolBar] = useState(false);
+const [isLoadingStep, setIsLoadingStep] = useState(true);
 
 //prevent printing Editor before right toolbarOptions is added:
 useEffect( () => {
   setIsToolBar(true)
 }, [props.toolBarOptions]);
+
+useEffect( () => {
+  setTimeout( () => {
+    setIsLoadingStep(false)
+  }, 500);
+});
 
 //TODO: every change in editor, keydown?
 const onEditorChange = () => {
@@ -67,38 +75,42 @@ const handleClickUpload = () => {
 }; 
 
   return (
-    <div>
-      {isToolBar ? 
-        <Editor
-            apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
-            onInit={(evt, editor) => editorRef.current = editor}
-            initialValue="<p></p>"
-            init={{
-              height: 300,
-              menubar: false,
-              plugins: [
-                'advlist autolink lists image charmap print preview',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
-              ],
-              toolbar: `${ props.toolBarOptions }`,
-              content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer;}',
-            }}
-            onChange={changeEditor}
-            onEditorChange={onEditorChange}
-          />
-          : ''}    
+    <>
+    { isLoadingStep ? <Loader /> :
+      <div id='tinyEditorWrapper' className='my-6'>
+        {isToolBar ? 
+          <Editor
+              apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
+              onInit={(evt, editor) => editorRef.current = editor}
+              initialValue="<p></p>"
+              init={{
+                height: 300,
+                menubar: false,
+                plugins: [
+                  'advlist autolink lists image charmap print preview',
+                  'searchreplace visualblocks code fullscreen',
+                  'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar: `${ props.toolBarOptions }`,
+                content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer;}',
+              }}
+              onChange={changeEditor}
+              onEditorChange={onEditorChange}
+            />
+            : ''}    
 
-          {showUploadBtn ? 
-            <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClickUpload}>LADDA UPP</button>
-          : ''}
-         
-          {isPicked ? 
-          <div>
-            <h4>{fileUploadMsg}</h4>
-          </div>
-          : ''}
-    </div>
+            {showUploadBtn ? 
+              <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClickUpload}>LADDA UPP</button>
+            : ''}
+          
+            {isPicked ? 
+            <div>
+              <h4>{fileUploadMsg}</h4>
+            </div>
+            : ''}
+        </div>
+      }
+    </>
   )
 };
 

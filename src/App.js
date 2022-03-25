@@ -6,6 +6,7 @@ import {
   // useNavigate,
 } from "react-router-dom";
 
+import Loader from './components/Loader';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
 import UserPage from './views/UserPage';
@@ -25,6 +26,7 @@ export default function App() {
   const [content, setContent] = useState({}); 
   const [linkPath, setLinkPath] = useState('');
   const [toolBarOptions, setToolBarOptions] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const account = {
     accountId: 'accountId1',
@@ -32,6 +34,12 @@ export default function App() {
     couponIds: ['1', '2', '3'],
     pickedCouponId: '1',
   };
+
+  useEffect( () => {
+    setTimeout( () => {
+      setIsLoading(false)
+    }, 1000);
+  });
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   //TODO fix so no fetch to db if style disabled btn
@@ -47,99 +55,100 @@ export default function App() {
 
   return (
     <BrowserRouter>
-    <AccountContext.Provider value={ account }>
-      <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>
 
-        <Header currentStep={currentStep}/> 
-          <main>
-            <div id='userPageWrapper' className='mt-6 mb-20 md:mt-10 md:mb-24'>
-              <SaveContext.Provider value={ saveClick }>
-                <Routes>
-                  <Route exact path='/' element={<UserPage />}></Route>
-                  <Route 
-                    exact path='/steg1' 
-                    element= { 
-                      <StepLogo 
-                        currentStep={currentStep} 
-                        setCurrentStep={setCurrentStep}
-                        content={content}
-                        setContent={setContent}
-                        linkPath={linkPath}
-                        setLinkPath={setLinkPath}
-                        toolBarOptions={toolBarOptions}
-                        setToolBarOptions={setToolBarOptions}
-                      />
-                    }>
-                  </Route>
+        <AccountContext.Provider value={ account }>
+          { isLoading ? <Loader /> : 
+            <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>          
+              <Header currentStep={currentStep}/> 
+              <main>
+                <div id='userPageWrapper' className='mt-6 mb-20 md:mt-10 md:mb-24'>
+                  <SaveContext.Provider value={ saveClick }>
+                    <Routes>
+                      <Route exact path='/' element={<UserPage />}></Route>
+                      <Route 
+                        exact path='/steg1' 
+                        element= { 
+                          <StepLogo 
+                            currentStep={currentStep} 
+                            setCurrentStep={setCurrentStep}
+                            content={content}
+                            setContent={setContent}
+                            linkPath={linkPath}
+                            setLinkPath={setLinkPath}
+                            toolBarOptions={toolBarOptions}
+                            setToolBarOptions={setToolBarOptions}
+                          />
+                        }>
+                      </Route>
 
-                  <Route 
-                    exact path='/steg2' 
-                    element= {
-                      <StepBackground 
-                        currentStep={currentStep} 
-                        setCurrentStep={setCurrentStep}
-                        content={content}
-                        setContent={setContent}
-                        linkPath={linkPath}
-                        setLinkPath={setLinkPath}
-                        toolBarOptions={toolBarOptions}
-                        setToolBarOptions={setToolBarOptions}
-                      />
-                    }>
-                  </Route>
+                      <Route 
+                        exact path='/steg2' 
+                        element= {
+                          <StepBackground 
+                            currentStep={currentStep} 
+                            setCurrentStep={setCurrentStep}
+                            content={content}
+                            setContent={setContent}
+                            linkPath={linkPath}
+                            setLinkPath={setLinkPath}
+                            toolBarOptions={toolBarOptions}
+                            setToolBarOptions={setToolBarOptions}
+                          />
+                        }>
+                      </Route>
 
-                  <Route 
-                    exact path='/steg3' 
-                    element= {
-                      <StepText 
-                        currentStep={currentStep} 
-                        setCurrentStep={setCurrentStep}  
-                        content={content}
-                        setContent={setContent}
-                        linkPath={linkPath}
-                        setLinkPath={setLinkPath}
-                        toolBarOptions={toolBarOptions}
-                        setToolBarOptions={setToolBarOptions}
-                      />
-                    }>
-                  </Route>
+                      <Route 
+                        exact path='/steg3' 
+                        element= {
+                          <StepText 
+                            currentStep={currentStep} 
+                            setCurrentStep={setCurrentStep}  
+                            content={content}
+                            setContent={setContent}
+                            linkPath={linkPath}
+                            setLinkPath={setLinkPath}
+                            toolBarOptions={toolBarOptions}
+                            setToolBarOptions={setToolBarOptions}
+                          />
+                        }>
+                      </Route>
 
-                  <Route 
-                    exact path='/steg4' 
-                    element= {
-                      <StepProduct 
-                      currentStep={currentStep} 
-                      setCurrentStep={setCurrentStep}  
-                      content={content}
-                      setContent={setContent}
-                      linkPath={linkPath}
-                      setLinkPath={setLinkPath}
-                      />
-                    }>
+                      <Route 
+                        exact path='/steg4' 
+                        element= {
+                          <StepProduct 
+                          currentStep={currentStep} 
+                          setCurrentStep={setCurrentStep}  
+                          content={content}
+                          setContent={setContent}
+                          linkPath={linkPath}
+                          setLinkPath={setLinkPath}
+                          />
+                        }>
 
-                  </Route>
+                      </Route>
 
-                  <Route exact path='/steg5' element= {
-                    <StepSummary 
-                      currentStep={currentStep} 
-                      setCurrentStep={setCurrentStep}  
-                      content={content}
-                      setContent={setContent}
-                      linkPath={linkPath}
-                      setLinkPath={setLinkPath}
-                    />
-                  }>
+                      <Route exact path='/steg5' element= {
+                        <StepSummary 
+                          currentStep={currentStep} 
+                          setCurrentStep={setCurrentStep}  
+                          content={content}
+                          setContent={setContent}
+                          linkPath={linkPath}
+                          setLinkPath={setLinkPath}
+                        />
+                      }>
 
-                  </Route>
-                  <Route exact path='*' element={<NotFound />}></Route>
-                </Routes>
-              </SaveContext.Provider>
+                      </Route>
+                      <Route exact path='*' element={<NotFound />}></Route>
+                    </Routes>
+                  </SaveContext.Provider>
+                </div>
+              </main>
             </div>
-          </main>
-      </div>
-      </AccountContext.Provider>
+          }
+        </AccountContext.Provider>
     </BrowserRouter>
-
   )
 };
 

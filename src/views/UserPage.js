@@ -13,8 +13,16 @@ export default function UserPage() {
     <AccountContext.Consumer>
       { account => 
       <div id='userPageWrapper' className=''>
-        <h2>HEJ {account.userId}!</h2>
-        <button className='btn btn-primary-reverse mt-4' onClick={handleClick}>Skapa ny kampanj</button>
+        <h2>Hej {account.userId}!</h2>
+        <button className='btn btn-primary-reverse mt-2' onClick={handleClick}>Skapa ny kampanj</button>
+        <div className='mt-6'>
+          <h3>Dina sparade kampanjer</h3>
+          <ul className='mt-2'>
+            <li>Kampanj1</li>
+            <li>Kampanj2</li>
+            <li>Kampanj3</li>
+          </ul>
+        </div>
       </div>
       }
     </AccountContext.Consumer>
