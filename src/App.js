@@ -22,12 +22,9 @@ export const SaveContext = React.createContext();
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState('');
-  // const [couponLogo, setCouponLogo] = useState({}); //change to newContent, setNewContent
   const [content, setContent] = useState({}); 
   const [linkPath, setLinkPath] = useState('');
 
-
-  // const navigate = useNavigate();
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
@@ -42,17 +39,9 @@ export default function App() {
     let newCouponObj = {
       'couponId': account.pickedCouponId, 
       [currentStep] : content
-    }; 
-    // Object.assign(newCouponObj, content); //add content state to newCouponObj
-    
-    // console.log("newCouponObj after assign:", newCouponObj);
-    console.log("content:", content);
-    console.log("newCouponObj", newCouponObj); 
+    };     
 
     UpdateCoupon(newCouponObj); //update db
-
-    //navigate
-    // navigate(`${linkPath}`);
   }; 
 
   return (
@@ -157,6 +146,9 @@ export default function App() {
 //regroup header -> nav is in this doc? or move menuitems to context
 
 //change so footer not wrapped in main
+
+
+
 
 
 //REMEMBER DON'T CHANGE STATE DIRECTLY, MAKE COPY
