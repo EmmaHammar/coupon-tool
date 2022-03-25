@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import ProdCard from './ProdCard';
 
 export default function StepProduct(props) {
   const [stepType, setStepType] = useState('product');
@@ -8,11 +8,16 @@ export default function StepProduct(props) {
     props.setCurrentStep(stepType);
   })
 
+  //get prodArr from db
+
+  //in return, map prodArr and print each prodCard with new return 
+
 
   return (
-    <div id='stepProductWrapper' className='outline'>
+    <div id='stepProductWrapper' className=''>
       <h4>4. Välj vilka produkter du vill skicka.</h4>
       <p>Via en QR-kod kan mottagaren hämta produkten på Pressbyrån eller 7Eleven.</p>
+      <ProdCard /> 
     </div>
   )
 };
