@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import ProdCard from './ProdCard';
+import GetProducts from '../services/GetProducts';
 
 export default function StepProduct(props) {
   const [stepType, setStepType] = useState('product');
   
   useEffect( () => {
     props.setCurrentStep(stepType);
+    GetProducts();
   })
 
   //get prodArr from db
+
+  let products = {
+    
+  }
 
   //in return, map prodArr and print each prodCard with new return 
 
