@@ -1,6 +1,6 @@
 function GetProducts(cb) {
-    fetch('http://localHost:3001/products')
-    // fetch('https://coupon-tool-backend.herokuapp.com/products')
+    // fetch('http://localHost:3001/products')
+    fetch('https://coupon-tool-backend.herokuapp.com/products')
     .then(response => response.json())
     .then(products => {
         console.log("All products db:", products);
