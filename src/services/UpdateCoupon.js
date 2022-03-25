@@ -1,5 +1,7 @@
 function UpdateCoupon(coupon) {
-    fetch('http://localHost:3001/coupons/update', {
+    // fetch('http://localHost:3001/coupons/update', {
+    fetch('https://coupon-tool-backend.herokuapp.com/coupons/update', {
+    
 
         method: 'post',
         headers: {
