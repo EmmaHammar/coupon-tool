@@ -14,7 +14,7 @@ Frontend repo:
 
 Backend repo: 
 - git clone https://github.com/EmmaHammar/coupon-tool-backend
-- npm instsall
+- npm install
 - npm start (dev mode: nodemon start)
 
 # Task
