@@ -3,8 +3,8 @@ The aim of this project is to launch a user-friendly coupon tool where a user ca
 
 # Start project
 Heroku:
-- X
-- X
+- Frontend: https://coupon-tool-frontend.herokuapp.com/
+- Backend: https://coupon-tool-backend.herokuapp.com/
 
 Start locally:
 Frontend repo:

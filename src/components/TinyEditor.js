@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import Loader from './Loader';
+// import Loader from './Loader';
 
 export default function TinyEditor(props) {
 
@@ -76,7 +76,7 @@ const handleClickUpload = () => {
 
   return (
     <>
-    { isLoadingStep ? <Loader /> :
+    {/* { isLoadingStep ? <Loader /> : */}
       <div id='tinyEditorWrapper' className='my-6'>
         {isToolBar ? 
           <Editor
@@ -109,7 +109,7 @@ const handleClickUpload = () => {
             </div>
             : ''}
         </div>
-      }
+      {/* } */}
     </>
   )
 };
