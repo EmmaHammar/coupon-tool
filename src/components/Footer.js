@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export default function Footer(props) {
     let nextBtnText = 'SPARA OCH GÅ VIDARE'
 
-
   return (
     <SaveContext.Consumer>
       { saveClick => 

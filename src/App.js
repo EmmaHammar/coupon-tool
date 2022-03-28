@@ -27,6 +27,7 @@ export default function App() {
   const [linkPath, setLinkPath] = useState('');
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [pickedProd, setPickedProd] = useState({});
 
   const account = {
     accountId: 'accountId1',
@@ -45,12 +46,28 @@ export default function App() {
   //TODO fix so no fetch to db if style disabled btn
   const saveClick = () => {
 
-    let newCouponObj = {
-      'couponId': account.pickedCouponId, 
-      [currentStep] : content
-    };     
+    //if prodStep:
+    if (linkPath === '/steg5') {
+      console.log("addPickedProd", pickedProd);
 
-    UpdateCoupon(newCouponObj); //update db
+      let prodObj = {
+        'couponId': account.pickedCouponId, 
+         'prodId': pickedProd.prodId,
+         'prodImg': pickedProd.prodImg,
+         'codeLink': pickedProd.codeLink,
+         'terms': pickedProd.terms
+      };     
+      UpdateCoupon(prodObj); //update db with pickedProd
+
+    } else { //if all other step (logo, bg, text):
+        console.log("gör som vanligt");
+        let newCouponObj = {
+          'couponId': account.pickedCouponId, 
+          [currentStep] : content
+        };     
+
+        UpdateCoupon(newCouponObj); //update db with coupon logo, bg or text
+    };
   }; 
 
   return (
@@ -62,7 +79,7 @@ export default function App() {
               <Header currentStep={currentStep}/> 
               <main>
                 <div id='userPageWrapper' className='mt-6 mb-20 md:mt-10 md:mb-24'>
-                  <SaveContext.Provider value={ saveClick }>
+                  <SaveContext.Provider value={saveClick}>
                     <Routes>
                       <Route exact path='/' element={<UserPage />}></Route>
                       <Route 
@@ -123,6 +140,8 @@ export default function App() {
                           setContent={setContent}
                           linkPath={linkPath}
                           setLinkPath={setLinkPath}
+                          pickedProd={pickedProd}
+                          setPickedProd={setPickedProd}
                           />
                         }>
 

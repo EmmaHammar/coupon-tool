@@ -12,6 +12,9 @@ export default function ProductCard(props) {
       };
       console.log("pickedProdObj:", pickedProdObj);
       //TODO save to state / db
+      props.setPickedProd(pickedProdObj)
+
+      //run cb in App.js
     }
     return (
       <div id={props.prodId} className='w-48'>
