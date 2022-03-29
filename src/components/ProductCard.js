@@ -1,8 +1,6 @@
 import React from 'react'
 
 export default function ProductCard(props) {
-    let imgSrc = 'https://www.siaglass.se/media/1834/1005-trollis.jpg?width=800&height=600&bgcolor=fff'; 
-
     const handleClick = (evt) => {
       let pickedProdObj = {
         'prodId': props.prodId,
@@ -12,19 +10,8 @@ export default function ProductCard(props) {
       };
       props.setPickedProd(pickedProdObj);
 
-      //setState false if true and vice versa
-      props.setIsAdded(!props.isAdded);
-
-      props.updateStyleBtn(); //REMOVE?
-
-      // if (props.isAdded === true) {
-      //   evt.target.value = 'TILLAGD';
-      // } else {
-      //   evt.target.value = 'LÄGG TILL'
-      // };
-
-      //Remove active class (btn-primary) on all btns except the clicked btn: 
-      // remove active class
+      //remove active class (btn-primary) on all btns except the clicked btn: 
+      // remove active class on all btns
       const btnContainer = document.querySelector('#prodCardWrapper');
       const btns = btnContainer.querySelectorAll('div.bg-blue > button');    
       for (let i = 0; i<btns.length; i++) {
@@ -40,12 +27,11 @@ export default function ProductCard(props) {
       evt.target.classList.add('btn-primary'); //active class
       evt.target.innerText='TILLAGD';
 
+      //enable nextBtn if picked prod
+      document.getElementById('nextBtn').classList.remove('btn-primary-inactive');
+      document.getElementById('nextBtn').classList.add('btn-primary');
+    };
 
-
-
-      
-      //run cb in App.js?
-    }
     return (
       <div className='w-48'>
           <img src={props.prodImgLink} alt={props.prodImgAltText} className='w-48'></img>
@@ -59,3 +45,9 @@ export default function ProductCard(props) {
         
     )
 };
+
+
+//REMEMBER
+//Toggle state:
+  //setState false if true and vice versa
+  //props.setIsAdded(!props.isAdded);

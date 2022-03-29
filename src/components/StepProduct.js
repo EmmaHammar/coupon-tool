@@ -6,7 +6,6 @@ import Footer from './Footer';
 export default function StepProduct(props) {
   const [stepType, setStepType] = useState('product');
   const [productList, setProductList] = useState([]);
-  const [isAdded, setIsAdded] = useState(false);
   
   useEffect( () => {
     //get all products from db
@@ -17,10 +16,6 @@ export default function StepProduct(props) {
 
     props.setLinkPath('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
   }, []);
-
-  const updateStyleBtn = () => {
-    console.log("updateStyleBtns");
-  }
 
   //in return, map prodArr and print each prodCard with new return 
   return (
@@ -43,10 +38,6 @@ export default function StepProduct(props) {
                   codeLink={product.codeLink}
                   key={index}
                   setPickedProd={props.setPickedProd}
-                  isAdded={isAdded}
-                  setIsAdded={setIsAdded}
-
-                  updateStyleBtn={updateStyleBtn}
                 /> 
               )
             })

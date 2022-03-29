@@ -59,7 +59,6 @@ const handleClickUpload = () => {
 
     if (props.content !== '') {
       setFileUploadMsg('Din fil är uppladdad.');
-      // console.log("Din fil är uppladdad.", contentString);
     
       //uploadBtn inactive if file is already uploaded
       document.getElementById('uploadBtn').classList.remove('btn-secondary-reverse');
@@ -76,7 +75,7 @@ const handleClickUpload = () => {
 
   return (
     <>
-    {/* { isLoadingStep ? <Loader /> : */}
+    {/* { isLoadingStep ? <Loader /> : */} 
       <div id='tinyEditorWrapper' className='my-6'>
         {isToolBar ? 
           <Editor
@@ -119,3 +118,4 @@ const handleClickUpload = () => {
 //handle ie replace() or similar for åäö etc in tinyMCE
 //show disable btns if textarea is filled but then empty again
 //when printing tinyEditor - check if data in db exists - if true -> print saved ex logo, bg, text?
+//decide if remove or comment back loader
