@@ -19,8 +19,13 @@ export default function StepBackground(props) {
         setContent={props.setContent}
         toolBarOptions={props.toolBarOptions}
         setToolBarOptions={props.setToolBarOptions}
+        setIsNextBtnActive={props.setIsNextBtnActive}
       />
-      <Footer linkPath={props.linkPath} /> 
+      <Footer 
+        linkPath={props.linkPath} 
+        isNextBtnActive={props.isNextBtnActive}
+        setIsNextBtnActive={props.setIsNextBtnActive}
+      /> 
     </div>
   )
 };

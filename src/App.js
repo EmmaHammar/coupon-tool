@@ -3,7 +3,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  // useNavigate,
+  Redirect,
 } from "react-router-dom";
 
 import Loader from './components/Loader';
@@ -28,6 +28,9 @@ export default function App() {
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
+  const [isNextBtnActive, setIsNextBtnActive] = useState(false);
+
+  const [errorMsg, setErrorMsg] = useState('');
 
   const account = {
     accountId: 'accountId1',
@@ -43,31 +46,41 @@ export default function App() {
   });
 
   //click Save/NextBtn in Footer.js, this function is in Context:
-  //TODO fix so no fetch to db if style disabled btn
   const saveClick = () => {
+    
 
-    //if prodStep:
-    if (linkPath === '/steg5') {
-      console.log("addPickedProd", pickedProd);
+  //Only save to db if content is correctly filled
+    if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
+      // console.log("visa errorMsg");
+      setErrorMsg('Du måste lägga till innehåll för att kunna gå till nästa steg.'); //TODO Empty ERRORWRAPPER when onClick on page or go to next page
+      
+    } else {
+      console.log("spara i db");
+      
+      //if prodStep:
+      if (linkPath === '/steg5') {
+        console.log("addPickedProd", pickedProd);
 
-      let prodObj = {
-        'couponId': account.pickedCouponId, 
-         'prodId': pickedProd.prodId,
-         'prodImg': pickedProd.prodImg,
-         'codeLink': pickedProd.codeLink,
-         'terms': pickedProd.terms
-      };     
-      UpdateCoupon(prodObj); //update db with pickedProd
-
-    } else { //if all other step (logo, bg, text):
-        console.log("gör som vanligt");
-        let newCouponObj = {
+        let prodObj = {
           'couponId': account.pickedCouponId, 
-          [currentStep] : content
+          'prodId': pickedProd.prodId,
+          'prodImg': pickedProd.prodImg,
+          'codeLink': pickedProd.codeLink,
+          'terms': pickedProd.terms
         };     
+        UpdateCoupon(prodObj); //update db with pickedProd
 
-        UpdateCoupon(newCouponObj); //update db with coupon logo, bg or text
+      } else { //if all other step (logo, bg, text):
+          let newCouponObj = {
+            'couponId': account.pickedCouponId, 
+            [currentStep] : content
+          };     
+
+          UpdateCoupon(newCouponObj); //update db with coupon logo, bg or text
+      };
+
     };
+  
   }; 
 
   return (
@@ -94,6 +107,8 @@ export default function App() {
                             setLinkPath={setLinkPath}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
+                            isNextBtnActive={isNextBtnActive}
+                            setIsNextBtnActive={setIsNextBtnActive}
                           />
                         }>
                       </Route>
@@ -110,6 +125,8 @@ export default function App() {
                             setLinkPath={setLinkPath}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
+                            isNextBtnActive={isNextBtnActive}
+                            setIsNextBtnActive={setIsNextBtnActive}
                           />
                         }>
                       </Route>
@@ -126,6 +143,8 @@ export default function App() {
                             setLinkPath={setLinkPath}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
+                            isNextBtnActive={isNextBtnActive}
+                            setIsNextBtnActive={setIsNextBtnActive}
                           />
                         }>
                       </Route>
@@ -142,6 +161,8 @@ export default function App() {
                           setLinkPath={setLinkPath}
                           pickedProd={pickedProd}
                           setPickedProd={setPickedProd}
+                          isNextBtnActive={isNextBtnActive}
+                          setIsNextBtnActive={setIsNextBtnActive}
                           />
                         }>
 
@@ -162,6 +183,11 @@ export default function App() {
                       <Route exact path='*' element={<NotFound />}></Route>
                     </Routes>
                   </SaveContext.Provider>
+
+                  <div id='errorWrapper'>
+                    <p>{errorMsg}</p>
+                  </div>
+
                 </div>
               </main>
             </div>

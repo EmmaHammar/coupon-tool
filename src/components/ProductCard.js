@@ -30,6 +30,9 @@ export default function ProductCard(props) {
       //enable nextBtn if picked prod
       document.getElementById('nextBtn').classList.remove('btn-primary-inactive');
       document.getElementById('nextBtn').classList.add('btn-primary');
+
+      //nextBtn onClick show next step
+      props.setIsNextBtnActive(true);
     };
 
     return (

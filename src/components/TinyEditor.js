@@ -22,56 +22,18 @@ useEffect( () => {
   }, 500);
 });
 
-//TODO: every change in editor, keydown?
+
+//check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
+
+  if (editorRef.current.getContent() === '') {
+    props.setIsNextBtnActive(false);
+  } else {
+    props.setIsNextBtnActive(true);
+
+  }
 };
-
-//TODO: only first change? TODO make uploadBtn + nextBtn inactive if textArea is empty 
-const changeEditor = () => {
-
-  //TODO move to app? 
-  //only show uploadBtn if imgs
-  
-    if (props.currentStep === 'text') {
-      setShowUploadBtn(false);
-  
-      //nextBtn active if added text
-      document.getElementById('nextBtn').classList.remove('btn-primary-inactive');
-      document.getElementById('nextBtn').classList.add('btn-primary');
-  
-    } else {
-      setShowUploadBtn(true);
-        //uploadBtn active if change in editor (i.e. upload new file a second time)
-    document.getElementById('uploadBtn').classList.remove('btn-primary-inactive');
-    document.getElementById('uploadBtn').classList.add('btn-secondary-reverse');
-  
-      //nextBtn inactive if change in editor (need to upload the new file before click nextBtn)
-    document.getElementById('nextBtn').classList.remove('btn-primary');
-    document.getElementById('nextBtn').classList.add('btn-primary-inactive');
-    }
-    // setShowUploadBtn(true);
-    setFileUploadMsg('');
-};
-
-const handleClickUpload = () => {
-    setIsPicked(true);
-
-    if (props.content !== '') {
-      setFileUploadMsg('Din fil är uppladdad.');
-    
-      //uploadBtn inactive if file is already uploaded
-      document.getElementById('uploadBtn').classList.remove('btn-secondary-reverse');
-      document.getElementById('uploadBtn').classList.add('btn-primary-inactive');
-      
-      //nextBtn active if file is uploaded
-      document.getElementById('nextBtn').classList.remove('btn-primary-inactive');
-      document.getElementById('nextBtn').classList.add('btn-primary');
-        
-    } else {
-      setFileUploadMsg('Du behöver välja en logga först.');
-    };
-}; 
 
   return (
     <>
@@ -93,20 +55,9 @@ const handleClickUpload = () => {
                 toolbar: `${ props.toolBarOptions }`,
                 content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer;}',
               }}
-              onChange={changeEditor}
               onEditorChange={onEditorChange}
             />
             : ''}    
-
-            {showUploadBtn ? 
-              <button id='uploadBtn' className='btn btn-secondary-reverse mt-4' onClick={handleClickUpload}>LADDA UPP</button>
-            : ''}
-          
-            {isPicked ? 
-            <div>
-              <h4>{fileUploadMsg}</h4>
-            </div>
-            : ''}
         </div>
       {/* } */}
     </>
@@ -116,6 +67,5 @@ const handleClickUpload = () => {
 //TODO 
 //remove p tag wrapper
 //handle ie replace() or similar for åäö etc in tinyMCE
-//show disable btns if textarea is filled but then empty again
 //when printing tinyEditor - check if data in db exists - if true -> print saved ex logo, bg, text?
 //decide if remove or comment back loader

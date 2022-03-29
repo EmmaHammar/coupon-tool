@@ -38,13 +38,19 @@ export default function StepProduct(props) {
                   codeLink={product.codeLink}
                   key={index}
                   setPickedProd={props.setPickedProd}
+                  setIsNextBtnActive={props.setIsNextBtnActive}
+
                 /> 
               )
             })
           }
         </div>
       </div>
-      <Footer linkPath={props.linkPath} /> 
+      <Footer 
+        linkPath={props.linkPath} 
+        isNextBtnActive={props.isNextBtnActive}
+        setIsNextBtnActive={props.setIsNextBtnActive}
+      /> 
     </>
   )
 };

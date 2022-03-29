@@ -5,6 +5,8 @@ import { AccountContext } from '../App';
 import Footer from './Footer';
 
 export default function StepLogo(props) {
+  // const [isNextBtnActive, setIsNextBtnActive] = useState(false);
+
   useEffect( () => {
     props.setCurrentStep('logo');
     props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
@@ -24,10 +26,13 @@ export default function StepLogo(props) {
                 setContent={props.setContent}
                 toolBarOptions={props.toolBarOptions}
                 setToolBarOptions={props.setToolBarOptions}
+                setIsNextBtnActive={props.setIsNextBtnActive}
               />
           </div>
           <Footer 
             linkPath={props.linkPath} 
+            isNextBtnActive={props.isNextBtnActive}
+            setIsNextBtnActive={props.setIsNextBtnActive}
           /> 
         </>
       }
