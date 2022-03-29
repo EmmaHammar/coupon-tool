@@ -20,7 +20,6 @@ export default function StepText(props) {
         toolBarOptions={props.toolBarOptions}
         setToolBarOptions={props.setToolBarOptions}
         setIsNextBtnActive={props.setIsNextBtnActive}
-
       />
       <Footer 
         linkPath={props.linkPath} 
@@ -30,3 +29,5 @@ export default function StepText(props) {
     </div>
   )
 };
+
+//TODO???TEST move TinyEditor to App.js?

@@ -4,6 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 export default function TinyEditor(props) {
 
+  //TODO clean states!!
 const editorRef = useRef(null);
 const [isPicked, setIsPicked] = useState(false); //clickUpload
 const [fileUploadMsg, setFileUploadMsg] = useState('');
@@ -26,6 +27,11 @@ useEffect( () => {
 //check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
+  console.log("remove errorMsg?");
+  document.getElementById('errorMsg').innerHTML = '';
+
+  // props.setErrorMsg(''); //TODO error caught in promise....
+  
 
   if (editorRef.current.getContent() === '') {
     props.setIsNextBtnActive(false);

@@ -30,8 +30,6 @@ export default function App() {
   const [pickedProd, setPickedProd] = useState({});
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
 
-  const [errorMsg, setErrorMsg] = useState('');
-
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
@@ -52,7 +50,8 @@ export default function App() {
   //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
       // console.log("visa errorMsg");
-      setErrorMsg('Du måste lägga till innehåll för att kunna gå till nästa steg.'); //TODO Empty ERRORWRAPPER when onClick on page or go to next page
+      document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
+      // setErrorMsg('Du måste lägga till innehåll för att kunna gå till nästa steg.'); //TODO Empty ERRORWRAPPER when onClick on page or go to next page
       
     } else {
       console.log("spara i db");
@@ -185,7 +184,7 @@ export default function App() {
                   </SaveContext.Provider>
 
                   <div id='errorWrapper'>
-                    <p>{errorMsg}</p>
+                    <p id='errorMsg'></p>
                   </div>
 
                 </div>
