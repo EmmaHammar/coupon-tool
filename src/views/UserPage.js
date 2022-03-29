@@ -6,7 +6,7 @@ export default function UserPage() {
   const navigate = useNavigate(); 
     
   const handleClick = () => {
-    console.log("visa");
+    // console.log("visa");
     navigate('/steg1');
   }
   return (

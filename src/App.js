@@ -49,17 +49,11 @@ export default function App() {
 
   //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
-      // console.log("visa errorMsg");
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
-      // setErrorMsg('Du måste lägga till innehåll för att kunna gå till nästa steg.'); //TODO Empty ERRORWRAPPER when onClick on page or go to next page
       
-    } else {
-      console.log("spara i db");
-      
+    } else {      
       //if prodStep:
       if (linkPath === '/steg5') {
-        console.log("addPickedProd", pickedProd);
-
         let prodObj = {
           'couponId': account.pickedCouponId, 
           'prodId': pickedProd.prodId,

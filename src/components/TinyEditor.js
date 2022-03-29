@@ -27,17 +27,13 @@ useEffect( () => {
 //check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
-  console.log("remove errorMsg?");
-  document.getElementById('errorMsg').innerHTML = '';
-
-  // props.setErrorMsg(''); //TODO error caught in promise....
-  
+ 
+  document.getElementById('errorMsg').innerHTML = ''; //empty errorMsg
 
   if (editorRef.current.getContent() === '') {
     props.setIsNextBtnActive(false);
   } else {
     props.setIsNextBtnActive(true);
-
   }
 };
 
