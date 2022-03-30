@@ -7,6 +7,7 @@ export default function StepProduct(props) {
   const [productList, setProductList] = useState([]);
   
   useEffect( () => {
+    props.setShowPreview(false);
     //get all products from db
     GetProducts( (products) => {
       setProductList(products);
@@ -38,6 +39,7 @@ export default function StepProduct(props) {
                   key={index}
                   setPickedProd={props.setPickedProd}
                   setIsNextBtnActive={props.setIsNextBtnActive}
+                  setShowPreview={props.setShowPreview}
                 /> 
               )
             })

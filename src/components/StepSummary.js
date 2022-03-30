@@ -6,11 +6,12 @@ export default function StepSummary(props) {
   const [stepType, setStepType] = useState('summary');
 
   useEffect( () => {
+    props.setShowPreview(true);
     props.setCurrentStep(stepType);
     //back to userPage start
     props.setLinkPath('/'); //send linkPath to Footer.js so nextBtn navigate to next step
-
   });
+  
   return (
     <div id='stepSummaryWrapper' className='outline'>
     <h4>5. Såhär kommer ditt kupongerbjudande att se ut.</h4>

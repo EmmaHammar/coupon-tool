@@ -3,6 +3,7 @@ import TinyEditor from './TinyEditor';
 
 export default function StepBackground(props) {
   useEffect( () => {
+    props.setShowPreview(true);
     props.setCurrentStep('background');
     props.setLinkPath('/steg3'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setToolBarOptions(`undo redo | image | help`);

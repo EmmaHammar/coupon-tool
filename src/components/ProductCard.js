@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function ProductCard(props) {
     const handleClick = (evt) => {
+      props.setShowPreview(true);
+      
       let pickedProdObj = {
         'prodId': props.prodId,
         'prodImg': props.prodImgLink,

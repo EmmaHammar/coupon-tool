@@ -7,6 +7,7 @@ export default function StepLogo(props) {
   // const [isNextBtnActive, setIsNextBtnActive] = useState(false);
 
   useEffect( () => {
+    props.setShowPreview(true);
     props.setCurrentStep('logo');
     props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setToolBarOptions(`undo redo | image | alignleft aligncenter alignright | help`);

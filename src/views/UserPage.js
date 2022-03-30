@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AccountContext } from '../App';
 
-export default function UserPage() {
+export default function UserPage(props) {
+  useEffect( () => {
+    props.setShowPreview(false);
+  });
+
   const navigate = useNavigate(); 
     
   const handleClick = () => {

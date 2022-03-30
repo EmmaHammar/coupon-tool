@@ -30,6 +30,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const account = {
     accountId: 'accountId1',
@@ -64,6 +65,8 @@ export default function App() {
         };     
         UpdateCoupon(prodObj); //update db with pickedProd
 
+        
+
       } else { //if all other step (logo, bg, text):
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
@@ -90,7 +93,11 @@ export default function App() {
                 <div id='userPageWrapper' className='mb-20 md:mb-24'>
                   {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
-                      <Route exact path='/' element={<UserPage />}></Route>
+                      <Route exact path='/' element={
+                        <UserPage 
+                          setShowPreview={setShowPreview}
+                        />}>
+                      </Route>
                       <Route 
                         exact path='/steg1' 
                         element= { 
@@ -105,6 +112,7 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+                            setShowPreview={setShowPreview}
                           />
                         }>
                       </Route>
@@ -123,6 +131,7 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+                            setShowPreview={setShowPreview}
                           />
                         }>
                       </Route>
@@ -141,6 +150,7 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+                            setShowPreview={setShowPreview}
                           />
                         }>
                       </Route>
@@ -159,6 +169,7 @@ export default function App() {
                           setPickedProd={setPickedProd}
                           isNextBtnActive={isNextBtnActive}
                           setIsNextBtnActive={setIsNextBtnActive}
+                          setShowPreview={setShowPreview}
                           />
                         }>
 
@@ -172,11 +183,16 @@ export default function App() {
                           setContent={setContent}
                           linkPath={linkPath}
                           setLinkPath={setLinkPath}
+                          setShowPreview={setShowPreview}
                         />
                       }>
 
                       </Route>
-                      <Route exact path='*' element={<NotFound />}></Route>
+                      <Route exact path='*' element={
+                        <NotFound 
+                          setShowPreview={setShowPreview}
+                        />}>
+                      </Route>
                     </Routes>
                   {/* </SaveContext.Provider> */}
                   <div id='errorWrapper'>
@@ -184,9 +200,12 @@ export default function App() {
                   </div>
 
                 </div>
-                <div className='w-screen md:w-5/12 xl:max-w-xl bg-yellow-100'>
+                {
+                  showPreview ? <div className='w-screen md:w-5/12 xl:max-w-xl bg-yellow-100'>
                   Förhandsvisning:
-                </div>
+                </div> : ''
+                }
+                
               </main>
               <Footer 
                 linkPath={linkPath} 
@@ -255,3 +274,9 @@ export default function App() {
 //               'bold italic backcolor | alignleft aligncenter ' +
 //               'alignright alignjustify | image | ' +
 //               'help',
+
+
+
+//PREVIEW
+//useEffect - get from db -> print 
+//editorChange -> change in preview

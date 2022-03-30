@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function NotFound() {
+export default function NotFound(props) {
+  useEffect( () => {
+    props.setShowPreview(false);
+  });
+
   return (
     <>
-      <div id="notFoundWrapper" className='flex flex-col justify-center items-center h-72'>
+      <div id="notFoundWrapper" className='flex flex-col justify-center items-center h-72 bg-pink-50'>
         <h4 className='my-6'>Oj då, denna sida kan inte hittas...</h4>
         <Link to='/'> 
           <button className='btn btn-secondary-reverse'>Besök startsidan</button>
