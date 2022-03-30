@@ -8,7 +8,7 @@ export default function NotFound(props) {
 
   return (
     <>
-      <div id="notFoundWrapper" className='flex flex-col justify-center items-center h-72 bg-pink-50'>
+      <div id="notFoundWrapper" className='flex flex-col justify-center items-center h-72'>
         <h4 className='my-6'>Oj då, denna sida kan inte hittas...</h4>
         <Link to='/'> 
           <button className='btn btn-secondary-reverse'>Besök startsidan</button>

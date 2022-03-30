@@ -5,6 +5,6 @@ function GetProducts(cb) {
     .then(products => {
         cb(products); //GetProducts() is cb in StepProduct.js
     });
-}
+};
 
 export default GetProducts;

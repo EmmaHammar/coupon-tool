@@ -8,6 +8,7 @@ export default function StepProduct(props) {
   
   useEffect( () => {
     props.setShowPreview(false);
+    
     //get all products from db
     GetProducts( (products) => {
       setProductList(products);
