@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Loader from './Loader';
+// import Loader from './Loader';
 import TinyEditor from './TinyEditor';
-import { AccountContext } from '../App';
-import Footer from './Footer';
+// import { AccountContext } from '../App';
 
 export default function StepLogo(props) {
   // const [isNextBtnActive, setIsNextBtnActive] = useState(false);
@@ -14,8 +13,8 @@ export default function StepLogo(props) {
   });
 
   return (
-    <AccountContext.Consumer>
-      { account => 
+    // <AccountContext.Consumer>
+      // { account => 
         <>
           <div id='stepLogoWrapper' className=''>
             <h3>StepLogo: Woho, nu är du igång att skapa ditt digitala kupongerbjudande!</h3>
@@ -29,14 +28,9 @@ export default function StepLogo(props) {
                 setIsNextBtnActive={props.setIsNextBtnActive}
               />
           </div>
-          <Footer 
-            linkPath={props.linkPath} 
-            isNextBtnActive={props.isNextBtnActive}
-            setIsNextBtnActive={props.setIsNextBtnActive}
-          /> 
         </>
-      }
-    </AccountContext.Consumer>
+      // }
+    // </AccountContext.Consumer>
   )
 };
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import TinyEditor from './TinyEditor';
-import Footer from './Footer';
 
 export default function StepText(props) {
   useEffect( () => {
@@ -21,11 +20,6 @@ export default function StepText(props) {
         setToolBarOptions={props.setToolBarOptions}
         setIsNextBtnActive={props.setIsNextBtnActive}
       />
-      <Footer 
-        linkPath={props.linkPath} 
-        isNextBtnActive={props.isNextBtnActive}
-        setIsNextBtnActive={props.setIsNextBtnActive}
-      /> 
     </div>
   )
 };

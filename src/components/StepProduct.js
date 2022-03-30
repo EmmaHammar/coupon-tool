@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import GetProducts from '../services/GetProducts';
-import Footer from './Footer';
 
 export default function StepProduct(props) {
   const [stepType, setStepType] = useState('product');
@@ -46,11 +45,6 @@ export default function StepProduct(props) {
           }
         </div>
       </div>
-      <Footer 
-        linkPath={props.linkPath} 
-        isNextBtnActive={props.isNextBtnActive}
-        setIsNextBtnActive={props.setIsNextBtnActive}
-      /> 
     </>
   )
 };

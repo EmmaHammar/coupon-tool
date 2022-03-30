@@ -16,10 +16,11 @@ import StepText from './components/StepText';
 import StepProduct from './components/StepProduct';
 import StepSummary from './components/StepSummary';
 import UpdateCoupon from './services/UpdateCoupon';
+import Footer from './components/Footer';
 
 //global state TODO: move to separate file if have time
 export const AccountContext = React.createContext();
-export const SaveContext = React.createContext();
+// export const SaveContext = React.createContext();
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState('');
@@ -45,7 +46,7 @@ export default function App() {
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = () => {
-    
+    console.log("saveClick funkar");
 
   //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
@@ -81,11 +82,11 @@ export default function App() {
 
         <AccountContext.Provider value={ account }>
           { isLoading ? <Loader /> : 
-            <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>          
+            <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24 h-5/6'>          
               <Header currentStep={currentStep}/> 
               <main>
                 <div id='userPageWrapper' className='mt-6 mb-20 md:mt-10 md:mb-24'>
-                  <SaveContext.Provider value={saveClick}>
+                  {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
                       <Route exact path='/' element={<UserPage />}></Route>
                       <Route 
@@ -175,7 +176,7 @@ export default function App() {
                       </Route>
                       <Route exact path='*' element={<NotFound />}></Route>
                     </Routes>
-                  </SaveContext.Provider>
+                  {/* </SaveContext.Provider> */}
 
                   <div id='errorWrapper'>
                     <p id='errorMsg'></p>
@@ -183,6 +184,12 @@ export default function App() {
 
                 </div>
               </main>
+              <Footer 
+                linkPath={linkPath} 
+                isNextBtnActive={isNextBtnActive}
+                setIsNextBtnActive={setIsNextBtnActive}
+                saveClick={saveClick}
+              /> 
             </div>
           }
         </AccountContext.Provider>
