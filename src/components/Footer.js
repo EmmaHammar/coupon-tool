@@ -7,9 +7,9 @@ export default function Footer(props) {
   return (
     // <SaveContext.Consumer>
       // { saveClick => 
-        <footer id='navFooter' className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10'>
-          <div className='flex justify-between items-baseline'>
-            <button id='backBtn' className='btn btn-primary-reverse mt-4'>TILLBAKA</button>
+        <footer id='navFooter' className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10 flex justify-between items-center'>
+          {/* <div className=''> */}
+            <button id='backBtn' className='btn btn-primary-reverse'>TILLBAKA</button>
             {
             props.isNextBtnActive ? 
               <Link to={props.linkPath}> 
@@ -17,9 +17,6 @@ export default function Footer(props) {
               </Link>
             : <button id='nextBtn' className='btn btn-primary-inactive' onClick={props.saveClick}>{nextBtnText}</button>
             }
-
-          </div>
-            
         </footer>
       // }
     // </SaveContext.Consumer>   
