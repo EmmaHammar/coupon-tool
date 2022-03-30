@@ -21,8 +21,8 @@ export default function StepProduct(props) {
     <>
       <div id='stepProductWrapper' className=''>
         <h4>4. Välj vilka produkter du vill skicka.</h4>
-        <p>Via en QR-kod kan mottagaren hämta produkten på Pressbyrån eller 7Eleven.</p>
-        <div id="prodCardWrapper" className='mt-6 flex'>
+        <p>Varje produkt har en unik kod som mottagaren scannar i butik.</p>
+        <div id="prodCardWrapper" className='mt-6 flex flex-row flex-wrap gap-4'>
           {
             productList.map( (product, index) => {
               return (
@@ -38,7 +38,6 @@ export default function StepProduct(props) {
                   key={index}
                   setPickedProd={props.setPickedProd}
                   setIsNextBtnActive={props.setIsNextBtnActive}
-
                 /> 
               )
             })

@@ -36,10 +36,12 @@ export default function ProductCard(props) {
     };
 
     return (
-      <div className='w-48'>
-          <img src={props.prodImgLink} alt={props.prodImgAltText} className='w-48'></img>
-          <div className='bg-blue'>
-              <h4 className='text-creme'>{props.prodHeading}</h4>
+      <div className='w-48 bg-pink-100 flex flex-col justify-between outline'>
+          <div id='prodImgWrapper' className='bg-yellow-50'>
+            <img src={props.prodImgLink} alt={props.prodImgAltText} className='object-cover h-48 w-48'></img>
+          </div>
+          <div className='bg-blue flex flex-col justify-between gap-y-2 pt-2 h-40 md:h-48 p-2'>
+              <h5 className='text-creme'>{props.prodHeading}</h5>
               <p className='text-creme'>{props.prodDescription}</p>
               <p className='text-creme'>Pris: {props.prodPrice}</p>
               <button id={props.prodId} className='btn btn-secondary' onClick={handleClick}>LÄGG TILL</button>

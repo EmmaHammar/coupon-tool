@@ -9,9 +9,9 @@ export default function StepText(props) {
   });
   
   return (
-    <div id='stepTextWrapper' className='outline'>
-      <h4>3. Skriv en personlig hälsning</h4>
-      <p>Här skriver du rubrik och brödtext:</p>
+    <div id='stepTextWrapper' className=''>
+      <h4>3. Skriv en personlig hälsning.</h4>
+      <p>Här väljer du också formateringen på rubrik och brödtext. </p>
       <TinyEditor 
         currentStep={props.currentStep}
         content={props.content}

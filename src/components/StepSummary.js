@@ -13,8 +13,8 @@ export default function StepSummary(props) {
   });
   return (
     <div id='stepSummaryWrapper' className='outline'>
-    <h4>5. Såhär kommer ditt kupongerbjudande att se ut</h4>
-    <p>Mottagaren får ett SMS med en länk som visar denna kupong:</p>
+    <h4>5. Såhär kommer ditt kupongerbjudande att se ut.</h4>
+    <p>Mottagaren får ett SMS med en länk som går till kupongerbjudandet.</p>
     {/* <TinyEditor stepType={ stepType }/> */}
     <Footer 
       linkPath={props.linkPath} 

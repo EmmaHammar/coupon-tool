@@ -85,9 +85,9 @@ export default function App() {
             <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>          
               <Header currentStep={currentStep}/> 
 
-              <main className='h-5/6 flex flex-row flex-wrap	justify-center gap-x-14 items-start bg-pink-500 pt-6 md:pt-10'>
+              <main className='h-5/6 flex flex-row flex-wrap justify-between lg:justify-around gap-x-4 items-start bg-pink-500 pt-6 md:pt-10'>
 
-                <div id='userPageWrapper' className='mb-20 md:mb-24 bg-green-100 w-screen md:w-7/12 xl:max-w-xl'>
+                <div id='userPageWrapper' className='mb-20 md:mb-24 bg-pink-100'>
                   {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
                       <Route exact path='/' element={<UserPage />}></Route>

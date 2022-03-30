@@ -9,9 +9,11 @@ export default function StepBackground(props) {
   });
 
   return (
-    <div id='stepBackgroundWrapper' className='outline'>
-      <h4>2. Välj vad du vill ha som bakgrundsbild. </h4>
-      <p>Ladda upp en bakgrundsbild.</p>
+    <div id='stepBackgroundWrapper' className=''>
+      <h4>2. Ladda upp din bakgrundsbild. </h4>
+      <p>Välj bland dina filer samt justera storleken genom att dra i hörnen.</p>
+
+      {/* <p>Ladda upp en bakgrundsbild.</p> */}
       <TinyEditor 
         currentStep={props.currentStep}
         content={props.content} 

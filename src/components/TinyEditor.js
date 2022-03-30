@@ -47,7 +47,8 @@ const onEditorChange = () => {
               onInit={(evt, editor) => editorRef.current = editor}
               initialValue="<p></p>"
               init={{
-                height: 300,
+                height: 200,
+                width: 348,
                 menubar: false,
                 plugins: [
                   'advlist autolink lists image charmap print preview',

@@ -17,8 +17,9 @@ export default function StepLogo(props) {
       // { account => 
         <>
           <div id='stepLogoWrapper' className=''>
-            <h3>StepLogo: Woho, nu är du igång att skapa ditt digitala kupongerbjudande!</h3>
+            {/* <h3>StepLogo: Woho, nu är du igång att skapa ditt digitala kupongerbjudande!</h3> */}
             <h4>1. Börja med att ladda upp din företagslogga.</h4>
+            <p>Välj bland dina filer samt justera storleken genom att dra i hörnen.</p>
               <TinyEditor 
                 currentStep={props.currentStep}
                 content={props.content} 

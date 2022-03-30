@@ -22,7 +22,6 @@
         @apply text-sm
         md:text-base
         xl:text-lg;
-
     }
     h4 {
         @apply text-lg
@@ -31,10 +30,12 @@
     }
     h5 {
         @apply text-base
-        md:text-2xl;
+        font-bold
+        md:text-lg;
     }
     p {
-        @apply text-xl;
+        @apply text-sm
+        md:text-base;
     }
 }
 
