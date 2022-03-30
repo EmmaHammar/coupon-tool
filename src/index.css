@@ -46,7 +46,7 @@
     }
 
     .btn {
-        @apply text-sm
+        @apply text-xs
         md:text-base
         font-bold
         border-2
@@ -103,13 +103,14 @@
 
     .nav-menu-item {
         @apply
-        hover:underline 
+        hover:bg-mint 
+        hover:text-blue
         decoration-4
     }
 
     .picked-step {
         @apply bg-mint
-        p-1
-        px-2
+        text-blue
+        md:p-1
     }
 }

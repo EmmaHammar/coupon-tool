@@ -53,22 +53,22 @@ export default function Header(props) {
         </div>
         <div className='lg:flex justify-start mt-4'>
             <h2 className='lg:w-2/5'>Glasskupong mars 2022</h2>
-            <nav className='justify-between lg:w-3/5 flex flex-wrap'>
+            <nav className='justify-between items-center lg:w-3/5 flex flex-wrap bg-blue text-mint md:px-2'>
                 <Link to='/steg1'>
-                  <h3 id='nav-logo' className='nav-menu-item'>LOGGA</h3>
+                  <h3 id='nav-logo' className='nav-menu-item'>Logga</h3>
                 </Link>
                 <Link to='/steg2'>
                   <h3 id='nav-background' 
-                  className='nav-menu-item'>BAKGRUND</h3>
+                  className='nav-menu-item'>Bakgrund</h3>
                 </Link>
                 <Link to='/steg3'>
-                  <h3 id='nav-text' className='nav-menu-item'>DIN HÄLSNING</h3>
+                  <h3 id='nav-text' className='nav-menu-item'>Din hälsning</h3>
                 </Link>
                 <Link to='/steg4'>
-                  <h3 id='nav-product' className='nav-menu-item'>VÄLJ PRODUKT</h3>
+                  <h3 id='nav-product' className='nav-menu-item'>Välj produkt</h3>
                 </Link>
                 <Link to='/steg5'>
-                  <h3 id='nav-summary' className='nav-menu-item'>SUMMERING</h3>
+                  <h3 id='nav-summary' className='nav-menu-item'>Summering</h3>
                 </Link>
             </nav>
         </div>

@@ -82,12 +82,12 @@ export default function App() {
 
         <AccountContext.Provider value={ account }>
           { isLoading ? <Loader /> : 
-            <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24'>          
+            <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mt-10 md:mb-24 text-blue'>          
               <Header currentStep={currentStep}/> 
 
-              <main className='h-5/6 flex flex-row flex-wrap justify-between lg:justify-around gap-x-4 items-start bg-pink-500 pt-6 md:pt-10'>
+              <main className='h-5/6 flex flex-row flex-wrap justify-between lg:justify-around gap-x-4 items-start pt-6 md:pt-10'>
 
-                <div id='userPageWrapper' className='mb-20 md:mb-24 bg-pink-100'>
+                <div id='userPageWrapper' className='mb-20 md:mb-24'>
                   {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
                       <Route exact path='/' element={<UserPage />}></Route>
