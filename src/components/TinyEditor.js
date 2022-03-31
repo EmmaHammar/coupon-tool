@@ -38,22 +38,6 @@ const onEditorChange = () => {
   }
 };
 
-var element = document.querySelector('[aria-label="Bakgrundsfärg"]');
-console.log("element", element);
-if (element !== null) {
-  element.addEventListener('click', function(evt) {
-    console.log("evt", evt);
-  });
-}
-
-
-
-// let btns = document.getElementsByClassName('tox-toolbar__group');
-// console.log(btns);
-// for (let btn in btns) {
-//   console.log("btn?", btns[btn] );
-// }
-
   return (
     <>
     {/* { isLoadingStep ? <Loader /> : */} 
@@ -89,19 +73,8 @@ if (element !== null) {
                 ],
                 toolbar: `${ props.toolBarOptions }`,
 
-                // setup: function (editor) {
-                //   editor.addButton(`${ 'myBtn' }`, {
-                //     text: 'Bakgrundsfärg',
-                //     onClick: function () {
-                //       alert('Button clicked!');
-                //     }
-                //   });
-                // },
-                
-
-                content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer; border: 2px solid red;}', //TODO change style 
+                content_style: 'body { font-family:Helvetica neue,sans-serif; font-size:14px; cursor:pointer;}img {max-width: 100px;}', //TODO change style 
                 // content_css: '../tinyEditor.css',
-                // content_style: 'body { background-color: #F00}',
               }}
               onEditorChange={onEditorChange}
             />

@@ -114,5 +114,26 @@
         md:p-1
     } 
     
+    .previewHeader {
+        @apply h-12
+        bg-gray-300
+        rounded-t-3xl
+    }
 
+    .previewMain {
+        @apply overflow-x-auto 
+        h-[462px]
+        
+    }
+
+    .couponTerms {
+        @apply p-2
+        text-sm
+    }
+
+    .previewFooter {
+        @apply h-12
+        bg-gray-300
+        rounded-b-3xl
+    }
 }

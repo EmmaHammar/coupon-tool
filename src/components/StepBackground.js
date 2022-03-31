@@ -3,17 +3,18 @@ import TinyEditor from './TinyEditor';
 
 export default function StepBackground(props) {
   useEffect( () => {
-    props.setShowPreview(true);
+    // props.setShowPreview(true);
     props.setCurrentStep('background');
     props.setLinkPath('/steg3'); //send linkPath to Footer.js so nextBtn navigate to next step
     // props.setToolBarOptions(`undo redo | image | help`);
-    props.setToolBarOptions(`undo redo | backcolor`);
+    props.setToolBarOptions(`undo redo`);
+    // props.setToolBarOptions(`undo redo | backcolor`);
   });
 
   return (
     <div id='stepBackgroundWrapper' className=''>
-      <h4>2. Ladda upp din bakgrundsbild. </h4>
-      <p>Välj bland dina filer samt justera storleken genom att dra i hörnen.</p>
+      <h4>2. Välj bakgrundsfärg. </h4>
+      <p>Ange färgen i hex, ex: #00FFFF</p>
 
       {/* <p>Ladda upp en bakgrundsbild.</p> */}
       <TinyEditor 
