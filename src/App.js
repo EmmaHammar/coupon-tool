@@ -89,7 +89,7 @@ export default function App() {
             <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mb-24 text-blue'>          
               <Header currentStep={currentStep}/> 
 
-              <main className='h-5/6 flex flex-row flex-wrap justify-around lg:justify-around gap-x-4 items-start pt-6 md:pt-10 bg-pink-50'>
+              <main className='h-5/6 flex flex-row flex-wrap justify-around lg:justify-around gap-x-4 items-start pt-6 md:pt-10'>
 
                 <div id='userPageWrapper' className='mb-10'>
                   {/* <SaveContext.Provider value={saveClick}> */}

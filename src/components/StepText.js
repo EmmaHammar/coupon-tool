@@ -26,3 +26,5 @@ export default function StepText(props) {
 };
 
 //TODO???TEST move TinyEditor to App.js?
+
+//kom ihåg: TinyMCE 5.10.3 (kanske bättre med 6.0 men då fungerar inte alla false odyl i init)

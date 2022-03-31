@@ -15,7 +15,7 @@ export default function StepLogo(props) {
 
   return (
     // <AccountContext.Consumer>
-      // { account => 
+    //   { account => 
         <>
           <div id='stepLogoWrapper' className=''>
             {/* <h3>StepLogo: Woho, nu är du igång att skapa ditt digitala kupongerbjudande!</h3> */}
