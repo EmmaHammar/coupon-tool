@@ -2,7 +2,6 @@
 function GetCoupon(pickedCouponId, setCoupon) {
     
     fetch(`http://localhost:3001/coupons/${pickedCouponId}`)
-    // let couponData = fetch(`http://localhost:3001/coupons/${pickedCouponId}`)
     // fetch(`https://coupon-tool-backend.herokuapp.com/coupons/${account.pickedCouponId}`)
     .then(response => response.json())
     .then( coupon => {

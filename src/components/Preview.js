@@ -22,19 +22,18 @@ export default function Preview() {
         let couponTemplate = `
           <header id='previewHeader'></header>
           <div id='previewMain'>
-            <div style='background-color:${coupon[0].background}'>
-              <div style='max-width:200px; padding-top:8px;padding-left:8px; margin-bottom:8px; padding-right:8px;'>${coupon[0].logo}</div>
-              <div id='couponText' style='padding-left:8px; padding-bottom:8px; margin-top:20px'>${coupon[0].text}</div>
-              <img id='prodImg' alt='TODO addera fr db' src=${coupon[0].prodImg}></img>
-              <button id='showCodeBtn' style='margin-top:8px;margin-left:8px; margin-bottom:8px;'>Hämta QR-koden</button>
+            <div style='background-color:${coupon[0].background}; display:flex; flex-direction:column; padding:8px;'>
+              <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon[0].logo}</div>
+              <div id='couponText' style='padding-bottom:8px; margin-top:20px'>${coupon[0].text}</div>
+              <img id='prodImg' alt='TODO addera fr db' src=${coupon[0].prodImg} style='margin-bottom:8px;'></img>
+              <button id='showCodeBtn' style='margin-top:8px;'>Visa koden</button>
             </div>
             <p id='couponTerms'>${coupon[0].terms}</p>
           </div>
           <footer id='previewFooter'></footer>
 
         `;
-        // console.log("couponTemplate", couponTemplate);
-        
+  
         //add tailwind class components to element
         document.getElementById('mobileWrapper').innerHTML=couponTemplate;
         document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
