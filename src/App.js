@@ -25,7 +25,7 @@ export const AccountContext = React.createContext();
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState('');
-  const [content, setContent] = useState({}); 
+  const [content, setContent] = useState(''); //TODO change to string?
   const [linkPath, setLinkPath] = useState('');
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +66,8 @@ export default function App() {
         };     
         UpdateCoupon(prodObj); //update db with pickedProd
 
-      } else { //if all other step (logo, bg, text):
+      } 
+      else { //if all other step (logo, bg, text):
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
             [currentStep] : content
