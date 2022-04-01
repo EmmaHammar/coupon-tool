@@ -66,8 +66,6 @@ export default function App() {
         };     
         UpdateCoupon(prodObj); //update db with pickedProd
 
-        
-
       } else { //if all other step (logo, bg, text):
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
