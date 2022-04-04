@@ -1,15 +1,20 @@
-// //can I change state like that, setCoupon? See also Preview.js
-// function GetCoupon(pickedCouponId, setCoupon) {
-    
-//     // fetch(`http://localhost:3001/coupons/${pickedCouponId}`)
-//     fetch(`https://coupon-tool-backend.herokuapp.com/coupons/${pickedCouponId}`)
-//     .then(response => response.json())
-//     .then( coupon => {
+function GetCoupon(cb, info) {
+    // console.log("info i GetCoupon():", info);
 
-//             console.log("Show this coupon in preview:", coupon[0]);
-//             setCoupon(coupon[0]);
-        
-//     });
-// };
+    fetch('http://localhost:3001/coupons/show', {
 
-// export default GetCoupon;
+    // fetch(`https://coupon-tool-backend.herokuapp.com/coupons/show`, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(info)
+    })
+    .then(response => response.json())
+    .then( res => {
+      console.log("Res from CouponsRouter:", res);
+    cb(res);
+    });
+};
+
+export default GetCoupon;

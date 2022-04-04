@@ -6,6 +6,7 @@ export default function StepText(props) {
     // props.setShowPreview(true);
     props.setCurrentStep('text');
     props.setLinkPath('/steg4'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setLinkPathBack('/steg2'); //linkPath for backBtn in Footer
     props.setToolBarOptions(`undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`);
   });
   

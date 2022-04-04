@@ -27,12 +27,15 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState('');
   const [content, setContent] = useState(''); //TODO change to string?
   const [linkPath, setLinkPath] = useState('');
+  const [linkPathBack, setLinkPathBack] = useState('');
+
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
+  const [editorValue, setEditorValue] = useState('');
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
@@ -45,6 +48,7 @@ export default function App() {
       setIsLoading(false)
     }, 1000);
   });
+
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = () => {
@@ -108,11 +112,15 @@ export default function App() {
                             setContent={setContent}
                             linkPath={linkPath}
                             setLinkPath={setLinkPath}
+                            linkPathBack={linkPathBack}
+                            setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
                             setShowPreview={setShowPreview}
+                            editorValue={editorValue}
+                            setEditorValue={setEditorValue}
                           />
                         }>
                       </Route>
@@ -127,11 +135,15 @@ export default function App() {
                             setContent={setContent}
                             linkPath={linkPath}
                             setLinkPath={setLinkPath}
+                            linkPathBack={linkPathBack}
+                            setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
                             setShowPreview={setShowPreview}
+                            editorValue={editorValue}
+                            setEditorValue={setEditorValue}
                           />
                         }>
                       </Route>
@@ -146,6 +158,8 @@ export default function App() {
                             setContent={setContent}
                             linkPath={linkPath}
                             setLinkPath={setLinkPath}
+                            linkPathBack={linkPathBack}
+                            setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
@@ -165,6 +179,8 @@ export default function App() {
                           setContent={setContent}
                           linkPath={linkPath}
                           setLinkPath={setLinkPath}
+                          linkPathBack={linkPathBack}
+                          setLinkPathBack={setLinkPathBack}
                           pickedProd={pickedProd}
                           setPickedProd={setPickedProd}
                           isNextBtnActive={isNextBtnActive}
@@ -181,8 +197,8 @@ export default function App() {
                           setCurrentStep={setCurrentStep}  
                           content={content}
                           setContent={setContent}
-                          linkPath={linkPath}
                           setLinkPath={setLinkPath}
+                          setLinkPathBack={setLinkPathBack}
                           setShowPreview={setShowPreview}
                         />
                       }>
@@ -210,6 +226,7 @@ export default function App() {
                 isNextBtnActive={isNextBtnActive}
                 setIsNextBtnActive={setIsNextBtnActive}
                 saveClick={saveClick}
+                linkPathBack={linkPathBack}
               /> 
             </div>
           }

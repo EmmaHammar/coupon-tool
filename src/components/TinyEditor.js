@@ -46,7 +46,7 @@ const onEditorChange = () => {
           <Editor
               apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
               onInit={(evt, editor) => editorRef.current = editor}
-              initialValue=""
+              initialValue={props.editorValue}
               init={{
 
                 force_br_newlines : true, //don't wrap in p tag
@@ -57,7 +57,6 @@ const onEditorChange = () => {
           
                 language: 'sv_SE',
                 image_dimensions: false, //remove customized widht and height
-                
                 
                 toolbar_mode: 'sliding', //makes toolbar 2 rows when click dots btn if mobile screen
                 theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",

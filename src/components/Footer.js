@@ -9,7 +9,9 @@ export default function Footer(props) {
       // { saveClick => 
         <footer id='navFooter' className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10 flex justify-between items-center'>
           {/* <div className=''> */}
+          <Link to={props.linkPathBack}>
             <button id='backBtn' className='btn btn-primary-reverse'>TILLBAKA</button>
+          </Link>
             {
             props.isNextBtnActive ? 
               <Link to={props.linkPath}> 

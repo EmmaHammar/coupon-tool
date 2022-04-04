@@ -16,6 +16,8 @@ export default function StepProduct(props) {
     props.setCurrentStep(stepType);
 
     props.setLinkPath('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setLinkPathBack('/steg3'); //linkPath for backBtn in Footer
+
   }, []);
 
   //in return, map prodArr and print each prodCard with new return 
