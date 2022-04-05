@@ -105,21 +105,22 @@
         @apply
         text-creme
         decoration-4
+        cursor-not-allowed
     }
 
-    .link-active {
-
-    }
-
-    .step-done {
+    .clickable-step {
         @apply px-2
         text-mint
+        cursor-pointer
+        hover:bg-mint
+        hover:text-blue
     }
 
     .current-step {
         @apply bg-mint 
         text-blue
         md:p-1
+        cursor-not-allowed
     }
     
     .previewHeader {
