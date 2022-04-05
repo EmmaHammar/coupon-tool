@@ -36,6 +36,7 @@ export default function App() {
   const [initialProdId, setInitialProdId] = useState('');
 
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
+
   const [showPreview, setShowPreview] = useState(false);
 
   const [editorValue, setEditorValue] = useState(''); //TODO remove?
@@ -142,8 +143,10 @@ export default function App() {
                             setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
                             setToolBarOptions={setToolBarOptions}
+
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+
                             setShowPreview={setShowPreview}
                           />
                         }>
