@@ -114,7 +114,7 @@ export default function App() {
                 isNextBtnActive={isNextBtnActive}
                 content={content}
                 initialContent={initialContent}
-
+                linkPath={linkPath}
               /> 
 
               <main className='h-5/6 flex flex-row flex-wrap justify-around lg:justify-around gap-x-4 items-start pt-6 md:pt-10'>

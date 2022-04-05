@@ -103,16 +103,24 @@
 
     .nav-menu-item {
         @apply
-        hover:bg-mint 
-        hover:text-blue
+        text-creme
         decoration-4
     }
 
-    .picked-step {
-        @apply bg-mint
+    .link-active {
+
+    }
+
+    .step-done {
+        @apply px-2
+        text-mint
+    }
+
+    .current-step {
+        @apply bg-mint 
         text-blue
         md:p-1
-    } 
+    }
     
     .previewHeader {
         @apply h-12
