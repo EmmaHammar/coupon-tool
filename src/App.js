@@ -33,6 +33,8 @@ export default function App() {
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
+  const [initialProdId, setInitialProdId] = useState('');
+
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
@@ -60,20 +62,27 @@ export default function App() {
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
       
     } else {      
-
       //TODO test have let prodObj outside if + try add couponId object to pickedProd (also object) i stil med: prodObj = {'couponId': account.pickedCouponId, pickedProdObj alla object}
+      
       //if StepProduct:
       if (linkPath === '/steg5') {
-        let prodObj = {
-          'couponId': account.pickedCouponId, 
-          'prodId': pickedProd.prodId,
-          'prodImg': pickedProd.prodImg,
-          'codeLink': pickedProd.codeLink,
-          'terms': pickedProd.terms
-        };     
-        
-        UpdateCoupon(prodObj); //update db with pickedProd
 
+        //only save in db if something has changed, i.e. user has added a new product comparing to what's saved in db
+        if (document.getElementById(initialProdId).classList.contains('btn-primary')) {
+          console.log("inget har ändrats -> spara EJ");
+        } else {
+          console.log("något har ändrats -> spara i DB");
+          let prodObj = {
+            'couponId': account.pickedCouponId, 
+            'prodId': pickedProd.prodId,
+            'prodImg': pickedProd.prodImg,
+            'codeLink': pickedProd.codeLink,
+            'terms': pickedProd.terms
+          };     
+          
+          UpdateCoupon(prodObj); //update db with pickedProd
+        }
+        
       } 
       else { //if all other step (logo, bg, text):
 
@@ -89,11 +98,8 @@ export default function App() {
 
           UpdateCoupon(newCouponObj); //update db with coupon logo, bg or text
         }
-          
       };
-
     };
-  
   }; 
 
   return (
@@ -202,6 +208,8 @@ export default function App() {
                           setLinkPathBack={setLinkPathBack}
                           pickedProd={pickedProd}
                           setPickedProd={setPickedProd}
+                          setInitialProdId={setInitialProdId}
+                          
                           isNextBtnActive={isNextBtnActive}
                           setIsNextBtnActive={setIsNextBtnActive}
                           setShowPreview={setShowPreview}
