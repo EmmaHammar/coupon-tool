@@ -28,6 +28,23 @@ export default function Header(props) {
   //   </div>
   // `;
 
+  //make steps in Stepper clickable only if currentstep is accurated filled in TODO not working
+  // useEffect( () => {
+  //   if ( props.content !== '') {
+  //     console.log("HEADER: spara i db -> nästa steg + prevSteg är clickable");
+  //   } else {
+  //     console.log("HEADER: endast prevSteg är clickable");
+
+  //   }
+
+  //   if (props.initialContent !== '') {
+  //     console.log("HEADER: spara i db -> nästa steg + prevSteg är clickable");
+  //   } else {
+  //     console.log("HEADER: endast prevSteg är clickable");
+
+  //   }
+  // })
+
   //Show/hide couponHeader if userpage or not: TODO works correct but is not used. 
   useEffect( () => {
       if (props.currentStep === 'userpage') {

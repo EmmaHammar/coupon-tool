@@ -112,6 +112,8 @@ export default function App() {
               <Header 
                 currentStep={currentStep}
                 isNextBtnActive={isNextBtnActive}
+                content={content}
+                initialContent={initialContent}
 
               /> 
 
