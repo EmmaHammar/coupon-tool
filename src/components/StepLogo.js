@@ -9,7 +9,7 @@ export default function StepLogo(props) {
   const account = useContext(AccountContext);
 
   useEffect( () => {
-    props.setContent(''); //empty setContent so content from other step isn't there TODO move to Footer? If content=== '' => nextBtn inactive???
+    // props.setContent(''); //empty setContent so content from other step isn't there TODO move to Footer? If content=== '' => nextBtn inactive???
     // props.setShowPreview(true);
     props.setCurrentStep('logo');
     props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
@@ -18,25 +18,31 @@ export default function StepLogo(props) {
     props.setToolBarOptions(`undo redo | image`);
   });
 
-  //show db value in editor when printing editor UI
   // useEffect( () => {
-  //   if (props.currentStep !== '') {
-  //     let info = 
-  //     {
-  //       'pickedCouponId': account.pickedCouponId, 
-  //       'currentStep': props.currentStep
-  //     };
 
-  //     const cb = (res) => {
-  //       // console.log("res in cb, logo:", res.coupon[0].logo);
-  //       props.setEditorValue(res.coupon[0].logo); //print db value initial in editor
-  //     };
+  // })
 
-  //     GetCoupon(cb, info); //get data from db
-  //   } else {
-  //     console.log("ERROR: props.currentStep === '' -> show loader?");
-  //   };
-  // });
+  //show initialContent in editor after first render
+  useEffect( () => {
+      let info = 
+      {
+        'pickedCouponId': account.pickedCouponId, 
+      //   'currentStep': props.currentStep
+      };
+
+      const cb = (res) => {
+        // console.log("res in cb, logo:", res.coupon[0].logo);
+        if (res.coupon[0].logo === '') {
+          props.setIsNextBtnActive(false);
+        } else {
+          props.setIsNextBtnActive(true);
+        };
+        props.setInitialContent(res.coupon[0].logo);
+        props.setContent(res.coupon[0].logo);
+        };
+
+      GetCoupon(cb, info); //get data from db
+  }, []);
 
   return (
     // <AccountContext.Consumer>
@@ -52,7 +58,7 @@ export default function StepLogo(props) {
                 toolBarOptions={props.toolBarOptions}
                 setToolBarOptions={props.setToolBarOptions}
                 setIsNextBtnActive={props.setIsNextBtnActive}
-                editorValue={props.editorValue}
+                initialContent={props.initialContent}
               />
           </div>
         </>

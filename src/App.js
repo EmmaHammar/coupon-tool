@@ -26,6 +26,7 @@ export const AccountContext = React.createContext();
 export default function App() {
   const [currentStep, setCurrentStep] = useState('');
   const [content, setContent] = useState(''); //TODO change to string?
+  const [initialContent, setInitialContent] = useState('');
   const [linkPath, setLinkPath] = useState('');
   const [linkPathBack, setLinkPathBack] = useState('');
 
@@ -59,7 +60,9 @@ export default function App() {
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
       
     } else {      
-      //if prodStep:
+
+      //TODO test have let prodObj outside if + try add couponId object to pickedProd (also object) i stil med: prodObj = {'couponId': account.pickedCouponId, pickedProdObj alla object}
+      //if StepProduct:
       if (linkPath === '/steg5') {
         let prodObj = {
           'couponId': account.pickedCouponId, 
@@ -68,16 +71,25 @@ export default function App() {
           'codeLink': pickedProd.codeLink,
           'terms': pickedProd.terms
         };     
+        
         UpdateCoupon(prodObj); //update db with pickedProd
 
       } 
       else { //if all other step (logo, bg, text):
+
+        //save to db only if something has changed
+        if (initialContent === content) {
+          console.log("spara EJ, inget har ändrats");
+        } else {
+          console.log("spara, något har ändrats");
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
             [currentStep] : content
           };     
 
           UpdateCoupon(newCouponObj); //update db with coupon logo, bg or text
+        }
+          
       };
 
     };
@@ -110,6 +122,9 @@ export default function App() {
                             setCurrentStep={setCurrentStep}
                             content={content}
                             setContent={setContent}
+                            initialContent={initialContent}
+                            setInitialContent={setInitialContent}
+
                             linkPath={linkPath}
                             setLinkPath={setLinkPath}
                             linkPathBack={linkPathBack}
@@ -119,8 +134,6 @@ export default function App() {
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
                             setShowPreview={setShowPreview}
-                            editorValue={editorValue}
-                            setEditorValue={setEditorValue}
                           />
                         }>
                       </Route>
@@ -133,6 +146,9 @@ export default function App() {
                             setCurrentStep={setCurrentStep}
                             content={content}
                             setContent={setContent}
+                            initialContent={initialContent}
+                            setInitialContent={setInitialContent}
+
                             linkPath={linkPath}
                             setLinkPath={setLinkPath}
                             linkPathBack={linkPathBack}

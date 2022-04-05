@@ -6,7 +6,7 @@ import GetCoupon from '../services/GetCoupon';
 export default function StepBackground(props) {
   // const [bgColor, setBgColor] = useState('');
   const account = useContext(AccountContext);
-  const [bgColorInputValue, setBgColorInputValue] = useState('');
+  const [bgColor, setBgColor] = useState('');
 
 
   useEffect( () => {
@@ -24,6 +24,30 @@ export default function StepBackground(props) {
     };
  
   });
+
+  //show initialContent in editor after first render
+  useEffect( () => {
+    let info = 
+    {
+      'pickedCouponId': account.pickedCouponId, 
+    //   'currentStep': props.currentStep
+    };
+
+    const cb = (res) => {
+      // console.log("res in cb, logo:", res.coupon[0].logo);
+      if (res.coupon[0].background === '') {
+        props.setIsNextBtnActive(false);
+      } else {
+        props.setIsNextBtnActive(true);
+      };
+
+      props.setInitialContent(res.coupon[0].background);
+      props.setContent(res.coupon[0].background);
+      setBgColor(res.coupon[0].background);
+      };
+
+    GetCoupon(cb, info); //get data from db
+}, []);
 
   //TODO testar om det printar rätt - EJ KLART
   // useEffect( () => {
@@ -59,7 +83,8 @@ export default function StepBackground(props) {
     // console.log("evt.target", evt.target.value);
     //SLUT TODO testar om det printar rätt - EJ KLART
 
-    props.setContent(evt.target.value);
+    props.setContent(evt.target.value); //save right in saveClick() in App
+    setBgColor(evt.target.value); //show right?
 
     //TODO onClick -> save to db (fix so remove TinyEditor)
   };
@@ -70,7 +95,7 @@ export default function StepBackground(props) {
       <p>Ange färgen i hex, ex: #00FFFF</p>
       
       {/* <label for='bgColor'>Bakgrundsfärg</label> */}
-      <input className='btn' type='text' id='bgColorInput' name='bgColor' onChange={inputChange}></input>
+      <input className='btn' type='text' id='bgColorInput' name='bgColor' onChange={inputChange} value={bgColor}></input>
     </div>
   )
 };

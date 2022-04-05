@@ -75,6 +75,11 @@ pass: mongodb
 - install PostCSS Language Support in VCS extension (else lint(?) errors)
 - install VCS extension helping with "syntax": Tailwind CSS IntelliSense
 
+# Storybook
+- npx sb init //install
+- npm run storybook //Starts Storybook in development mode
+
+
 # Files
 - Planning KANBAN: https://github.com/users/EmmaHammar/projects/1
 - Wireframe, component tree, function analysis: https://www.figma.com/file/H8dU1CUZJiLaYCsFYE93mT/coupon-tool?node-id=0%3A1

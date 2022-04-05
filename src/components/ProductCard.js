@@ -12,10 +12,12 @@ export default function ProductCard(props) {
       };
       props.setPickedProd(pickedProdObj);
 
-      //remove active class (btn-primary) on all btns except the clicked btn: 
-      // remove active class on all btns
       const btnContainer = document.querySelector('#prodCardWrapper');
-      const btns = btnContainer.querySelectorAll('div.bg-blue > button');    
+      const btns = btnContainer.querySelectorAll('div.bg-blue > button');
+      
+      //remove active class (btn-primary) on all btns except the clicked btn: 
+
+      //1) remove active class on all btns
       for (let i = 0; i<btns.length; i++) {
         if (btns[i].classList.contains('btn-primary')) {
           btns[i].classList.remove('btn-primary');
@@ -24,7 +26,7 @@ export default function ProductCard(props) {
         };
       };
 
-      //add active class on clicked btn
+      //2) add active class on clicked btn
       evt.target.classList.remove('btn-secondary');
       evt.target.classList.add('btn-primary'); //active class
       evt.target.innerText='TILLAGD';

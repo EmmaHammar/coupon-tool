@@ -30,16 +30,16 @@ useEffect( () => {
 //check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
-  console.log("setContent():", editorRef.current.getContent());
+  // console.log("setContent():", editorRef.current.getContent());
  
   document.getElementById('errorMsg').innerHTML = ''; //empty errorMsg
 
   if (editorRef.current.getContent() === '') {
     props.setIsNextBtnActive(false);
-    console.log("setContent('')");
+    // console.log("ev setContent('')??");//TODO fixa så det blir rätt med setContent?
   } else {
     props.setIsNextBtnActive(true);
-    console.log("setContent('fetch logo db')");
+    // console.log("ev setContent('fetch logo db')??");
   }
 };
 
@@ -51,7 +51,7 @@ const onEditorChange = () => {
           <Editor
               apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
               onInit={(evt, editor) => editorRef.current = editor}
-              initialValue={props.editorValue}
+              initialValue={props.initialContent} 
               init={{
 
                 force_br_newlines : true, //don't wrap in p tag
