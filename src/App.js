@@ -38,7 +38,7 @@ export default function App() {
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
-  const [editorValue, setEditorValue] = useState('');
+  const [editorValue, setEditorValue] = useState(''); //TODO remove?
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
@@ -66,23 +66,23 @@ export default function App() {
       
       //if StepProduct:
       if (linkPath === '/steg5') {
+        console.log("initialProdId??", initialProdId);
 
-        //only save in db if something has changed, i.e. user has added a new product comparing to what's saved in db
-        if (document.getElementById(initialProdId).classList.contains('btn-primary')) {
-          console.log("inget har ändrats -> spara EJ");
-        } else {
-          console.log("något har ändrats -> spara i DB");
-          let prodObj = {
-            'couponId': account.pickedCouponId, 
-            'prodId': pickedProd.prodId,
-            'prodImg': pickedProd.prodImg,
-            'codeLink': pickedProd.codeLink,
-            'terms': pickedProd.terms
+        //only save in db if something has changed, i.e. user has added a new product comparing to what's saved in db 
+          if ( (initialProdId !== '') && (document.getElementById(initialProdId).classList.contains('btn-primary')) ) {
+            console.log("inget har ändrats -> spara EJ");
+          } else {
+            console.log("något har ändrats -> spara i DB");
+            let prodObj = {
+              'couponId': account.pickedCouponId, 
+              'prodId': pickedProd.prodId,
+              'prodImg': pickedProd.prodImg,
+              'codeLink': pickedProd.codeLink,
+              'terms': pickedProd.terms
           };     
-          
-          UpdateCoupon(prodObj); //update db with pickedProd
-        }
-        
+            
+            UpdateCoupon(prodObj); //update db with pickedProd
+          }
       } 
       else { //if all other step (logo, bg, text):
 
@@ -118,6 +118,7 @@ export default function App() {
                       <Route exact path='/' element={
                         <UserPage 
                           setShowPreview={setShowPreview}
+                          setCurrentStep={setCurrentStep}
                         />}>
                       </Route>
                       <Route 

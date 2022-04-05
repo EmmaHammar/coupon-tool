@@ -3,6 +3,8 @@ import React from 'react'
 export default function ProductCard(props) {
     const handleClick = (evt) => {
       // props.setShowPreview(true);
+
+      //TODO empty errorMsg div if not empty
       
       let pickedProdObj = {
         'prodId': props.prodId,

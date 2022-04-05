@@ -5,6 +5,7 @@ import { AccountContext } from '../App';
 export default function UserPage(props) {
   useEffect( () => {
     props.setShowPreview(false);
+    props.setCurrentStep('userpage');
   });
 
   const navigate = useNavigate(); 
