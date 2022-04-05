@@ -22,19 +22,24 @@ useEffect( () => {
   setTimeout( () => {
     setIsLoadingStep(false)
   }, 500);
+
 });
 
+//TODO IF NOT editorchange, dvs man ändrar inget -> vad ska hända? (just nu följer det content från steget man kommer ifrån 
 
 //check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
+  console.log("setContent():", editorRef.current.getContent());
  
   document.getElementById('errorMsg').innerHTML = ''; //empty errorMsg
 
   if (editorRef.current.getContent() === '') {
     props.setIsNextBtnActive(false);
+    console.log("setContent('')");
   } else {
     props.setIsNextBtnActive(true);
+    console.log("setContent('fetch logo db')");
   }
 };
 

@@ -6,6 +6,7 @@ import GetCoupon from '../services/GetCoupon';
 export default function StepBackground(props) {
   // const [bgColor, setBgColor] = useState('');
   const account = useContext(AccountContext);
+  const [bgColorInputValue, setBgColorInputValue] = useState('');
 
 
   useEffect( () => {
@@ -24,36 +25,40 @@ export default function StepBackground(props) {
  
   });
 
+  //TODO testar om det printar rätt - EJ KLART
+  // useEffect( () => {
+  //   setBgColorInputValue(props.editorValue);
+  // }, []);
+  //SLUT TODO testar om det printar rätt - EJ KLART
+
    //show db value in editor when printing editor UI
-   useEffect( () => {
+  //  useEffect( () => {
+  //   if (props.currentStep !== '') {
+  //     let info = 
+  //     {
+  //       'pickedCouponId': account.pickedCouponId, 
+  //       'currentStep': props.currentStep
+  //     };
 
-    if (props.currentStep !== '') {
-      //get from db
+  //     const cb = (res) => {
+  //       console.log("res in cb, background:", res.coupon[0].background);
+  //       props.setEditorValue(res.coupon[0].background); //print db value initial in editor
+  //     };
 
-      let info = 
-      {
-        'pickedCouponId': account.pickedCouponId, 
-        'currentStep': props.currentStep
-      }
-      ;
-      console.log("info StepLogo.js:", info);
-
-      const cb = (res) => {
-        // console.log("res", res.coupon[0].props.currentStep)
-        console.log("res in cb, background:", res.coupon[0].background);
-        props.setEditorValue(res.coupon[0].background); //print db value initial in editor
-      };
-
-      GetCoupon(cb, info);
-      // console.log("props.currentStep", props.currentStep); //not err outside cb(), only inside cb()
+  //     GetCoupon(cb, info); //get data from db
       
-    } else {
-      console.log("ERROR: props.currentStep === '' -> show loader?");
-    };
-   });
+  //   } else {
+  //     console.log("ERROR: props.currentStep === '' -> show loader?");
+  //   };
+  // });
 
+  
   const inputChange = (evt) => {
+      //TODO testar om det printar rätt - EJ KLART
+    // setBgColorInputValue(evt.target.value);
     // console.log("evt.target", evt.target.value);
+    //SLUT TODO testar om det printar rätt - EJ KLART
+
     props.setContent(evt.target.value);
 
     //TODO onClick -> save to db (fix so remove TinyEditor)
@@ -65,7 +70,10 @@ export default function StepBackground(props) {
       <p>Ange färgen i hex, ex: #00FFFF</p>
       
       {/* <label for='bgColor'>Bakgrundsfärg</label> */}
-      <input className='btn' type='text' id='bgColor' name='bgColor' value={props.editorValue} onChange={inputChange}></input>
+      <input className='btn' type='text' id='bgColorInput' name='bgColor' onChange={inputChange}></input>
     </div>
   )
 };
+
+//TODO ERROR:       <input className='btn' type='text' id='bgColorInput' name='bgColor' value={props.content} onChange={inputChange}></input> 
+//value blir ej rätt, den tar innehållet från tidigare steg

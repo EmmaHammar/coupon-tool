@@ -165,6 +165,8 @@ export default function App() {
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
                             setShowPreview={setShowPreview}
+                            editorValue={editorValue}
+                            setEditorValue={setEditorValue}
                           />
                         }>
                       </Route>

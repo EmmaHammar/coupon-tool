@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import TinyEditor from './TinyEditor';
+import { AccountContext } from '../App';
+import GetCoupon from '../services/GetCoupon';
 
 export default function StepText(props) {
+  const account = useContext(AccountContext);
+
   useEffect( () => {
     // props.setShowPreview(true);
     props.setCurrentStep('text');
@@ -9,6 +13,27 @@ export default function StepText(props) {
     props.setLinkPathBack('/steg2'); //linkPath for backBtn in Footer
     props.setToolBarOptions(`undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`);
   });
+
+  //show db value in editor when printing editor UI
+  // useEffect( () => {
+  //   if (props.currentStep !== '') {
+      
+  //     let info =
+  //     {
+  //       'pickedCouponId': account.pickedCouponId, 
+  //       'currentStep': props.currentStep
+  //     }
+  //     ;
+  //     const cb = (res) => {
+  //       // console.log("res in cb, text:", res.coupon[0].text);
+  //       props.setEditorValue(res.coupon[0].text); //print db value initial in editor
+  //     };
+
+  //     GetCoupon(cb, info); //get data from db
+  //   } else {
+  //     console.log("ERROR: props.currentStep === '' -> show loader?");
+  //   };
+  // });
   
   return (
     <div id='stepTextWrapper' className=''>
@@ -21,6 +46,7 @@ export default function StepText(props) {
         toolBarOptions={props.toolBarOptions}
         setToolBarOptions={props.setToolBarOptions}
         setIsNextBtnActive={props.setIsNextBtnActive}
+        editorValue={props.editorValue}
       />
     </div>
   )
