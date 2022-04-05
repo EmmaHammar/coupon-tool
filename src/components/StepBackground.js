@@ -34,7 +34,6 @@ export default function StepBackground(props) {
     };
 
     const cb = (res) => {
-      // console.log("res in cb, logo:", res.coupon[0].logo);
       if (res.coupon[0].background === '') {
         props.setIsNextBtnActive(false);
       } else {
@@ -48,34 +47,6 @@ export default function StepBackground(props) {
 
     GetCoupon(cb, info); //get data from db
 }, []);
-
-  //TODO testar om det printar rätt - EJ KLART
-  // useEffect( () => {
-  //   setBgColorInputValue(props.editorValue);
-  // }, []);
-  //SLUT TODO testar om det printar rätt - EJ KLART
-
-   //show db value in editor when printing editor UI
-  //  useEffect( () => {
-  //   if (props.currentStep !== '') {
-  //     let info = 
-  //     {
-  //       'pickedCouponId': account.pickedCouponId, 
-  //       'currentStep': props.currentStep
-  //     };
-
-  //     const cb = (res) => {
-  //       console.log("res in cb, background:", res.coupon[0].background);
-  //       props.setEditorValue(res.coupon[0].background); //print db value initial in editor
-  //     };
-
-  //     GetCoupon(cb, info); //get data from db
-      
-  //   } else {
-  //     console.log("ERROR: props.currentStep === '' -> show loader?");
-  //   };
-  // });
-
   
   const inputChange = (evt) => {
       //TODO testar om det printar rätt - EJ KLART

@@ -14,27 +14,28 @@ export default function StepText(props) {
     props.setToolBarOptions(`undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`);
   });
 
-  //show db value in editor when printing editor UI
-  // useEffect( () => {
-  //   if (props.currentStep !== '') {
-      
-  //     let info =
-  //     {
-  //       'pickedCouponId': account.pickedCouponId, 
-  //       'currentStep': props.currentStep
-  //     }
-  //     ;
-  //     const cb = (res) => {
-  //       // console.log("res in cb, text:", res.coupon[0].text);
-  //       props.setEditorValue(res.coupon[0].text); //print db value initial in editor
-  //     };
+    //show initialContent in editor after first render
+    useEffect( () => {
+      let info = 
+      {
+        'pickedCouponId': account.pickedCouponId, 
+      //   'currentStep': props.currentStep
+      };
 
-  //     GetCoupon(cb, info); //get data from db
-  //   } else {
-  //     console.log("ERROR: props.currentStep === '' -> show loader?");
-  //   };
-  // });
-  
+      const cb = (res) => {
+        // console.log("res in cb, logo:", res.coupon[0].text);
+        if (res.coupon[0].text === '') {
+          props.setIsNextBtnActive(false);
+        } else {
+          props.setIsNextBtnActive(true);
+        };
+        props.setInitialContent(res.coupon[0].text);
+        props.setContent(res.coupon[0].text);
+        };
+
+      GetCoupon(cb, info); //get data from db
+  }, []);
+
   return (
     <div id='stepTextWrapper' className=''>
       <h4>3. Skriv en personlig hälsning.</h4>
@@ -46,7 +47,7 @@ export default function StepText(props) {
         toolBarOptions={props.toolBarOptions}
         setToolBarOptions={props.setToolBarOptions}
         setIsNextBtnActive={props.setIsNextBtnActive}
-        editorValue={props.editorValue}
+        initialContent={props.initialContent}
       />
     </div>
   )

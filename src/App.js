@@ -172,6 +172,9 @@ export default function App() {
                             setCurrentStep={setCurrentStep}  
                             content={content}
                             setContent={setContent}
+                            initialContent={initialContent}
+                            setInitialContent={setInitialContent}
+
                             linkPath={linkPath}
                             setLinkPath={setLinkPath}
                             linkPathBack={linkPathBack}
@@ -181,8 +184,6 @@ export default function App() {
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
                             setShowPreview={setShowPreview}
-                            editorValue={editorValue}
-                            setEditorValue={setEditorValue}
                           />
                         }>
                       </Route>
