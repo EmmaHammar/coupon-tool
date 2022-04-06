@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import TinyEditor from './TinyEditor';
-import Footer from './Footer';
 
 export default function StepSummary(props) {
-  const [stepType, setStepType] = useState('summary');
 
   useEffect( () => {
     props.setShowPreview(true);
-    props.setCurrentStep(stepType);
+    props.setCurrentStep('summary');
     //back to userPage start
     props.setLinkPath('/'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/steg4'); //linkPath for backBtn in Footer

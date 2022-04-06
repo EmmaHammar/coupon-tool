@@ -26,14 +26,11 @@ export default function StepLogo(props) {
       };
 
       const cb = (res) => {
-        // console.log("res in cb, logo:", res.coupon[0].logo);
+        console.log("fetch i StepLogo.js:", res.coupon[0].logo);
         if (res.coupon[0].logo === '') {
           props.setIsNextBtnActive(false);
-          console.log("db är tom, ok gå till nästa steg i stepper?");
-
         } else {
           props.setIsNextBtnActive(true);
-          console.log("db är ej tom, ej ok gå vidare?");
         };
         props.setInitialContent(res.coupon[0].logo);
         props.setContent(res.coupon[0].logo);

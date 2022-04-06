@@ -80,7 +80,7 @@ export default function Header(props) {
 
     //add clickable style to step if it has data or if prevStep has data
     const cb = (res) => {
-      // console.log("res Coupon Header.js:", res.coupon[0]);
+      console.log("fetch i Header.js:", res.coupon[0]);
       if (res.coupon[0].logo !== '') {
         navLogo.classList.add('clickable-step');
         navBackground.classList.add('clickable-step');
@@ -97,7 +97,9 @@ export default function Header(props) {
     };
 
     GetCoupon(cb, info); //get data from db
-  }, [props.currentStep]);
+  }, [props.currentStep]); //TODO seems that GetCoupon() is executed twice (=2 fetches), why? fix!
+// }, []); //only 1 time, not working when click menu item in stepper
+
 
 
   // add link if menu item is clickable
