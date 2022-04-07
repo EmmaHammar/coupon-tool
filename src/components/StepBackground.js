@@ -4,9 +4,10 @@ import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepBackground(props) {
-  // const [bgColor, setBgColor] = useState('');
-  const account = useContext(AccountContext);
+  const [couponStepBackground, setCouponStepBackground] = useState('');
   const [bgColor, setBgColor] = useState('');
+  const account = useContext(AccountContext);
+
 
 
   useEffect( () => {
@@ -15,8 +16,6 @@ export default function StepBackground(props) {
     props.setCurrentStep('background');
     props.setLinkPath('/steg3'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/steg1'); //linkPath for backBtn in Footer
-
-    // props.setToolBarOptions(`undo redo`); //TODO remove later
 
     if (props.content === '') {
       props.setIsNextBtnActive(false);
@@ -27,28 +26,26 @@ export default function StepBackground(props) {
   });
 
   //show initialContent in editor after first render
-//   useEffect( () => {
-//     let info = 
-//     {
-//       'pickedCouponId': account.pickedCouponId, 
-//     //   'currentStep': props.currentStep
-//     };
+  useEffect( () => {
+    console.log("StepBackground.js: hämta fr db");
+    const cbBackground = (res) => {
+      setCouponStepBackground(res.coupon[0].background);
+    };
 
-//     const cb = (res) => {
-//       if (res.coupon[0].background === '') {
-//         props.setIsNextBtnActive(false);
-//       } else {
-//         props.setIsNextBtnActive(true);
-//       };
+      GetCoupon(cbBackground, {'pickedCouponId': account.pickedCouponId}); //get data from db
+  }, []);
 
-//       props.setInitialContent(res.coupon[0].background);
-//       props.setContent(res.coupon[0].background);
-//       setBgColor(res.coupon[0].background);
-//       };
+  useEffect( () => {
+    if (couponStepBackground === '') {
+      props.setIsNextBtnActive(false);
+    } else {
+      props.setIsNextBtnActive(true);
+    };
+    props.setInitialContent(couponStepBackground);
+    props.setContent(couponStepBackground);
+    setBgColor(couponStepBackground);
+  }, [couponStepBackground])
 
-//     GetCoupon(cb, info); //get data from db
-// }, []);
-  
   const inputChange = (evt) => {
       //TODO testar om det printar rätt - EJ KLART
     // setBgColorInputValue(evt.target.value);

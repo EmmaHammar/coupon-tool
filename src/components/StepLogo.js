@@ -11,7 +11,6 @@ export default function StepLogo(props) {
 
 
   useEffect( () => {
-    // props.setContent(''); //empty setContent so content from other step isn't there TODO move to Footer? If content=== '' => nextBtn inactive???
     props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('logo');
