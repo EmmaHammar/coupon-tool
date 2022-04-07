@@ -16,12 +16,12 @@
     }
     h2 {
         @apply text-lg
-        lg:text-2xl;
+        lg:text-xl;
     }
     h3 {
         @apply text-sm
         md:text-base
-        xl:text-lg;
+        xl:text-lg
     }
     h4 {
         @apply text-lg
@@ -55,7 +55,6 @@
         cursor-pointer
         inline-block
     }
-    
     .btn-primary {
         @apply
         text-blue
@@ -101,45 +100,41 @@
         hover:border-blue
     }  
 
+
     .nav-menu-item {
         @apply
-        text-creme
-        decoration-4
-        cursor-not-allowed
-    }
-
-    .clickable-step {
-        @apply px-2
-        text-mint
-        cursor-pointer
-        hover:bg-mint
-        hover:text-blue
-    }
-
-    .current-step {
-        @apply bg-mint 
         text-blue
+        cursor-not-allowed
+        text-xs
+        md:text-sm 
+        md:px-6
+    }
+    .current-step {
+        @apply bg-blue 
+        text-mint
+        px-2
+        md:px-8
         md:p-1
         cursor-not-allowed
+        max-w-[150px]
+        md:max-w-none
     }
+
+
     
     .previewHeader {
         @apply h-12
         bg-gray-300
         rounded-t-3xl
     }
-
     .previewMain {
         @apply overflow-x-auto 
         h-[462px]
-        
     }
-
     .couponTerms {
         @apply p-2
         text-sm
     }
-
     .previewFooter {
         @apply h-12
         bg-gray-300

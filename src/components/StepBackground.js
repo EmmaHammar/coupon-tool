@@ -26,27 +26,27 @@ export default function StepBackground(props) {
   });
 
   //show initialContent in editor after first render
-  useEffect( () => {
-    let info = 
-    {
-      'pickedCouponId': account.pickedCouponId, 
-    //   'currentStep': props.currentStep
-    };
+//   useEffect( () => {
+//     let info = 
+//     {
+//       'pickedCouponId': account.pickedCouponId, 
+//     //   'currentStep': props.currentStep
+//     };
 
-    const cb = (res) => {
-      if (res.coupon[0].background === '') {
-        props.setIsNextBtnActive(false);
-      } else {
-        props.setIsNextBtnActive(true);
-      };
+//     const cb = (res) => {
+//       if (res.coupon[0].background === '') {
+//         props.setIsNextBtnActive(false);
+//       } else {
+//         props.setIsNextBtnActive(true);
+//       };
 
-      props.setInitialContent(res.coupon[0].background);
-      props.setContent(res.coupon[0].background);
-      setBgColor(res.coupon[0].background);
-      };
+//       props.setInitialContent(res.coupon[0].background);
+//       props.setContent(res.coupon[0].background);
+//       setBgColor(res.coupon[0].background);
+//       };
 
-    GetCoupon(cb, info); //get data from db
-}, []);
+//     GetCoupon(cb, info); //get data from db
+// }, []);
   
   const inputChange = (evt) => {
       //TODO testar om det printar rätt - EJ KLART

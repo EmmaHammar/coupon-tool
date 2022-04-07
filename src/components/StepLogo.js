@@ -17,49 +17,45 @@ export default function StepLogo(props) {
     props.setToolBarOptions(`undo redo | image`);
   });
 
-  //show initialContent in editor after first render
-  useEffect( () => {
-      let info = 
-      {
-        'pickedCouponId': account.pickedCouponId, 
-      //   'currentStep': props.currentStep
-      };
+  // //show initialContent in editor after first render, only if edit old coupon
+  // useEffect( () => {
+  //     let info = 
+  //     {
+  //       'pickedCouponId': account.pickedCouponId, 
+  //     //   'currentStep': props.currentStep
+  //     };
 
-      const cb = (res) => {
-        console.log("fetch i StepLogo.js:", res.coupon[0].logo);
-        if (res.coupon[0].logo === '') {
-          props.setIsNextBtnActive(false);
-        } else {
-          props.setIsNextBtnActive(true);
-        };
-        props.setInitialContent(res.coupon[0].logo);
-        props.setContent(res.coupon[0].logo);
-        };
+  //     const cb = (res) => {
+  //       console.log("fetch i StepLogo.js:", res.coupon[0]);
+  //       if (res.coupon[0].logo === undefined) {
+  //         props.setIsNextBtnActive(false);
+  //       } else {
+  //         props.setIsNextBtnActive(true);
+  //       };
+  //       props.setInitialContent(res.coupon[0].logo);
+  //       props.setContent(res.coupon[0].logo);
+  //       };
 
-      GetCoupon(cb, info); //get data from db
-  }, []);
+  //     GetCoupon(cb, info); //get data from db
+  // }, []);
 
   return (
-    // <AccountContext.Consumer>
-    //   { account => 
-        <>
-          <div id='stepLogoWrapper' className=''>
-            <h4>1. Börja med att ladda upp din företagslogga.</h4>
-            <p>Välj bland dina filer samt justera storleken.</p>
-              <TinyEditor 
-                currentStep={props.currentStep}
-                content={props.content} 
-                setContent={props.setContent}
-                toolBarOptions={props.toolBarOptions}
-                setToolBarOptions={props.setToolBarOptions}
-                setIsNextBtnActive={props.setIsNextBtnActive}
-                initialContent={props.initialContent}
-              />
-          </div>
-        </>
-      // }
-    // </AccountContext.Consumer>
+    <>
+      <div id='stepLogoWrapper' className=''>
+        <h4>1. Börja med att ladda upp din företagslogga.</h4>
+        <p>Välj bland dina filer samt justera storleken.</p>
+          <TinyEditor 
+            currentStep={props.currentStep}
+            content={props.content} 
+            setContent={props.setContent}
+            toolBarOptions={props.toolBarOptions}
+            setToolBarOptions={props.setToolBarOptions}
+            setIsNextBtnActive={props.setIsNextBtnActive}
+            initialContent={props.initialContent}
+          />
+      </div>
+    </>
   )
 };
 
-//TODO Remove AccountContext.Consumer?
+//TODO fix edit old?

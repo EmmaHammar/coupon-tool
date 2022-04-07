@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter,
   Routes,
   Route,
-  Redirect,
 } from "react-router-dom";
 
 import Loader from './components/Loader';
@@ -24,18 +23,21 @@ export const AccountContext = React.createContext();
 // export const SaveContext = React.createContext();
 
 export default function App() {
+  const [showFooter, setShowFooter] = useState(false);
+
   const [currentStep, setCurrentStep] = useState('');
-  const [content, setContent] = useState(''); //TODO change to string?
+  const [content, setContent] = useState('');
   const [initialContent, setInitialContent] = useState('');
-  const [linkPath, setLinkPath] = useState('');
+  
+  const [linkPath, setLinkPath] = useState(''); //TODO: Rename: linkPathNext
   const [linkPathBack, setLinkPathBack] = useState('');
+  const [isNextBtnActive, setIsNextBtnActive] = useState(false);
+
 
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
   const [initialProdId, setInitialProdId] = useState('');
-
-  const [isNextBtnActive, setIsNextBtnActive] = useState(false);
 
   const [showPreview, setShowPreview] = useState(false);
 
@@ -108,7 +110,9 @@ export default function App() {
 
         <AccountContext.Provider value={ account }>
           { isLoading ? <Loader /> : 
-            <div id='styleRoot' className='outline outline-pink-500 md:outline-green-500 lg:outline-yellow-500 font-Inter mx-6 mt-6 mb-20 md:mx-10 md:mb-24 text-blue'>          
+            <div id='styleRoot' className='h-screen font-Inter px-6 pt-6 pb-20 md:px-10 md:pb-24 text-blue'>  
+            {/* <div id='styleRoot' className='h-screen font-Inter px-6 pt-6 pb-20 md:px-10 md:pb-24 text-blue bg-pink-500 md:bg-green-500 lg:bg-yellow-500'> */}
+
               <Header 
                 currentStep={currentStep}
                 isNextBtnActive={isNextBtnActive}
@@ -124,7 +128,7 @@ export default function App() {
                     <Routes>
                       <Route exact path='/' element={
                         <UserPage 
-                          setShowPreview={setShowPreview}
+                          setShowFooter={setShowFooter}
                           setCurrentStep={setCurrentStep}
                         />}>
                       </Route>
@@ -258,13 +262,17 @@ export default function App() {
                 }
                 
               </main>
-              <Footer 
+
+              {
+                showFooter ? <Footer 
                 linkPath={linkPath} 
                 isNextBtnActive={isNextBtnActive}
                 setIsNextBtnActive={setIsNextBtnActive}
                 saveClick={saveClick}
                 linkPathBack={linkPathBack}
               /> 
+              : ''
+              }
             </div>
           }
         </AccountContext.Provider>

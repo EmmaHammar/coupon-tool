@@ -114,7 +114,7 @@ const onEditorChange = () => {
 
                   var reader = new FileReader();
                   reader.onload = function () {
-                    console.log("reader.onload");
+                    // console.log("reader.onload");
                     /*
                       Note: Now we need to register the blob in TinyMCEs image blob
                       registry. In the next release this part hopefully won't be
@@ -130,6 +130,7 @@ const onEditorChange = () => {
                     cb(blobInfo.blobUri(), { title: file.name });
                   };
                   reader.readAsDataURL(file);
+                  console.log("file after:", file);
                 };
 
                 input.click(); //Opens file

@@ -4,16 +4,17 @@ import { AccountContext } from '../App';
 
 export default function UserPage(props) {
   useEffect( () => {
-    props.setShowPreview(false);
     props.setCurrentStep('userpage');
+    props.setShowFooter(false);
+
   });
 
   const navigate = useNavigate(); 
     
   const handleClick = () => {
-    // console.log("visa");
     navigate('/steg1');
-  }
+  };
+
   return (
     <AccountContext.Consumer>
       { account => 
@@ -22,10 +23,10 @@ export default function UserPage(props) {
         <button className='btn btn-primary-reverse mt-2' onClick={handleClick}>Skapa ny kampanj</button>
         <div className='mt-6'>
           <h3>Dina sparade kampanjer</h3>
-          <ul className='mt-2'>
-            <li>Kampanj1</li>
-            <li>Kampanj2</li>
-            <li>Kampanj3</li>
+          <ul className='mt-2 flex flex-col bg-mint'>
+            <li className='btn btn-secondary text-center mb-2'>Kampanj1</li>
+            <li className='btn btn-secondary text-center mb-2'>Kampanj2</li>
+            <li className='btn btn-secondary text-center mb-2'>Kampanj3</li>
           </ul>
         </div>
       </div>
