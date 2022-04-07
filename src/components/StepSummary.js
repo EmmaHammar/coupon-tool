@@ -12,7 +12,7 @@ export default function StepSummary(props) {
   });
   
   return (
-    <div id='stepSummaryWrapper' className='outline'>
+    <div id='stepSummaryWrapper' className=''>
     <h4>5. Såhär kommer ditt kupongerbjudande att se ut.</h4>
     <p>Mottagaren får ett SMS med en länk som går till kupongerbjudandet.</p>
   </div>

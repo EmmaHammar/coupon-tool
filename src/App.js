@@ -118,9 +118,10 @@ export default function App() {
                 linkPath={linkPath}
               /> 
 
-              <main className='h-5/6 flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 md:pt-10'>
+              {/* <main className='h-5/6 flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 md:pt-10'> */}
+              <main className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
 
-                <div id='userPageWrapper' className='pb-24 max-w-full'>
+                <div id='userPageWrapper' className='pb-16 max-w-full'>
                   {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
                       <Route exact path='/' element={
@@ -243,6 +244,7 @@ export default function App() {
                           setContent={setContent}
                           setLinkPath={setLinkPath}
                           setLinkPathBack={setLinkPathBack}
+                          setIsLoading={setIsLoading}
                         />
                       }>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import GetCoupon from '../services/GetCoupon';
 import { AccountContext } from '../App';
 
-export default function Preview() {
+export default function Preview(props) {
     const [coupon, setCoupon] = useState({});
     const [couponTemplate, setCouponTemplate] = useState('');
 
@@ -38,12 +38,10 @@ export default function Preview() {
         <footer id='previewFooter'></footer>
       `);
 
-
     }, [coupon]);
 
     useEffect( () => {
       setTimeout( () => {
-
         document.getElementById('mobileWrapper').innerHTML = couponTemplate;
 
         //add tailwind class components to element
@@ -51,7 +49,8 @@ export default function Preview() {
         document.getElementById('previewHeader').classList.add('preview-header');
         document.getElementById('previewMain').classList.add('preview-main');
         document.getElementById('couponTerms').classList.add('coupon-terms');
-        document.getElementById('previewFooter').classList.add('preview-footer');      }, 5000);
+        document.getElementById('previewFooter').classList.add('preview-footer');
+      }, 1000);
     });
 
     

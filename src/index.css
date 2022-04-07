@@ -130,7 +130,6 @@
     .preview-main {
         @apply overflow-x-auto 
         h-[462px]
-        pb-[650px]
     }
     .coupon-terms {
         @apply p-2
