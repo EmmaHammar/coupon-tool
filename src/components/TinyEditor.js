@@ -30,7 +30,6 @@ useEffect( () => {
 //check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
   props.setContent(editorRef.current.getContent()); //update content state in App.js
-  // console.log("setContent():", editorRef.current.getContent());
  
   document.getElementById('errorMsg').innerHTML = ''; //empty errorMsg
 
@@ -46,7 +45,7 @@ const onEditorChange = () => {
   return (
     <>
     {/* { isLoadingStep ? <Loader /> : */} 
-      <div id='tinyEditorWrapper' className='my-6'>
+      <div id='tinyEditorWrapper' className='my-6 hover:cursor-pointer'>
         {isToolBar ? 
           <Editor
               apiKey="69wczpmvrwl3efu8wt4yoxrygv2rouack6dnd61okwlmizpw"
@@ -108,13 +107,11 @@ const onEditorChange = () => {
                 */
 
                 input.onchange = function () {
-                  console.log("onchange filepicker, syns när fil är vald + uppladdad"); //TODO Filen syns ej i "källa fönstret" 
                   var file = this.files[0];
                   console.log("file", file);
 
                   var reader = new FileReader();
                   reader.onload = function () {
-                    // console.log("reader.onload");
                     /*
                       Note: Now we need to register the blob in TinyMCEs image blob
                       registry. In the next release this part hopefully won't be
@@ -130,7 +127,6 @@ const onEditorChange = () => {
                     cb(blobInfo.blobUri(), { title: file.name });
                   };
                   reader.readAsDataURL(file);
-                  console.log("file after:", file);
                 };
 
                 input.click(); //Opens file

@@ -23,6 +23,7 @@ export default function Header(props) {
       //style currentStep 
       switch (props.currentStep) {
         case 'logo': 
+          navLogo.classList.add('current-step');
           navBackground.classList.remove('current-step');
           navText.classList.remove('current-step');
           navProduct.classList.remove('current-step');
@@ -60,7 +61,7 @@ export default function Header(props) {
           break;
       };
     };
-  }, [props.currentStep]); 
+  }); 
   
   return (
     <header className=''>

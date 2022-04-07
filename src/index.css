@@ -122,20 +122,21 @@
 
 
     
-    .previewHeader {
+    .preview-header {
         @apply h-12
         bg-gray-300
         rounded-t-3xl
     }
-    .previewMain {
+    .preview-main {
         @apply overflow-x-auto 
         h-[462px]
+        pb-[650px]
     }
-    .couponTerms {
+    .coupon-terms {
         @apply p-2
         text-sm
     }
-    .previewFooter {
+    .preview-footer {
         @apply h-12
         bg-gray-300
         rounded-b-3xl

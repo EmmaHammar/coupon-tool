@@ -7,7 +7,8 @@ export default function StepText(props) {
   const account = useContext(AccountContext);
 
   useEffect( () => {
-    // props.setShowPreview(true);
+    props.setShowPreview(false);
+    props.setShowFooter(true);
     props.setCurrentStep('text');
     props.setLinkPath('/steg4'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/steg2'); //linkPath for backBtn in Footer
@@ -15,26 +16,26 @@ export default function StepText(props) {
   });
 
     //show initialContent in editor after first render
-    useEffect( () => {
-      let info = 
-      {
-        'pickedCouponId': account.pickedCouponId, 
-      //   'currentStep': props.currentStep
-      };
+  //   useEffect( () => {
+  //     let info = 
+  //     {
+  //       'pickedCouponId': account.pickedCouponId, 
+  //     //   'currentStep': props.currentStep
+  //     };
 
-      const cb = (res) => {
-        // console.log("res in cb, logo:", res.coupon[0].text);
-        if (res.coupon[0].text === '') {
-          props.setIsNextBtnActive(false);
-        } else {
-          props.setIsNextBtnActive(true);
-        };
-        props.setInitialContent(res.coupon[0].text);
-        props.setContent(res.coupon[0].text);
-        };
+  //     const cb = (res) => {
+  //       // console.log("res in cb, logo:", res.coupon[0].text);
+  //       if (res.coupon[0].text === '') {
+  //         props.setIsNextBtnActive(false);
+  //       } else {
+  //         props.setIsNextBtnActive(true);
+  //       };
+  //       props.setInitialContent(res.coupon[0].text);
+  //       props.setContent(res.coupon[0].text);
+  //       };
 
-      GetCoupon(cb, info); //get data from db
-  }, []);
+  //     GetCoupon(cb, info); //get data from db
+  // }, []);
 
   return (
     <div id='stepTextWrapper' className=''>

@@ -13,50 +13,49 @@ export default function StepProduct(props) {
   //get all products from db in order to print them
   useEffect( () => {
     props.setShowPreview(false);
-    
+    props.setShowFooter(true);
+    props.setCurrentStep('product');
+    props.setLinkPath('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setLinkPathBack('/steg3'); //linkPath for backBtn in Footer
+
     //get all products from db
     GetProducts( (products) => {
       setProductList(products);
     });
-    props.setCurrentStep('product');
-
-    props.setLinkPath('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
-    props.setLinkPathBack('/steg3'); //linkPath for backBtn in Footer
-
   }, []);
 
   //first render: show active btn class if a product is picked in db
-  useEffect( () => {
-    let info = 
-    {
-      'pickedCouponId': account.pickedCouponId, 
-    //   'currentStep': props.currentStep
-    };
+  // useEffect( () => {
+  //   let info = 
+  //   {
+  //     'pickedCouponId': account.pickedCouponId, 
+  //   //   'currentStep': props.currentStep
+  //   };
 
-    const cb = (res) => {
-      console.log("res in cb, prodId, initialProdId:", res.coupon[0].prodId);
-      if (res.coupon[0].prodId === '') {
-        props.setIsNextBtnActive(false);
-        props.setInitialProdId(res.coupon[0].prodId)
+  //   const cb = (res) => {
+  //     console.log("res in cb, prodId, initialProdId:", res.coupon[0].prodId);
+  //     if (res.coupon[0].prodId === '') {
+  //       props.setIsNextBtnActive(false);
+  //       props.setInitialProdId(res.coupon[0].prodId)
         
-      } else {
-        props.setIsNextBtnActive(true);
-        props.setInitialProdId(res.coupon[0].prodId)
+  //     } else {
+  //       props.setIsNextBtnActive(true);
+  //       props.setInitialProdId(res.coupon[0].prodId)
 
-        document.getElementById(res.coupon[0].prodId).classList.add('btn-primary');
-        document.getElementById(res.coupon[0].prodId).classList.remove('btn-secondary');
-        document.getElementById(res.coupon[0].prodId).innerText='TILLAGD';
+  //       document.getElementById(res.coupon[0].prodId).classList.add('btn-primary');
+  //       document.getElementById(res.coupon[0].prodId).classList.remove('btn-secondary');
+  //       document.getElementById(res.coupon[0].prodId).innerText='TILLAGD';
 
-      };
+  //     };
 
-      //TODO need to empty states? 
-      // props.setInitialContent('');
-      // props.setContent('');
+  //     //TODO need to empty states? 
+  //     // props.setInitialContent('');
+  //     // props.setContent('');
     
-    };
+  //   };
 
-    GetCoupon(cb, info); //get data from db
-  }, []);
+  //   GetCoupon(cb, info); //get data from db
+  // }, []);
 
   // useEffect( () => {
   //   //add active class on btn if user has picked a prod that is saved in db

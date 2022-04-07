@@ -24,6 +24,7 @@ export const AccountContext = React.createContext();
 
 export default function App() {
   const [showFooter, setShowFooter] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const [currentStep, setCurrentStep] = useState('');
   const [content, setContent] = useState('');
@@ -39,7 +40,6 @@ export default function App() {
   const [pickedProd, setPickedProd] = useState({});
   const [initialProdId, setInitialProdId] = useState('');
 
-  const [showPreview, setShowPreview] = useState(false);
 
   const [editorValue, setEditorValue] = useState(''); //TODO remove?
   const account = {
@@ -58,8 +58,6 @@ export default function App() {
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = () => {
-    console.log("saveClick funkar");
-
   //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
@@ -69,8 +67,7 @@ export default function App() {
       
       //if StepProduct:
       if (linkPath === '/steg5') {
-        console.log("initialProdId??", initialProdId);
-
+        // console.log("initialProdId??", initialProdId);
         //only save in db if something has changed, i.e. user has added a new product comparing to what's saved in db 
           if ( (initialProdId !== '') && (document.getElementById(initialProdId).classList.contains('btn-primary')) ) {
             console.log("inget har ändrats -> spara EJ");
@@ -121,13 +118,14 @@ export default function App() {
                 linkPath={linkPath}
               /> 
 
-              <main className='h-5/6 flex flex-row flex-wrap justify-around lg:justify-around gap-x-4 items-start pt-6 md:pt-10'>
+              <main className='h-5/6 flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 md:pt-10'>
 
-                <div id='userPageWrapper' className='mb-10'>
+                <div id='userPageWrapper' className='pb-24 max-w-full'>
                   {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
                       <Route exact path='/' element={
                         <UserPage 
+                          setShowPreview={setShowPreview}
                           setShowFooter={setShowFooter}
                           setCurrentStep={setCurrentStep}
                         />}>
@@ -136,6 +134,7 @@ export default function App() {
                         exact path='/steg1' 
                         element= { 
                           <StepLogo 
+                            setShowPreview={setShowPreview}
                             setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}
@@ -153,8 +152,6 @@ export default function App() {
 
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
-
-                            setShowPreview={setShowPreview}
                           />
                         }>
                       </Route>
@@ -163,6 +160,8 @@ export default function App() {
                         exact path='/steg2' 
                         element= {
                           <StepBackground 
+                            setShowPreview={setShowPreview}
+                            setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}
                             content={content}
@@ -178,7 +177,6 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
-                            setShowPreview={setShowPreview}
                             editorValue={editorValue}
                             setEditorValue={setEditorValue}
                           />
@@ -189,6 +187,8 @@ export default function App() {
                         exact path='/steg3' 
                         element= {
                           <StepText 
+                            setShowPreview={setShowPreview}
+                            setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}  
                             content={content}
@@ -204,7 +204,6 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
-                            setShowPreview={setShowPreview}
                           />
                         }>
                       </Route>
@@ -213,6 +212,8 @@ export default function App() {
                         exact path='/steg4' 
                         element= {
                           <StepProduct 
+                          setShowPreview={setShowPreview}
+                          setShowFooter={setShowFooter}
                           currentStep={currentStep} 
                           setCurrentStep={setCurrentStep}  
                           content={content}
@@ -227,21 +228,21 @@ export default function App() {
                           
                           isNextBtnActive={isNextBtnActive}
                           setIsNextBtnActive={setIsNextBtnActive}
-                          setShowPreview={setShowPreview}
                           />
                         }>
 
                       </Route>
 
                       <Route exact path='/steg5' element= {
-                        <StepSummary 
+                        <StepSummary
+                          setShowPreview={setShowPreview}
+                          setShowFooter={setShowFooter}
                           currentStep={currentStep} 
                           setCurrentStep={setCurrentStep}  
                           content={content}
                           setContent={setContent}
                           setLinkPath={setLinkPath}
                           setLinkPathBack={setLinkPathBack}
-                          setShowPreview={setShowPreview}
                         />
                       }>
 

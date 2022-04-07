@@ -1,8 +1,8 @@
 function GetCoupon(cb, info) {
     // console.log("info i GetCoupon():", info);
 
-    fetch('http://localhost:3001/coupons/show', {
-    // fetch(`https://coupon-tool-backend.herokuapp.com/coupons/show`, {
+    // fetch('http://localhost:3001/coupons/show', {
+    fetch(`https://coupon-tool-backend.herokuapp.com/coupons/show`, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'

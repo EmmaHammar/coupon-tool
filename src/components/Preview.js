@@ -4,6 +4,8 @@ import { AccountContext } from '../App';
 
 export default function Preview() {
     const [coupon, setCoupon] = useState({});
+    const [couponTemplate, setCouponTemplate] = useState('');
+
     const account = useContext(AccountContext);
     
     useEffect( () => {
@@ -22,10 +24,10 @@ export default function Preview() {
     }, []);
 
     useEffect( () => {
-      let couponTemplate = `
+      setCouponTemplate(`
         <header id='previewHeader'></header>
         <div id='previewMain'>
-          <div id='bgColorWrapper' style='background-color:${coupon.background}; display:flex; flex-direction:column; padding:8px;'>
+          <div style='background-color:${coupon.background}; display:flex; flex-direction:column; padding:8px;'>
             <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon.logo}</div>
             <div id='couponText' style='padding-bottom:8px; margin-top:20px'>${coupon.text}</div>
             <img id='prodImg' alt='TODO addera fr db' src=${coupon.prodImg} style='margin-bottom:8px;'></img>
@@ -34,19 +36,26 @@ export default function Preview() {
           <p id='couponTerms'>${coupon.terms}</p>
         </div>
         <footer id='previewFooter'></footer>
-      `;
+      `);
 
-      document.getElementById('mobileWrapper').innerHTML = couponTemplate;
-
-      //add tailwind class components to element
-      document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
-      document.getElementById('previewHeader').classList.add('previewHeader');
-      document.getElementById('previewMain').classList.add('previewMain');
-      document.getElementById('bgColorWrapper').classList.add('bgColorWrapper');
-      document.getElementById('couponTerms').classList.add('couponTerms');
-      document.getElementById('previewFooter').classList.add('previewFooter');
 
     }, [coupon]);
+
+    useEffect( () => {
+      setTimeout( () => {
+
+        document.getElementById('mobileWrapper').innerHTML = couponTemplate;
+
+        //add tailwind class components to element
+        document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
+        document.getElementById('previewHeader').classList.add('preview-header');
+        document.getElementById('previewMain').classList.add('preview-main');
+        document.getElementById('couponTerms').classList.add('coupon-terms');
+        document.getElementById('previewFooter').classList.add('preview-footer');      }, 5000);
+    });
+
+    
+    
 
   return (
     <div id='mobileWrapper' className='outline w-[300px] h-[534px] flex flex-col justify-between rounded-3xl'></div>

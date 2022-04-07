@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function StepSummary(props) {
 
   useEffect( () => {
+    props.setShowFooter(true);
     props.setShowPreview(true);
     props.setCurrentStep('summary');
     //back to userPage start
