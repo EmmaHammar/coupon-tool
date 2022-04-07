@@ -6,7 +6,9 @@ import GetCoupon from '../services/GetCoupon';
 
 export default function StepLogo(props) {
   // const [isNextBtnActive, setIsNextBtnActive] = useState(false);
+  const [couponStepLogo, setCouponStepLogo] = useState({});
   const account = useContext(AccountContext);
+
 
   useEffect( () => {
     // props.setContent(''); //empty setContent so content from other step isn't there TODO move to Footer? If content=== '' => nextBtn inactive???
@@ -16,29 +18,32 @@ export default function StepLogo(props) {
     props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/'); //linkPath for backBtn in Footer
     props.setToolBarOptions(`undo redo | image`);
+
   });
 
   // //show initialContent in editor after first render, only if edit old coupon
-  // useEffect( () => {
-  //     let info = 
-  //     {
-  //       'pickedCouponId': account.pickedCouponId, 
-  //     //   'currentStep': props.currentStep
-  //     };
+  useEffect( () => {
+    console.log("StepLogo.js: hämta fr db");
+    const cbLogo = (res) => {
+      // console.log("fetch i StepLogo.js:", res.coupon[0]);
+      // console.log("logo i StepLogo.js:", res.coupon[0].logo);
 
-  //     const cb = (res) => {
-  //       console.log("fetch i StepLogo.js:", res.coupon[0]);
-  //       if (res.coupon[0].logo === undefined) {
-  //         props.setIsNextBtnActive(false);
-  //       } else {
-  //         props.setIsNextBtnActive(true);
-  //       };
-  //       props.setInitialContent(res.coupon[0].logo);
-  //       props.setContent(res.coupon[0].logo);
-  //       };
+      setCouponStepLogo(res.coupon[0]);
 
-  //     GetCoupon(cb, info); //get data from db
-  // }, []);
+      };
+
+    GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db
+  }, []);
+
+  useEffect( () => {
+    if (couponStepLogo.logo === '') {
+      props.setIsNextBtnActive(false);
+    } else {
+      props.setIsNextBtnActive(true);
+    };
+      props.setInitialContent(couponStepLogo.logo);
+      props.setContent(couponStepLogo.logo);
+  }, [couponStepLogo])
 
   return (
     <>
