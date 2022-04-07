@@ -23,85 +23,33 @@ export default function Preview() {
 
     useEffect( () => {
       let couponTemplate = `
-            <header id='previewHeader'></header>
-            <div id='previewMain'>
-              <div id='bgColorWrapper' style='background-color:${coupon.background}; display:flex; flex-direction:column; padding:8px;'>
-                <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon.logo}</div>
-                <div id='couponText' style='padding-bottom:8px; margin-top:20px'>${coupon.text}</div>
-                <img id='prodImg' alt='TODO addera fr db' src=${coupon.prodImg} style='margin-bottom:8px;'></img>
-                <button id='showCodeBtn' style='margin-top:8px;'>Visa koden</button>
-              </div>
-              <p id='couponTerms'>${coupon.terms}</p>
-            </div>
-            <footer id='previewFooter'></footer>
-          `;
-
-          //TODO error - move this 
-          //add tailwind class components to element
-          // document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
-          // document.getElementById('previewHeader').classList.add('previewHeader');
-          // document.getElementById('previewMain').classList.add('previewMain');
-          // document.getElementById('bgColorWrapper').classList.add('bgColorWrapper');
-          // document.getElementById('couponTerms').classList.add('couponTerms');
-          // document.getElementById('previewFooter').classList.add('previewFooter');
-
-          document.getElementById('mobileWrapper').innerHTML = couponTemplate;
-        
-    }, [coupon]);
-
-
-
-    //   //get coupon data from db -> show in preview
-    //   fetch(`https://coupon-tool-backend.herokuapp.com/coupons/${account.pickedCouponId}`)
-    //   .then(response => response.json())
-    //   .then( coupon => {
-
-    //     console.log("Show this coupon in preview:", coupon[0]);
-        
-    //     //TODO är detta bäst för att ej få caught in promise?
-    //     if (coupon !== null) {
-
-    //       let couponTemplate = `
-    //         <header id='previewHeader'></header>
-    //         <div id='previewMain'>
-    //           <div id='bgColorWrapper' style='background-color:${coupon[0].background}; display:flex; flex-direction:column; padding:8px;'>
-    //             <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon[0].logo}</div>
-    //             <div id='couponText' style='padding-bottom:8px; margin-top:20px'>${coupon[0].text}</div>
-    //             <img id='prodImg' alt='TODO addera fr db' src=${coupon[0].prodImg} style='margin-bottom:8px;'></img>
-    //             <button id='showCodeBtn' style='margin-top:8px;'>Visa koden</button>
-    //           </div>
-    //           <p id='couponTerms'>${coupon[0].terms}</p>
-    //         </div>
-    //         <footer id='previewFooter'></footer>
-    //       `;
-  
-    //       //add tailwind class components to element
-    //       document.getElementById('mobileWrapper').innerHTML=couponTemplate;
-    //       document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
-    //       document.getElementById('previewHeader').classList.add('previewHeader');
-    //       document.getElementById('previewMain').classList.add('previewMain');
-    //       document.getElementById('bgColorWrapper').classList.add('bgColorWrapper');
-    //       document.getElementById('couponTerms').classList.add('couponTerms');
-    //       document.getElementById('previewFooter').classList.add('previewFooter');
-    //     };
-    //   });
-
-  return (
-    <div id='mobileWrapper' className='outline w-[300px] h-[534px] flex flex-col justify-between rounded-3xl'>
-
-      {/* <header id='previewHeader'></header>
+        <header id='previewHeader'></header>
         <div id='previewMain'>
-          <div id='bgColorWrapper'>
-            <div>{coupon.logo}</div>
-            <div id='couponText'>{coupon.text}</div>
-            <img id='prodImg' alt='TODO addera fr db' src={coupon.prodImg}></img>
-            <button id='showCodeBtn'>Visa koden</button>
+          <div id='bgColorWrapper' style='background-color:${coupon.background}; display:flex; flex-direction:column; padding:8px;'>
+            <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon.logo}</div>
+            <div id='couponText' style='padding-bottom:8px; margin-top:20px'>${coupon.text}</div>
+            <img id='prodImg' alt='TODO addera fr db' src=${coupon.prodImg} style='margin-bottom:8px;'></img>
+            <button id='showCodeBtn' style='margin-top:8px;'>Visa koden</button>
           </div>
           <p id='couponTerms'>${coupon.terms}</p>
-        </div> */}
-        {/* <footer id='previewFooter'></footer> */}
+        </div>
+        <footer id='previewFooter'></footer>
+      `;
 
-    </div>
+      document.getElementById('mobileWrapper').innerHTML = couponTemplate;
+
+      //add tailwind class components to element
+      document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
+      document.getElementById('previewHeader').classList.add('previewHeader');
+      document.getElementById('previewMain').classList.add('previewMain');
+      document.getElementById('bgColorWrapper').classList.add('bgColorWrapper');
+      document.getElementById('couponTerms').classList.add('couponTerms');
+      document.getElementById('previewFooter').classList.add('previewFooter');
+
+    }, [coupon]);
+
+  return (
+    <div id='mobileWrapper' className='outline w-[300px] h-[534px] flex flex-col justify-between rounded-3xl'></div>
   )
 };
 
