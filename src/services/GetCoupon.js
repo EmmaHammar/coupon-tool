@@ -12,7 +12,7 @@ function GetCoupon(cb, info) {
     })
     .then(response => response.json())
     .then( res => {
-      console.log("Res from CouponsRouter:", res);
+      console.log("Res from CouponsRouter!:", res);
     cb(res);
     });
 };

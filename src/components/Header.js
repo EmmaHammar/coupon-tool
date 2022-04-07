@@ -12,6 +12,17 @@ export default function Header(props) {
   const account = useContext(AccountContext);
   const [showCouponHeader, setShowCouponHeader] = useState(false);
 
+  let navLogo = document.getElementById('nav-logo');
+  let navBackground = document.getElementById('nav-background');
+  let navText = document.getElementById('nav-text');
+  let navProduct = document.getElementById('nav-product');
+  let navSummary = document.getElementById('nav-summary');
+  let info = 
+  {
+    'pickedCouponId': account.pickedCouponId, 
+  //   'currentStep': props.currentStep
+  };
+
   //TODO not finished
   useEffect( () => {
       if (props.currentStep === 'userpage') {
@@ -25,17 +36,6 @@ export default function Header(props) {
   }, [props.currentStep]); 
 
   useEffect( () => {
-    //fetch db
-    let info = 
-    {
-      'pickedCouponId': account.pickedCouponId, 
-    //   'currentStep': props.currentStep
-    };
-    let navLogo = document.getElementById('nav-logo');
-    let navBackground = document.getElementById('nav-background');
-    let navText = document.getElementById('nav-text');
-    let navProduct = document.getElementById('nav-product');
-    let navSummary = document.getElementById('nav-summary');
 
     //style currentStep 
     switch (props.currentStep) {
@@ -77,27 +77,48 @@ export default function Header(props) {
       default:
         break;
     };
+  }, [props.currentStep]); 
 
+  useState( () => {
+ 
     //add clickable style to step if it has data or if prevStep has data
-    const cb = (res) => {
-      console.log("fetch i Header.js:", res.coupon[0]);
-      if (res.coupon[0].logo !== '') {
-        navLogo.classList.add('clickable-step');
-        navBackground.classList.add('clickable-step');
-      }
-      if (res.coupon[0].background !== '') {
-        navText.classList.add('clickable-step');
-      }
-      if (res.coupon[0].text !== '') {
-        navProduct.classList.add('clickable-step');
-      }
-      if (res.coupon[0].prodId !== '') {
-        navSummary.classList.add('clickable-step');
-      }
-    };
+    // const cb = (res) => {
+    //   console.log("fetch i Header.js:", res.coupon[0]);
+    //   if (res.coupon[0] === 'undefined') {
+    //     if (res.coupon[0].logo !== '') {
+    //       navLogo.classList.add('clickable-step');
+    //       navBackground.classList.add('clickable-step');
+    //     }
+    //     if (res.coupon[0].background !== '') {
+    //       navText.classList.add('clickable-step');
+    //     }
+    //     if (res.coupon[0].text !== '') {
+    //       navProduct.classList.add('clickable-step');
+    //     }
+    //     if (res.coupon[0].prodId !== '') {
+    //       navSummary.classList.add('clickable-step');
+    //     };
+    //   } else {
+    //     console.log("show loader");
+    //   }
+      
+    // };
 
-    GetCoupon(cb, info); //get data from db
-  }, [props.currentStep]); //TODO seems that GetCoupon() is executed twice (=2 fetches), why? fix!
+    // GetCoupon(cb, info); //get data from db
+    console.log("hur många gånger?");
+    fetch(`https://coupon-tool-backend.herokuapp.com/coupons/show`, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(info)
+    })
+    .then(response => response.json())
+    .then( res => {
+      console.log("Res Header:", res);
+    
+    });
+  }, []); //TODO seems that GetCoupon() is executed twice (=2 fetches), why? fix!
 // }, []); //only 1 time, not working when click menu item in stepper
 
 
