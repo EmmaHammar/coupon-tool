@@ -136,6 +136,7 @@ export default function App() {
                         exact path='/steg1' 
                         element= { 
                           <StepLogo 
+                            setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}
                             content={content}

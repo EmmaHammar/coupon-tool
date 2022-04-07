@@ -20,10 +20,10 @@ export default function UserPage(props) {
       { account => 
       <div id='userPageWrapper' className=''>
         <h2>Hej {account.userId}!</h2>
-        <button className='btn btn-primary-reverse mt-2' onClick={handleClick}>Skapa ny kampanj</button>
-        <div className='mt-6'>
-          <h3>Dina sparade kampanjer</h3>
-          <ul className='mt-2 flex flex-col bg-mint'>
+        <button className='btn btn-primary-reverse mt-2' onClick={handleClick}>SKAPA NY KAMPANJ</button>
+        <div className='mt-8'>
+          <h3>Dina sparade kampanjer:</h3>
+          <ul className='mt-2 flex flex-col'>
             <li className='btn btn-secondary text-center mb-2'>Kampanj1</li>
             <li className='btn btn-secondary text-center mb-2'>Kampanj2</li>
             <li className='btn btn-secondary text-center mb-2'>Kampanj3</li>
