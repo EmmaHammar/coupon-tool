@@ -16,7 +16,7 @@ export default function StepText(props) {
     props.setToolBarOptions(`undo redo | fontsizeselect | fontselect | bold italic forecolor backcolor | alignleft aligncenter alignright | help`);
   });
 
-    //show initialContent in editor after first render
+  //show initialContent in editor after first render
   useEffect( () => {
     const cbText = (res) => {
       console.log("StepText.js: hämta fr db", res.coupon[0]);
@@ -35,27 +35,6 @@ export default function StepText(props) {
       props.setInitialContent(couponStepText.text);
       props.setContent(couponStepText.text);
   }, [couponStepText])
-
-
-  //     let info = 
-  //     {
-  //       'pickedCouponId': account.pickedCouponId, 
-  //     //   'currentStep': props.currentStep
-  //     };
-
-  //     const cb = (res) => {
-  //       // console.log("res in cb, logo:", res.coupon[0].text);
-  //       if (res.coupon[0].text === '') {
-  //         props.setIsNextBtnActive(false);
-  //       } else {
-  //         props.setIsNextBtnActive(true);
-  //       };
-  //       props.setInitialContent(res.coupon[0].text);
-  //       props.setContent(res.coupon[0].text);
-  //       };
-
-  //     GetCoupon(cb, info); //get data from db
-  
 
   return (
     <div id='stepTextWrapper' className=''>

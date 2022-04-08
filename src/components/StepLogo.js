@@ -6,7 +6,10 @@ import GetCoupon from '../services/GetCoupon';
 
 export default function StepLogo(props) {
   // const [isNextBtnActive, setIsNextBtnActive] = useState(false);
-  const [couponStepLogo, setCouponStepLogo] = useState({});
+  const [couponStepLogo, setCouponStepLogo] = useState({
+    'logo': '',
+    'logo-alt-text': ''
+  });
   const account = useContext(AccountContext);
 
 
@@ -24,7 +27,10 @@ export default function StepLogo(props) {
   useEffect( () => {
     const cbLogo = (res) => {
       console.log("StepLogo.js: hämta fr db", res.coupon[0]);
-      setCouponStepLogo(res.coupon[0]);
+      setCouponStepLogo({
+        'logo': res.coupon[0].logo,
+        'logo-alt-text': 'altMock'
+      });
     };
 
     GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db

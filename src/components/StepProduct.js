@@ -5,7 +5,7 @@ import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepProduct(props) {
-  // const [stepType, setStepType] = useState('product');
+  const [couponStepProduct, setCouponStepProduct] = useState({});
   const [productList, setProductList] = useState([]);
   const account = useContext(AccountContext);
   const [pickedProdId, setPickedProdId] = ('ejj');
@@ -23,6 +23,17 @@ export default function StepProduct(props) {
       setProductList(products);
     });
   }, []);
+
+  // show initialContent in editor after first render, only if edit old coupon
+  useEffect( () => {
+    const cbProduct = (res) => {
+      console.log("StepLogo.js: hämta fr db", res.coupon[0]);
+      setCouponStepProduct(res.coupon[0]);
+    };
+
+    GetCoupon(cbProduct, {'pickedCouponId': account.pickedCouponId}); //get data from db
+  }, []);
+
 
   //first render: show active btn class if a product is picked in db
   // useEffect( () => {
