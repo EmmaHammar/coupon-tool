@@ -52,7 +52,7 @@ export default function App() {
   };
 
   //TODO felsöker länk:
-  console.log("window.location.href", window.location.href);
+  // console.log("window.location.href", window.location.href);
 
   useEffect( () => {
     setTimeout( () => {
@@ -63,7 +63,7 @@ export default function App() {
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = (evt) => {
-    console.log("saveclick", evt.target);
+    // console.log("saveclick", evt.target);
   //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
@@ -76,9 +76,9 @@ export default function App() {
         // console.log("initialProdId??", initialProdId);
         //only save in db if something has changed, i.e. user has added a new product comparing to what's saved in db 
           if ( (initialProdId !== '') && (document.getElementById(initialProdId).classList.contains('btn-primary')) ) {
-            console.log("inget har ändrats -> spara EJ");
+            // console.log("inget har ändrats -> spara EJ");
           } else {
-            console.log("något har ändrats -> spara i DB");
+            // console.log("något har ändrats -> spara i DB");
             let prodObj = {
               'couponId': account.pickedCouponId, 
               'prodId': pickedProd.prodId,
@@ -94,9 +94,9 @@ export default function App() {
 
         //save to db only if something has changed
         if (initialContent === content) {
-          console.log("spara EJ, inget har ändrats");
+          // console.log("spara EJ, inget har ändrats");
         } else {
-          console.log("spara, något har ändrats");
+          // console.log("spara, något har ändrats");
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
             [currentStep] : content

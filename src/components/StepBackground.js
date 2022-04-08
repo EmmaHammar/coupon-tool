@@ -9,6 +9,7 @@ export default function StepBackground(props) {
   const account = useContext(AccountContext);
 
   useEffect( () => {
+    // document.getElementById('errorMsg').innerHTML=''; 
     props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('background');
