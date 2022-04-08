@@ -22,14 +22,10 @@ export default function StepLogo(props) {
 
   // //show initialContent in editor after first render, only if edit old coupon
   useEffect( () => {
-    console.log("StepLogo.js: hämta fr db");
     const cbLogo = (res) => {
-      // console.log("fetch i StepLogo.js:", res.coupon[0]);
-      // console.log("logo i StepLogo.js:", res.coupon[0].logo);
-
+      console.log("StepLogo.js: hämta fr db", res.coupon[0]);
       setCouponStepLogo(res.coupon[0]);
-
-      };
+    };
 
     GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db
   }, []);
@@ -62,5 +58,3 @@ export default function StepLogo(props) {
     </>
   )
 };
-
-//TODO fix edit old?

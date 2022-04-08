@@ -27,8 +27,8 @@ export default function StepBackground(props) {
 
   //show initialContent in editor after first render
   useEffect( () => {
-    console.log("StepBackground.js: hämta fr db");
     const cbBackground = (res) => {
+      console.log("StepBackground.js: hämta fr db", res.coupon[0]);
       setCouponStepBackground(res.coupon[0].background);
     };
 
@@ -47,15 +47,8 @@ export default function StepBackground(props) {
   }, [couponStepBackground])
 
   const inputChange = (evt) => {
-      //TODO testar om det printar rätt - EJ KLART
-    // setBgColorInputValue(evt.target.value);
-    // console.log("evt.target", evt.target.value);
-    //SLUT TODO testar om det printar rätt - EJ KLART
-
     props.setContent(evt.target.value); //save right in saveClick() in App
-    setBgColor(evt.target.value); //show right?
-
-    //TODO onClick -> save to db (fix so remove TinyEditor)
+    setBgColor(evt.target.value);
   };
 
   return (
@@ -68,6 +61,3 @@ export default function StepBackground(props) {
     </div>
   )
 };
-
-//TODO ERROR:       <input className='btn' type='text' id='bgColorInput' name='bgColor' value={props.content} onChange={inputChange}></input> 
-//value blir ej rätt, den tar innehållet från tidigare steg

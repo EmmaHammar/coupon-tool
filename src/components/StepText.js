@@ -4,6 +4,7 @@ import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepText(props) {
+  const [couponStepText, setCouponStepText] = useState({});
   const account = useContext(AccountContext);
 
   useEffect( () => {
@@ -16,7 +17,26 @@ export default function StepText(props) {
   });
 
     //show initialContent in editor after first render
-  //   useEffect( () => {
+  useEffect( () => {
+    const cbText = (res) => {
+      console.log("StepText.js: hämta fr db", res.coupon[0]);
+      setCouponStepText(res.coupon[0]);
+    };
+
+    GetCoupon(cbText, {'pickedCouponId': account.pickedCouponId}); //get data from db
+  }, []);
+
+  useEffect( () => {
+    if (couponStepText.text === '') {
+      props.setIsNextBtnActive(false);
+    } else {
+      props.setIsNextBtnActive(true);
+    };
+      props.setInitialContent(couponStepText.text);
+      props.setContent(couponStepText.text);
+  }, [couponStepText])
+
+
   //     let info = 
   //     {
   //       'pickedCouponId': account.pickedCouponId, 
@@ -35,7 +55,7 @@ export default function StepText(props) {
   //       };
 
   //     GetCoupon(cb, info); //get data from db
-  // }, []);
+  
 
   return (
     <div id='stepTextWrapper' className=''>
