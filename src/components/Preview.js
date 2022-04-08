@@ -59,6 +59,12 @@ export default function Preview(props) {
 };
 
 
+//TODO
+//Add loader meanwhile getting data from db
+
+
+
+
 
 //kom ihåg
   //375×667 (3.75%)

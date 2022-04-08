@@ -3,7 +3,13 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer(props) {
-    let nextBtnText = 'SPARA OCH GÅ VIDARE';
+  let nextBtnText;
+  if (props.currentStep === 'summary') {
+    nextBtnText = 'SLUTFÖR';
+  } else {
+    nextBtnText = 'GÅ VIDARE';
+  };
+  
   return (
     // <SaveContext.Consumer>
       // { saveClick => 

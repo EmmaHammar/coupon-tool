@@ -275,6 +275,7 @@ export default function App() {
 
               {
                 showFooter ? <Footer 
+                currentStep={currentStep}
                 linkPath={linkPath} 
                 isNextBtnActive={isNextBtnActive}
                 setIsNextBtnActive={setIsNextBtnActive}
