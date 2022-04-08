@@ -51,6 +51,9 @@ export default function App() {
     pickedCouponId: '1',
   };
 
+  //TODO felsöker länk:
+  console.log("window.location.href", window.location.href);
+
   useEffect( () => {
     setTimeout( () => {
       setIsLoading(false)
@@ -263,12 +266,12 @@ export default function App() {
                     </Routes>
                   {/* </SaveContext.Provider> */}
                   <div id='errorWrapper'>
-                    <p id='errorMsg'></p>
+                    <p id='errorMsg' className='errorMsg'></p>
                   </div>
 
                 </div>
                 {
-                  showPreview ? <Preview /> : ''
+                  showPreview ? <Preview isLoading={isLoading} setIsLoading={setIsLoading}/> : ''
                 }
                 
               </main>
@@ -297,10 +300,6 @@ export default function App() {
   // add tailwind style to root, need reg css?
   // const rootStyle = 'outline font-Inter bg-pink-500 md:bg-green-500 lg:bg-yellow-500 mx-10 mt-10 mb-24';
   // document.getElementById('root').classList.add(rootStyle);
-
-//regroup header -> nav is in this doc? or move menuitems to context
-
-//change so footer not wrapped in main
 
 
 

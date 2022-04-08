@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import GetCoupon from '../services/GetCoupon';
+import Loader from './Loader';
 import { AccountContext } from '../App';
 
 export default function Preview(props) {
@@ -9,6 +10,15 @@ export default function Preview(props) {
     const account = useContext(AccountContext);
     
     useEffect( () => {
+      setTimeout( () => {
+        props.setIsLoading(false)
+      }, 1000);
+    });
+
+
+    useEffect( () => {
+      document.getElementById('errorMsg').innerHTML = '';
+      
       let info = 
       {
         'pickedCouponId': account.pickedCouponId, 
@@ -25,7 +35,7 @@ export default function Preview(props) {
 
     useEffect( () => {
       setCouponTemplate(`
-        <header id='previewHeader'></header>
+        <div id='previewHeader'></div>
         <div id='previewMain'>
           <div style='background-color:${coupon.background}; display:flex; flex-direction:column; padding:8px;'>
             <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon.logo}</div>
@@ -35,7 +45,7 @@ export default function Preview(props) {
           </div>
           <p id='couponTerms'>${coupon.terms}</p>
         </div>
-        <footer id='previewFooter'></footer>
+        <div id='previewFooter'></div>
       `);
 
     }, [coupon]);
@@ -54,7 +64,10 @@ export default function Preview(props) {
     });
 
   return (
-    <div id='mobileWrapper' className='outline w-[300px] h-[534px] flex flex-col justify-between rounded-3xl'></div>
+    <>
+      {props.isLoading ? <Loader /> : '' }
+      <div id='mobileWrapper' className='outline rounded-3xl w-[300px] h-[534px] flex flex-col justify-between'></div>
+    </>
   )
 };
 

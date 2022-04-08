@@ -119,8 +119,6 @@
         max-w-[150px]
         md:max-w-none
     }
-
-
     
     .preview-header {
         @apply h-12
@@ -139,5 +137,9 @@
         @apply h-12
         bg-gray-300
         rounded-b-3xl
+    }
+
+    .errorMsg {
+    @apply text-error
     }
 }
