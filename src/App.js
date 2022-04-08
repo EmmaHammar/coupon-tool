@@ -29,6 +29,8 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState('');
   const [content, setContent] = useState('');
   const [initialContent, setInitialContent] = useState('');
+  // const [initialContent, setInitialContent] = useState(undefined | '');
+
   
   const [linkPath, setLinkPath] = useState(''); //TODO: Rename: linkPathNext
   const [linkPathBack, setLinkPathBack] = useState('');
@@ -219,6 +221,9 @@ export default function App() {
                           setCurrentStep={setCurrentStep}  
                           content={content}
                           setContent={setContent}
+                          initialContent={initialContent}
+                          setInitialContent={setInitialContent}
+
                           linkPath={linkPath}
                           setLinkPath={setLinkPath}
                           linkPathBack={linkPathBack}

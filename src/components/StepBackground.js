@@ -8,8 +8,6 @@ export default function StepBackground(props) {
   const [bgColor, setBgColor] = useState('');
   const account = useContext(AccountContext);
 
-
-
   useEffect( () => {
     props.setShowPreview(false);
     props.setShowFooter(true);
@@ -22,7 +20,6 @@ export default function StepBackground(props) {
     } else {
       props.setIsNextBtnActive(true);
     };
- 
   });
 
   //show initialContent in editor after first render

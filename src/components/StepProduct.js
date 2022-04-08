@@ -5,7 +5,7 @@ import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepProduct(props) {
-  const [couponStepProduct, setCouponStepProduct] = useState({});
+  const [couponStepProduct, setCouponStepProduct] = useState('');
   const [productList, setProductList] = useState([]);
   const account = useContext(AccountContext);
   const [pickedProdId, setPickedProdId] = ('ejj');
@@ -28,12 +28,29 @@ export default function StepProduct(props) {
   useEffect( () => {
     const cbProduct = (res) => {
       console.log("StepLogo.js: hämta fr db", res.coupon[0]);
-      setCouponStepProduct(res.coupon[0]);
+      setCouponStepProduct(res.coupon[0].prodId);
     };
 
     GetCoupon(cbProduct, {'pickedCouponId': account.pickedCouponId}); //get data from db
   }, []);
 
+  useEffect( () => {
+    if (couponStepProduct === '') {
+      props.setIsNextBtnActive(false);
+    } else {
+      props.setIsNextBtnActive(true);
+      document.getElementById(couponStepProduct).classList.add('btn-primary');
+      document.getElementById(couponStepProduct).classList.remove('btn-secondary');
+
+      
+    };
+      props.setInitialContent('');
+      props.setContent('');
+
+      // 
+  //       document.getElementById(res.coupon[0].prodId).classList.remove('btn-secondary');
+  //       document.getElementById(res.coupon[0].prodId).innerText='TILLAGD';
+  }, [couponStepProduct])
 
   //first render: show active btn class if a product is picked in db
   // useEffect( () => {

@@ -41,20 +41,17 @@ export default function Preview(props) {
     }, [coupon]);
 
     useEffect( () => {
-      setTimeout( () => {
         document.getElementById('mobileWrapper').innerHTML = couponTemplate;
 
         //add tailwind class components to element
-        document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
-        document.getElementById('previewHeader').classList.add('preview-header');
-        document.getElementById('previewMain').classList.add('preview-main');
-        document.getElementById('couponTerms').classList.add('coupon-terms');
-        document.getElementById('previewFooter').classList.add('preview-footer');
-      }, 1000);
+        if ( (document.getElementById('showCodeBtn') !== null) && (document.getElementById('previewHeader') !== null) && (document.getElementById('previewMain') !== null) && (document.getElementById('couponTerms') !== null) && (document.getElementById('previewFooter') !== null) ) {
+          document.getElementById('showCodeBtn').classList.add('btn', 'btn-secondary');
+          document.getElementById('previewHeader').classList.add('preview-header');
+          document.getElementById('previewMain').classList.add('preview-main');
+          document.getElementById('couponTerms').classList.add('coupon-terms');
+          document.getElementById('previewFooter').classList.add('preview-footer');
+        };
     });
-
-    
-    
 
   return (
     <div id='mobileWrapper' className='outline w-[300px] h-[534px] flex flex-col justify-between rounded-3xl'></div>
@@ -62,20 +59,11 @@ export default function Preview(props) {
 };
 
 
-//TO DO This is not working correctly
-// <div id='prodImgWrapper' className='bg-yellow-50'>
-//     <img src={props.prodImgLink} alt={props.prodImgAltText} className='object-cover h-48 w-48'></img>
-// </div>  
-
-//TODO fix margin padding så logo o text inte flyter ihop om text är stor alt liten
 
 //kom ihåg
   //375×667 (3.75%)
   //70% -> 263 x 467
   //80% height because of battery icon etc -> 374px ska synas -> 93 ska bort -> /2 top bottom = 47 -> 12 i tailwind
-
-
-
 // You have to install npm i react-html-parser import it to your component import ReactHtmlParser from "react-html-parser";"; and render it
 
 // <div className="wysiwyg">
