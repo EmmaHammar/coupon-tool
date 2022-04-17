@@ -10,7 +10,7 @@ function UpdateCoupon(coupon) {
     })
     .then(data => data.json())
     .then(res => {
-        console.log("res from couponsRouter:", res);
+        console.log("UpdateCoupon - res from couponsRouter:", res);
     });
 }
 

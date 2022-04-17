@@ -137,7 +137,6 @@ export default function App() {
               <main className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
 
                 <div id='userPageWrapper' className='pb-16 max-w-full'>
-                  {/* <SaveContext.Provider value={saveClick}> */}
                     <Routes>
                       <Route exact path='/' element={
                         <UserPage 
@@ -274,7 +273,6 @@ export default function App() {
                         />}>
                       </Route>
                     </Routes>
-                  {/* </SaveContext.Provider> */}
                   
                     <div id='errorWrapper'>
                       <p id='errorMsg' className='errorMsg'></p>
@@ -288,15 +286,16 @@ export default function App() {
               </main>
 
               {
-                showFooter ? <Footer 
-                currentStep={currentStep}
-                linkPath={linkPath} 
-                isNextBtnActive={isNextBtnActive}
-                setIsNextBtnActive={setIsNextBtnActive}
-                saveClick={saveClick}
-                linkPathBack={linkPathBack}
-              /> 
-              : ''
+                showFooter ? 
+                  <Footer 
+                    currentStep={currentStep}
+                    linkPath={linkPath} 
+                    isNextBtnActive={isNextBtnActive}
+                    setIsNextBtnActive={setIsNextBtnActive}
+                    saveClick={saveClick}
+                    linkPathBack={linkPathBack}
+                  /> 
+                : ''
               }
             </div>
           }

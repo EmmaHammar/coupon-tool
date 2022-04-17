@@ -9,11 +9,11 @@ export default function Preview(props) {
 
     const account = useContext(AccountContext);
     
-    useEffect( () => {
-      setTimeout( () => {
-        props.setIsLoading(false)
-      }, 1000);
-    });
+    // useEffect( () => {
+    //   setTimeout( () => {
+    //     props.setIsLoading(false)
+    //   }, 1000);
+    // });
 
 
     useEffect( () => {
@@ -65,7 +65,7 @@ export default function Preview(props) {
 
   return (
     <>
-      {props.isLoading ? <Loader /> : '' }
+      {/* {props.isLoading ? <Loader /> : '' } */}
       <div id='mobileWrapper' className='outline rounded-3xl w-[300px] h-[534px] flex flex-col justify-between'></div>
     </>
   )

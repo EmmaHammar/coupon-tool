@@ -11,7 +11,7 @@ function GetCoupon(cb, info) {
     })
     .then(response => response.json())
     .then( res => {
-      console.log("Res from CouponsRouter!:", res);
+      console.log("GetCoupon - res from CouponsRouter!:", res);
     cb(res);
     });
 };

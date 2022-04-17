@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Loader from './Loader';
 
 export default function StepSummary(props) {
-
   useEffect( () => {
     props.setShowFooter(true);
     props.setShowPreview(true);
