@@ -39,12 +39,12 @@ export default function StepProduct(props) {
   useEffect( () => {
     if (couponStepProduct === '') {
       props.setIsNextBtnActive(false);
+
     } else {
       props.setIsNextBtnActive(true);
       document.getElementById(couponStepProduct).classList.add('btn-primary');
       document.getElementById(couponStepProduct).classList.remove('btn-secondary');
-
-      
+      document.getElementById(couponStepProduct).innerText='TILLAGD';
     };
       props.setInitialContent('');
       props.setContent('');

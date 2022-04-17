@@ -11,8 +11,8 @@ export default function Footer(props) {
   };
 
   //TO DO reach a tag in button element and on a element: set tabindex=-1 -> remove tab focus possibility
-  // let a = document.getElementsByTagName('a');
-  // console.log('a', a);
+  let backBtn = document.getElementById('backBtn');
+  console.log('backBtn', backBtn);
   
   return (
     // <SaveContext.Consumer>
@@ -21,8 +21,8 @@ export default function Footer(props) {
           {/* <div className=''> */}
 
           
-            <button id='backBtn' className='btn btn-primary-reverse' onClick={props.saveClick}>
-              <Link to={props.linkPathBack}>
+            <button id='backBtn' className='btn btn-primary-reverse' tabIndex='0' onClick={props.saveClick}>
+              <Link to={props.linkPathBack} tabIndex='-1'>
                 TILLBAKA
               </Link>
             </button>
@@ -32,10 +32,13 @@ export default function Footer(props) {
           </Link> */}
             {
             props.isNextBtnActive ? 
-              <Link to={props.linkPath}> 
-              <button id='nextBtn' className='btn btn-primary' onClick={props.saveClick}>{nextBtnText}</button>
-              </Link>
-            : <button id='nextBtn' className='btn btn-primary-inactive' onClick={props.saveClick}>{nextBtnText}</button>
+              
+              <button id='nextBtn' className='btn btn-primary' onClick={props.saveClick}>
+                <Link to={props.linkPath} tabIndex='-1'> 
+                  {nextBtnText}
+                </Link>
+              </button>
+            : <button id='nextBtn' className='btn btn-primary-inactive' tabIndex='0' onClick={props.saveClick}>{nextBtnText}</button>
             }
         </footer>
       // }
