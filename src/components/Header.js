@@ -69,7 +69,9 @@ export default function Header(props) {
           <Link to='/'>
             <h1 className='font-bold hover-text'>Adoveo</h1>
           </Link>
-            <div className='btn btn-secondary'>LOGGA UT</div>
+            {/* <div className='btn btn-secondary'>LOGGA UT</div> */}
+            <button className='btn btn-secondary'>LOGGA UT</button>
+
         </div>
         {
           showCouponHeader ? 

@@ -37,6 +37,9 @@
         @apply text-sm
         md:text-base;
     }
+    a {
+        @apply focus:outline-coral
+    }
 }
 
 @layer components {

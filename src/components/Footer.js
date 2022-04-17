@@ -9,15 +9,27 @@ export default function Footer(props) {
   } else {
     nextBtnText = 'GÅ VIDARE';
   };
+
+  //TO DO reach a tag in button element and on a element: set tabindex=-1 -> remove tab focus possibility
+  // let a = document.getElementsByTagName('a');
+  // console.log('a', a);
   
   return (
     // <SaveContext.Consumer>
       // { saveClick => 
         <footer id='navFooter' className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10 flex justify-between items-center'>
           {/* <div className=''> */}
-          <Link to={props.linkPathBack}>
+
+          
+            <button id='backBtn' className='btn btn-primary-reverse' onClick={props.saveClick}>
+              <Link to={props.linkPathBack}>
+                TILLBAKA
+              </Link>
+            </button>
+          
+          {/* <Link to={props.linkPathBack}>
             <button id='backBtn' className='btn btn-primary-reverse' onClick={props.saveClick}>TILLBAKA</button>
-          </Link>
+          </Link> */}
             {
             props.isNextBtnActive ? 
               <Link to={props.linkPath}> 

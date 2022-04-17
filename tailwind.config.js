@@ -15,6 +15,7 @@ module.exports = {
         disableBg: '#c6c7cd',
         disableText: '#4c5272',
         error: '#9f1d27',
+        coral: '#f7844b',
       },
       fontFamily: {
         Inter: ['Inter', 'sans-serif'],
