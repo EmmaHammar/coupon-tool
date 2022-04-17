@@ -74,9 +74,9 @@ export default function App() {
       
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
       
-      console.log("if körs");
+      // console.log("if körs");
     } else {    
-      console.log("else körs");
+      // console.log("else körs");
 
       //TODO test have let prodObj outside if + try add couponId object to pickedProd (also object) i stil med: prodObj = {'couponId': account.pickedCouponId, pickedProdObj alla object}
       
