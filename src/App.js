@@ -263,6 +263,7 @@ export default function App() {
                           setLinkPath={setLinkPath}
                           setLinkPathBack={setLinkPathBack}
                           setIsLoading={setIsLoading}
+                          setIsNextBtnActive={setIsNextBtnActive}
                         />
                       }>
 
