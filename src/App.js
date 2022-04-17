@@ -36,12 +36,12 @@ export default function App() {
   const [linkPathBack, setLinkPathBack] = useState('');
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
 
-
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
   const [initialProdId, setInitialProdId] = useState('');
 
+  const [isError, setIsError] = useState(false);
 
   const [editorValue, setEditorValue] = useState(''); //TODO remove?
   const account = {
@@ -60,15 +60,24 @@ export default function App() {
     }, 1000);
   });
 
+  // // test nextBtnClick
+  // const backClick = (evt) => {
+
+  // }
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = (evt) => {
+
     // console.log("saveclick", evt.target);
   //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
+      
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
       
-    } else {      
+      console.log("if körs");
+    } else {    
+      console.log("else körs");
+
       //TODO test have let prodObj outside if + try add couponId object to pickedProd (also object) i stil med: prodObj = {'couponId': account.pickedCouponId, pickedProdObj alla object}
       
       //if StepProduct:
@@ -94,9 +103,9 @@ export default function App() {
 
         //save to db only if something has changed
         if (initialContent === content) {
-          // console.log("spara EJ, inget har ändrats");
+          console.log("spara EJ, inget har ändrats");
         } else {
-          // console.log("spara, något har ändrats");
+          console.log("spara, något har ändrats");
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
             [currentStep] : content
@@ -265,9 +274,10 @@ export default function App() {
                       </Route>
                     </Routes>
                   {/* </SaveContext.Provider> */}
-                  <div id='errorWrapper'>
-                    <p id='errorMsg' className='errorMsg'></p>
-                  </div>
+                  
+                    <div id='errorWrapper'>
+                      <p id='errorMsg' className='errorMsg'></p>
+                    </div> 
 
                 </div>
                 {

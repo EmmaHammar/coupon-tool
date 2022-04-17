@@ -22,6 +22,8 @@ export default function StepProduct(props) {
     GetProducts( (products) => {
       setProductList(products);
     });
+
+    document.getElementById('errorMsg').innerHTML = '';
   }, []);
 
   // show initialContent in editor after first render, only if edit old coupon

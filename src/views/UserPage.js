@@ -8,6 +8,7 @@ export default function UserPage(props) {
     props.setCurrentStep('userpage');
     props.setShowFooter(false);
 
+    document.getElementById('errorMsg').innerHTML = '';
   });
 
   const navigate = useNavigate(); 

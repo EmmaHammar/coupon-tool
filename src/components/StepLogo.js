@@ -20,7 +20,6 @@ export default function StepLogo(props) {
     props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/'); //linkPath for backBtn in Footer
     props.setToolBarOptions(`undo redo | image`);
-
   });
 
   // //show initialContent in editor after first render, only if edit old coupon

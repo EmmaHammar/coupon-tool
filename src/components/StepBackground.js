@@ -21,6 +21,8 @@ export default function StepBackground(props) {
     } else {
       props.setIsNextBtnActive(true);
     };
+
+    document.getElementById('errorMsg').innerHTML = '';
   });
 
   //show initialContent in editor after first render
