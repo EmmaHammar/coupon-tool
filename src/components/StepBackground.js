@@ -10,7 +10,7 @@ export default function StepBackground(props) {
 
   useEffect( () => {
     // document.getElementById('errorMsg').innerHTML=''; 
-    props.setShowPreview(false);
+    // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('background');
     props.setLinkPath('/steg3'); //send linkPath to Footer.js so nextBtn navigate to next step

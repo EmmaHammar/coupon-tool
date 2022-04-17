@@ -65,8 +65,8 @@ export default function Preview(props) {
 
   return (
     <>
-      {/* {props.isLoading ? <Loader /> : '' } */}
-      <div id='mobileWrapper' className='outline rounded-3xl w-[300px] h-[534px] flex flex-col justify-between'></div>
+
+      {/* <div id='mobileWrapper' className='outline rounded-3xl w-[300px] h-[534px] flex flex-col justify-between'></div> */}
     </>
   )
 };

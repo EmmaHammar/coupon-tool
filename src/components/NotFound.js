@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function NotFound(props) {
   useEffect( () => {
-    props.setShowPreview(false);
+    // props.setShowPreview(false);
   });
 
   return (

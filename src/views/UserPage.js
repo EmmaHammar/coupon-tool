@@ -4,7 +4,7 @@ import { AccountContext } from '../App';
 
 export default function UserPage(props) {
   useEffect( () => {
-    props.setShowPreview(false);
+    // props.setShowPreview(false);
     props.setCurrentStep('userpage');
     props.setShowFooter(false);
 

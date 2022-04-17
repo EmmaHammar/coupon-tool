@@ -14,7 +14,7 @@ export default function StepLogo(props) {
 
 
   useEffect( () => {
-    props.setShowPreview(false);
+    // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('logo');
     props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step

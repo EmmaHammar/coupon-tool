@@ -8,11 +8,11 @@ export default function StepProduct(props) {
   const [couponStepProduct, setCouponStepProduct] = useState('');
   const [productList, setProductList] = useState([]);
   const account = useContext(AccountContext);
-  const [pickedProdId, setPickedProdId] = ('ejj');
+  const [pickedProdId, setPickedProdId] = ('ejj'); //TODO vad göra??
   
   //get all products from db in order to print them
   useEffect( () => {
-    props.setShowPreview(false);
+    // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('product');
     props.setLinkPath('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
@@ -118,7 +118,7 @@ export default function StepProduct(props) {
                   key={index}
                   setPickedProd={props.setPickedProd}
                   setIsNextBtnActive={props.setIsNextBtnActive}
-                  setShowPreview={props.setShowPreview}
+                  // setShowPreview={props.setShowPreview}
                 /> 
               )
             })

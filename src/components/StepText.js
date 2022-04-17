@@ -8,7 +8,7 @@ export default function StepText(props) {
   const account = useContext(AccountContext);
 
   useEffect( () => {
-    props.setShowPreview(false);
+    // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('text');
     props.setLinkPath('/steg4'); //send linkPath to Footer.js so nextBtn navigate to next step

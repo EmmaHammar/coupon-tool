@@ -15,7 +15,7 @@ import StepText from './components/StepText';
 import StepProduct from './components/StepProduct';
 import StepSummary from './components/StepSummary';
 import UpdateCoupon from './services/UpdateCoupon';
-import Preview from './components/Preview';
+// import Preview from './components/Preview';
 import Footer from './components/Footer';
 
 //global state TODO: move to separate file if have time
@@ -24,7 +24,7 @@ export const AccountContext = React.createContext();
 
 export default function App() {
   const [showFooter, setShowFooter] = useState(false);
-  const [showPreview, setShowPreview] = useState(false);
+  // const [showPreview, setShowPreview] = useState(false);
 
   const [currentStep, setCurrentStep] = useState('');
   const [content, setContent] = useState('');
@@ -140,7 +140,7 @@ export default function App() {
                     <Routes>
                       <Route exact path='/' element={
                         <UserPage 
-                          setShowPreview={setShowPreview}
+                          // setShowPreview={setShowPreview}
                           setShowFooter={setShowFooter}
                           setCurrentStep={setCurrentStep}
                         />}>
@@ -149,7 +149,7 @@ export default function App() {
                         exact path='/steg1' 
                         element= { 
                           <StepLogo 
-                            setShowPreview={setShowPreview}
+                            // setShowPreview={setShowPreview}
                             setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}
@@ -175,7 +175,7 @@ export default function App() {
                         exact path='/steg2' 
                         element= {
                           <StepBackground 
-                            setShowPreview={setShowPreview}
+                            // setShowPreview={setShowPreview}
                             setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}
@@ -202,7 +202,7 @@ export default function App() {
                         exact path='/steg3' 
                         element= {
                           <StepText 
-                            setShowPreview={setShowPreview}
+                            // setShowPreview={setShowPreview}
                             setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}  
@@ -227,7 +227,7 @@ export default function App() {
                         exact path='/steg4' 
                         element= {
                           <StepProduct 
-                          setShowPreview={setShowPreview}
+                          // setShowPreview={setShowPreview}
                           setShowFooter={setShowFooter}
                           currentStep={currentStep} 
                           setCurrentStep={setCurrentStep}  
@@ -253,7 +253,7 @@ export default function App() {
 
                       <Route exact path='/steg5' element= {
                         <StepSummary
-                          setShowPreview={setShowPreview}
+                          // setShowPreview={setShowPreview}
                           setShowFooter={setShowFooter}
                           currentStep={currentStep} 
                           setCurrentStep={setCurrentStep}  
@@ -269,7 +269,7 @@ export default function App() {
                       </Route>
                       <Route exact path='*' element={
                         <NotFound 
-                          setShowPreview={setShowPreview}
+                          // setShowPreview={setShowPreview}
                         />}>
                       </Route>
                     </Routes>
@@ -279,9 +279,9 @@ export default function App() {
                     </div> 
 
                 </div>
-                {
+                {/* {
                   showPreview ? <Preview isLoading={isLoading} setIsLoading={setIsLoading}/> : ''
-                }
+                } */}
                 
               </main>
 
