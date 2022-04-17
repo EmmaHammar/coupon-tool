@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import TinyEditor from './TinyEditor';
 import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
@@ -9,7 +8,6 @@ export default function StepBackground(props) {
   const account = useContext(AccountContext);
 
   useEffect( () => {
-    // document.getElementById('errorMsg').innerHTML=''; 
     // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('background');
@@ -28,7 +26,7 @@ export default function StepBackground(props) {
   //show initialContent in editor after first render
   useEffect( () => {
     const cbBackground = (res) => {
-      console.log("StepBackground.js: hämta fr db", res.coupon[0]);
+      // console.log("StepBackground.js: hämta fr db", res.coupon[0]);
       setCouponStepBackground(res.coupon[0].background);
     };
 
@@ -55,8 +53,6 @@ export default function StepBackground(props) {
     <div id='stepBackgroundWrapper' className=''>
       <h4>2. Välj bakgrundsfärg. </h4>
       <p>Ange färgen i hex, ex: #00FFFF</p>
-      
-      {/* <label for='bgColor'>Bakgrundsfärg</label> */}
       <input className='btn' type='text' id='bgColorInput' name='bgColor' onChange={inputChange} value={bgColor}></input>
     </div>
   )

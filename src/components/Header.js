@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Header(props) {
@@ -44,19 +44,19 @@ export default function Header(props) {
           navSummary.classList.remove('current-step');
           break;
         case 'product': 
-        navLogo.classList.remove('current-step');
-        navBackground.classList.remove('current-step');
-        navText.classList.remove('current-step');
-        navProduct.classList.add('current-step');
-        navSummary.classList.remove('current-step');
-        break;
+          navLogo.classList.remove('current-step');
+          navBackground.classList.remove('current-step');
+          navText.classList.remove('current-step');
+          navProduct.classList.add('current-step');
+          navSummary.classList.remove('current-step');
+          break;
         case 'summary': 
-        navLogo.classList.remove('current-step');
-        navBackground.classList.remove('current-step');
-        navText.classList.remove('current-step');
-        navProduct.classList.remove('current-step');
-        navSummary.classList.add('current-step');
-        break;
+          navLogo.classList.remove('current-step');
+          navBackground.classList.remove('current-step');
+          navText.classList.remove('current-step');
+          navProduct.classList.remove('current-step');
+          navSummary.classList.add('current-step');
+          break;
         default:
           break;
       };
@@ -69,9 +69,7 @@ export default function Header(props) {
           <Link to='/'>
             <h1 className='font-bold hover-text'>Adoveo</h1>
           </Link>
-            {/* <div className='btn btn-secondary'>LOGGA UT</div> */}
             <button className='btn btn-secondary'>LOGGA UT</button>
-
         </div>
         {
           showCouponHeader ? 
@@ -102,12 +100,3 @@ export default function Header(props) {
     </header>
   )
 };
-
-//TODO decide if style done + style clickable
-{/* <nav className='justify-between items-center lg:w-3/5 flex flex-wrap bg-blue text-mint px-2'>
-    <h3 id='nav-logo' className='nav-menu-item logo' onClick={clickStep}>Logga</h3>
-    <h3 id='nav-background' className='nav-menu-item' onClick={clickStep}>Bakgrund</h3>
-    <h3 id='nav-text' className='nav-menu-item' onClick={clickStep}>Din hälsning</h3>
-    <h3 id='nav-product' className='nav-menu-item' onClick={clickStep}>Välj produkt</h3>
-    <h3 id='nav-summary' className='nav-menu-item' onClick={clickStep}>Summering</h3>
-</nav> */}

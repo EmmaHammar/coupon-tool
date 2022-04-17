@@ -3,7 +3,6 @@ import Loader from './Loader';
 import Preview from './Preview';
 
 export default function StepSummary(props) {
-
   const [showLoader, setShowLoader] = useState(true); 
 
   useEffect( () => {

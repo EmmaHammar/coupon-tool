@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import GetCoupon from '../services/GetCoupon';
-import Loader from './Loader';
 import { AccountContext } from '../App';
 
 export default function Preview(props) {
@@ -8,13 +7,6 @@ export default function Preview(props) {
     const [couponTemplate, setCouponTemplate] = useState('');
 
     const account = useContext(AccountContext);
-    
-    // useEffect( () => {
-    //   setTimeout( () => {
-    //     props.setIsLoading(false)
-    //   }, 1000);
-    // });
-
 
     useEffect( () => {
       document.getElementById('errorMsg').innerHTML = '';
@@ -22,11 +14,10 @@ export default function Preview(props) {
       let info = 
       {
         'pickedCouponId': account.pickedCouponId, 
-      //   'currentStep': props.currentStep
       };
 
       const cb = (res) => {
-        console.log("fetch i Preview.js:", res.coupon[0]);
+        // console.log("fetch i Preview.js:", res.coupon[0]);
         setCoupon(res.coupon[0]);
       };
         
@@ -65,34 +56,6 @@ export default function Preview(props) {
 
   return (
     <>
-
-      {/* <div id='mobileWrapper' className='outline rounded-3xl w-[300px] h-[534px] flex flex-col justify-between'></div> */}
     </>
   )
 };
-
-
-//TODO
-//Add loader meanwhile getting data from db
-
-
-
-
-
-//kom ihåg
-  //375×667 (3.75%)
-  //70% -> 263 x 467
-  //80% height because of battery icon etc -> 374px ska synas -> 93 ska bort -> /2 top bottom = 47 -> 12 i tailwind
-// You have to install npm i react-html-parser import it to your component import ReactHtmlParser from "react-html-parser";"; and render it
-
-// <div className="wysiwyg">
-// {ReactHtmlParser(wysiwyg)}
-// </div>
-
-//REMEMBER
-// //get src path from logo img
-// let str = coupon[0].logo;
-// console.log("str", str);
-// const words = str.split(' ');
-// // console.log("words", words);
-// // console.log("src?", words[1]);  

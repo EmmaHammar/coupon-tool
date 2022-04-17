@@ -36,8 +36,3 @@ export default function UserPage(props) {
     </AccountContext.Consumer>
   )
 };
-
-
-//min-h-[70vh]
-
-//OBS <UserContext.Consumer> can only have 1 child

@@ -8,7 +8,7 @@ export default function StepProduct(props) {
   const [couponStepProduct, setCouponStepProduct] = useState('');
   const [productList, setProductList] = useState([]);
   const account = useContext(AccountContext);
-  const [pickedProdId, setPickedProdId] = ('ejj'); //TODO vad göra??
+  const [pickedProdId, setPickedProdId] = ('');
   
   //get all products from db in order to print them
   useEffect( () => {
@@ -29,7 +29,7 @@ export default function StepProduct(props) {
   // show initialContent in editor after first render, only if edit old coupon
   useEffect( () => {
     const cbProduct = (res) => {
-      console.log("StepLogo.js: hämta fr db", res.coupon[0]);
+      // console.log("StepLogo.js: hämta fr db", res.coupon[0]);
       setCouponStepProduct(res.coupon[0].prodId);
     };
 
@@ -48,53 +48,7 @@ export default function StepProduct(props) {
     };
       props.setInitialContent('');
       props.setContent('');
-
-      // 
-  //       document.getElementById(res.coupon[0].prodId).classList.remove('btn-secondary');
-  //       document.getElementById(res.coupon[0].prodId).innerText='TILLAGD';
   }, [couponStepProduct])
-
-  //first render: show active btn class if a product is picked in db
-  // useEffect( () => {
-  //   let info = 
-  //   {
-  //     'pickedCouponId': account.pickedCouponId, 
-  //   //   'currentStep': props.currentStep
-  //   };
-
-  //   const cb = (res) => {
-  //     console.log("res in cb, prodId, initialProdId:", res.coupon[0].prodId);
-  //     if (res.coupon[0].prodId === '') {
-  //       props.setIsNextBtnActive(false);
-  //       props.setInitialProdId(res.coupon[0].prodId)
-        
-  //     } else {
-  //       props.setIsNextBtnActive(true);
-  //       props.setInitialProdId(res.coupon[0].prodId)
-
-  //       document.getElementById(res.coupon[0].prodId).classList.add('btn-primary');
-  //       document.getElementById(res.coupon[0].prodId).classList.remove('btn-secondary');
-  //       document.getElementById(res.coupon[0].prodId).innerText='TILLAGD';
-
-  //     };
-
-  //     //TODO need to empty states? 
-  //     // props.setInitialContent('');
-  //     // props.setContent('');
-    
-  //   };
-
-  //   GetCoupon(cb, info); //get data from db
-  // }, []);
-
-  // useEffect( () => {
-  //   //add active class on btn if user has picked a prod that is saved in db
-  //   document.getElementById(res.coupon[0].prodId).remove('btn-secondary');
-  //   // console.log("div:", document.getElementById(res.coupon[0].prodId));
-
-  //   document.getElementById(res.coupon[0].prodId).add('btn-primary');
-  //   // document.getElementById(res.coupon[0].prodId).innerText='TILLAGD';
-  // }, [props.setIsNextBtnActive])
 
   //in return, map prodArr and print each prodCard with new return 
   return (

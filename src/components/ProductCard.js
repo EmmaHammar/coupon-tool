@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export default function ProductCard(props) {
   const handleClick = (evt) => {
     // props.setShowPreview(true);
-
-    //TODO empty errorMsg div if not empty
     
     let pickedProdObj = {
       'prodId': props.prodId,
@@ -18,7 +16,6 @@ export default function ProductCard(props) {
     const btns = btnContainer.querySelectorAll('div.bg-blue > button');
     
     //remove active class (btn-primary) on all btns except the clicked btn: 
-
     //1) remove active class on all btns
     for (let i = 0; i<btns.length; i++) {
       if (btns[i].classList.contains('btn-primary')) {
@@ -53,12 +50,5 @@ export default function ProductCard(props) {
             <button id={props.prodId} className='btn btn-secondary' onClick={handleClick}>LÄGG TILL</button>
         </div>
     </div>
-      
   )
 };
-
-
-//REMEMBER
-//Toggle state:
-  //setState false if true and vice versa
-  //props.setIsAdded(!props.isAdded);

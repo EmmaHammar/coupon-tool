@@ -21,7 +21,7 @@ export default function StepText(props) {
   //show initialContent in editor after first render
   useEffect( () => {
     const cbText = (res) => {
-      console.log("StepText.js: hämta fr db", res.coupon[0].text);
+      // console.log("StepText.js: hämta fr db", res.coupon[0].text);
       setCouponStepText(res.coupon[0].text);
     };
 
@@ -54,7 +54,3 @@ export default function StepText(props) {
     </div>
   )
 };
-
-//TODO???TEST move TinyEditor to App.js?
-
-//kom ihåg: TinyMCE 5.10.3 (kanske bättre med 6.0 men då fungerar inte alla false odyl i init)
