@@ -1,7 +1,7 @@
-# About project
+# ABOUT PROJECT
 The aim of this project is to launch a user-friendly coupon tool where a user can create a branded digital coupon from a template. 
 
-# Start project
+# START PROJECT
 Heroku:
 - Frontend: https://coupon-tool-frontend.herokuapp.com/
 - Backend: https://coupon-tool-backend.herokuapp.com/
@@ -17,7 +17,7 @@ Backend repo:
 - npm install
 - npm start (dev mode: nodemon start)
 
-# Task
+# TASK
 Du ska skapa en webbsida/tjänst/applikation till ett företag eller kommande företag. Projektet ska vara avgränsat så du börjar och slutar projektet under tiden för examensarbete. Kursen är 6 veckor lång på heltid dvs 240 timmars jobb inklusive projektbeskrivning, projektplan, själva "produkten" samt redovisning.
 Arbetet görs enskilt.
 
@@ -41,17 +41,25 @@ Med anpassning menas att utseende OCH funktion förändras på så sätt att ing
 Nått samtliga mål för kursen och uppgiften, samt följt instruktionerna.
 
 ## För Väl Godkänt:
-Visar på fördjupad kunskap kring mål och syfte, och för en reflektion kring detta under projektets gång.
-Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning och kreativ idé.
+Visar på fördjupad kunskap kring mål och syfte, och för en reflektion kring detta under projektets gång. Har levererat ett projekt som överträffar Godkänd-nivå i teknisk lösning och kreativ idé.
 
-# Techniques
+# FILES
+- Planning KANBAN: https://github.com/users/EmmaHammar/projects/1
+- Wireframe, component tree, function analysis: https://www.figma.com/file/H8dU1CUZJiLaYCsFYE93mT/coupon-tool?node-id=0%3A1
+- Prototype: se design folder. For interactions, see Adobe XD file.
+
+# TECHNIQUES
+I've chosen React on frontend since it's very fast with less loading time comparing for example Angular that's used by the LIA company today. As a backend, I've set up an express server with Node.js since it's very quick to get started and it's also fast and I think suitable together with React. I used MongoDB Atlas as database since it's very easy to get started and the free version is a good match for the scope of this project. I've chosen a NoSQL since I think the users can have many different types of campaigns which contain different types of content. I also think the offer to the clients will develop but it's uncertain in what ways, so therefore, I wanted the flexibility of the NoSQL comparing to SQL databases. 
+
+I wanted to test a framework for the CSS and according to some trend reports, Tailwind is growing fast in popularity so therefore I chose Tailwind. 
+
+At my LIA company, they have recently added a WYSIWYG editor so we discussed and came to the conclusion that it was appropriate that I also used that type of editor in this project. 
+
+I also wanted to test a state manager and at my LIA I used Redux but I thought it was quite messy with all the steps and after I red about state managers for React and also talked with my fellow students, I decided to test Context since it's perceived as more modern (and it seems like Redux is about to get phased out). 
+
 ## React - frontend
 - React: npx create-react-app
 - Routing: npm install react-router-dom
-- TinyMCE - WYSIWYG editor: https://www.youtube.com/watch?v=R-k5i1Qp6Oc
-TODO: remove npm install tinymce https://www.npmjs.com/package/tinymce ?
-Only keep: npm install --save @tinymce/tinymce-react https://www.tiny.cloud/docs/integrations/react/ and useRef Hook: https://www.geeksforgeeks.org/react-js-useref-hook/
-- Context - state manager. https://www.youtube.com/watch?v=AoS-lMO4Ad0
 
 ## Node.js - backend
 Express server with node.js
@@ -64,179 +72,31 @@ already (npm install -g nodemon -> npm nodemon in dev mode)
 ## MongoDB - database
 - npm install mongodb (in backend repo)
 
-user:
-username: mongodbUser
-pass: mongodb
-
-## TailWind 
+## TailWind - CSS 
 - CSS: https://tailwindcss.com/docs/guides/create-react-app, 
-- kom igång m TailWind: https://www.linkedin.com/learning/search?keywords=react%20tailwind&u=57075785,
+- kom igång med TailWind: https://www.linkedin.com/learning/search?keywords=react%20tailwind&u=57075785,
 - essential training: https://www.linkedin.com/learning/tailwind-css-essential-training/custom-builds?autoplay=true&resume=false&u=57075785 
-- install PostCSS Language Support in VCS extension (else lint(?) errors)
+- install PostCSS Language Support in VCS extension (to avoid lint errors)
 - install VCS extension helping with "syntax": Tailwind CSS IntelliSense
 
-# Storybook
+## TinyMCE - WYSIWYG editor: https://www.youtube.com/watch?v=R-k5i1Qp6Oc
+npm install --save @tinymce/tinymce-react https://www.tiny.cloud/docs/integrations/react/ and useRef Hook: https://www.geeksforgeeks.org/react-js-useref-hook/
+
+## Context - state manager
+https://www.youtube.com/watch?v=AoS-lMO4Ad0
+
+# Storybook - for dev (planned to be used in future development after this project scope)
 - npx sb init //install
 - npm run storybook //Starts Storybook in development mode
 
+# TESTING
+I've chosen to conduct user tests since I think it's a good way fo getting quick feedback of the UX and the main functions. I planned for testing in both sprint3 and sprint4 since I wanted to have the testing in close collaboration with the development. I also made a demo of my progress for my LIA company once a week and asked for feedback that I took into account for the upcoming sprint. 
 
-# Files
-- Planning KANBAN: https://github.com/users/EmmaHammar/projects/1
-- Wireframe, component tree, function analysis: https://www.figma.com/file/H8dU1CUZJiLaYCsFYE93mT/coupon-tool?node-id=0%3A1
-- Prototype: se design folder. For interactions, see Adobe XD file.
-
-
-
-
-
-
-
-//TODO cleaning:
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-@import "_normalize"; ADDERA I TAILWIND??
-
-//mobile version 375px x 667px
-@import "_base.scss"; 
-
-// ipad mini 
-@media screen and (min-width: 736px) {
-    @import "_ipad-mini.scss";
-}
-
-//desktop, height: 1024px
-@media screen and (min-width: 1440px) { 
-    @import "_desktop.scss";
-}
-
-======
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-/* so I can add custom classes. These are my layers: */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* layer=choose which layer to target, base styles: headline or paragraph, apply=call one of the tailwind styles */
-
-//if want to style default for all normal elements:
-@layer base {
-    h1 {
-        @apply text-red-500;
-        background: salmon; /*can add normal css also in this file*/
-    }
-}
-
-//own components
-@layer components {
-    .btn {
-        @apply active:bg-gray-500
-        hover:bg-red-500
-        hover:text-white
-        cursor-pointer
-        border-gray-500
-        border-4
-        rounded-md
-        inline-block
-        p-2
-        mt-2
-        mb-4;
-    }
-}
-
-
-
-=============
-Context: https://www.youtube.com/watch?v=AoS-lMO4Ad0 
-providers = skicka neråt
-consumers = ta emot
-Men använd ej för mkt för skapar onödigt många omrenderingar
-
-//OBS nedan blir ERROR: can only have 1 child(...) -> 
-    <UserContext.Consumer>
-      <div id='userPageWrapper' className='outline'>
-        <h2>HEJ {user.userName}!</h2>
-        <button className='btn' onClick={handleClick}>Skapa ny kampanj</button>
-      </div>
-    </UserContext.Consumer>
-LÖSNING: wrappa upp med ditt värde du skickade i <UserContext.Provider value={ user }>
-Då blir det såhär:
-
-    <UserContext.Consumer>
-      { user => 
-      <div id='userPageWrapper' className='outline'>
-        <h2>HEJ {user.userName}!</h2>
-        <button className='btn' onClick={handleClick}>Skapa ny kampanj</button>
-      </div>
-      }
-    </UserContext.Consumer>
+# FUTURE DEVELOPMENT
+- Link my project to the steps before (login and create account, statistics and other functionalities on the userpage) and the steps after (upload receiver list, payment methods, and sms text). 
+- Clickable stepper so the user can take a shortcut to a certain step.
+- Show preview throught the whole create coupon journey. 
+- Connect all buttons such as 'Logga ut' and 'Visa koden'. 
+- Test work with storybook since this project will grow and it seems to be a very good way of minimize errors and keep track of all relationships between components. 
+- Evaluate WYSIWYG editor - upgrade TINYMCE or use Summernote (that the LIA company is using today).
+- Add function where click on Create campaign generates a new id, and when saved it's saved on that id. When then visit the userpage, all the saved campaigns are visible and also editable.
