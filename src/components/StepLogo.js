@@ -25,7 +25,7 @@ export default function StepLogo(props) {
       // console.log("StepLogo.js: hämta fr db", res.coupon[0]);
       setCouponStepLogo({
         'logo': res.coupon[0].logo,
-        'logo-alt-text': 'altMock'
+        // 'logo-alt-text': 'altMock'
       });
     };
 
@@ -46,7 +46,7 @@ export default function StepLogo(props) {
     <>
       <div id='stepLogoWrapper' className=''>
         <h4>1. Börja med att ladda upp din företagslogga.</h4>
-        <p>Välj bland dina filer samt justera storleken.</p>
+        <p>Välj bland dina filer samt justera storleken. Välj en fil som har maxstorlek ca 50 K då programmet inte klarar av att ladda upp för stora filer.</p>
           <TinyEditor 
             currentStep={props.currentStep}
             content={props.content} 

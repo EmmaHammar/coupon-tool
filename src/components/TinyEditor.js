@@ -1,13 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-// import { click } from '@testing-library/user-event/dist/click';
-// import Loader from './Loader';
 
 export default function TinyEditor(props) {
 const editorRef = useRef(null);
-// const [isPicked, setIsPicked] = useState(false); //clickUpload
-// const [fileUploadMsg, setFileUploadMsg] = useState('');
-// const [showUploadBtn, setShowUploadBtn] = useState(false);
 const [isToolBar, setIsToolBar] = useState(false);
 const [isLoadingStep, setIsLoadingStep] = useState(true);
 
@@ -21,26 +16,31 @@ useEffect( () => {
     setIsLoadingStep(false)
   }, 500);
 
-  //TODO: ADD tabindex=0 - HOW??
-  document.getElementsByClassName('tox-toolbar__group').tabIndex = 0;
-  console.log('add tabindex:', document.getElementsByClassName('tox-toolbar__group')[0]);
+  //add tab focus for toolbarBtns in TinyEditor
+  let toolbarBtns = document.getElementsByClassName('tox-toolbar__group')[0];
+  if (toolbarBtns !== undefined) {
+    if (toolbarBtns.ariaDisabled === true) {
+      toolbarBtns.tabIndex = -1;
+      // console.log("tabIndex -1");
+    } else {
+      toolbarBtns.tabIndex = 0;
+      // console.log("tabIndex 0");
+    }
+  };
 });
-
-//TODO IF NOT editorchange, dvs man ändrar inget -> vad ska hända? (just nu följer det content från steget man kommer ifrån 
 
 //check if editor is empty or not -> inactive/active nextBtn
 const onEditorChange = () => {
+
   props.setContent(editorRef.current.getContent()); //update content state in App.js
  
   document.getElementById('errorMsg').innerHTML = ''; //empty errorMsg
 
   if (editorRef.current.getContent() === '') {
     props.setIsNextBtnActive(false);
-    // console.log("ev setContent('')??");//TODO fixa så det blir rätt med setContent?
   } else {
     props.setIsNextBtnActive(true);
-    // console.log("ev setContent('fetch logo db')??");
-  }
+  };
 };
 
   return (
@@ -95,8 +95,14 @@ const onEditorChange = () => {
                       var blobCache =  window.tinymce.activeEditor.editorUpload.blobCache;
                       var base64 = reader.result.split(',')[1];
                       var blobInfo = blobCache.create(id, file, base64);
-                      blobCache.add(blobInfo);
-                      cb(blobInfo.blobUri(), { title: file.name });
+
+                      let imageSize = blobInfo.blob().size / 1000; //image size in kbytes
+                      if (imageSize > 50) {
+                        document.getElementById('errorMsg').innerHTML = 'Bildstorleken är för stor, testa att ladda upp en logga som är mindre än 50 K.';
+                      } else {
+                        blobCache.add(blobInfo);
+                        cb(blobInfo.blobUri(), { title: file.name });
+                      }
                     };
 
                     reader.readAsDataURL(file);
@@ -114,19 +120,3 @@ const onEditorChange = () => {
     </>
   )
 };
-
-//TODO ??
-// https://www.tiny.cloud/docs/demo/file-picker/
-//Fix code above for local file uploader
-
-//https://www.tiny.cloud/docs-3x/customization/TinyMCE3x@Creating_a_skin/ 
-//add proper tags depending img or text
-//choose color picker for bg, not file upload
-//handle ie replace() or similar for åäö etc in tinyMCE
-//when printing tinyEditor - check if data in db exists - if true -> print saved ex logo, bg, text?
-//decide if remove or comment back loader
-
-//TODO add custom fonts: https://www.tiny.cloud/blog/tinymce-custom-font-family/ 
-
-
-//specify file type: https://www.tiny.cloud/docs/configure/file-image-upload/ 

@@ -9,6 +9,9 @@ function UpdateCoupon(coupon) {
     })
     .then(data => data.json())
     .then(res => {
+        if (Response.statusCode === 413) {
+            console.log("fixa");
+        }
         // console.log("UpdateCoupon - res from couponsRouter:", res);
     });
 };
