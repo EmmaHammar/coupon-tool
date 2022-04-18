@@ -7,6 +7,7 @@ export default function ProductCard(props) {
     let pickedProdObj = {
       'prodId': props.prodId,
       'prodImg': props.prodImgLink,
+      'prodImgAltText': props.prodImgAltText,
       'codeLink': props.codeLink,
       'terms': props.prodTerms
     };

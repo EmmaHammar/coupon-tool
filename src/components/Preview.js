@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import GetCoupon from '../services/GetCoupon';
 import { AccountContext } from '../App';
 
-export default function Preview(props) {
+export default function Preview() {
     const [coupon, setCoupon] = useState({});
     const [couponTemplate, setCouponTemplate] = useState('');
 
@@ -31,7 +31,7 @@ export default function Preview(props) {
           <div style='background-color:${coupon.background}; display:flex; flex-direction:column; padding:8px;'>
             <div style='max-width:200px; padding-top:8px;margin-bottom:8px;'>${coupon.logo}</div>
             <div id='couponText' style='padding-bottom:8px; margin-top:20px'>${coupon.text}</div>
-            <img id='prodImg' alt='TODO addera fr db' src=${coupon.prodImg} style='margin-bottom:8px;'></img>
+            <img id='prodImg' alt='${coupon.prodImgAltText}' src=${coupon.prodImg} style='margin-bottom:8px;'></img>
             <button id='showCodeBtn' style='margin-top:8px;'>Visa koden</button>
           </div>
           <p id='couponTerms'>${coupon.terms}</p>

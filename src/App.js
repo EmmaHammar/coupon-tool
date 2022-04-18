@@ -73,6 +73,7 @@ export default function App() {
               'couponId': account.pickedCouponId, 
               'prodId': pickedProd.prodId,
               'prodImg': pickedProd.prodImg,
+              'prodImgAltText': pickedProd.prodImgAltText,
               'codeLink': pickedProd.codeLink,
               'terms': pickedProd.terms
           };     

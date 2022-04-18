@@ -23,7 +23,7 @@ useEffect( () => {
 
   //TODO: ADD tabindex=0 - HOW??
   document.getElementsByClassName('tox-toolbar__group').tabIndex = 0;
-  // console.log('add tabindex:', document.getElementsByClassName('tox-toolbar__group')[0]);
+  console.log('add tabindex:', document.getElementsByClassName('tox-toolbar__group')[0]);
 });
 
 //TODO IF NOT editorchange, dvs man ändrar inget -> vad ska hända? (just nu följer det content från steget man kommer ifrån 
