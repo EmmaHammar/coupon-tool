@@ -20,7 +20,8 @@ Backend repo:
 ## Heroku
 brew tap heroku/brew && brew install heroku
 heroku login
-https://devcenter.heroku.com/articles/heroku-cli 
+git push heroku branch_name
+https://devcenter.heroku.com/articles/heroku-cli and https://stackoverflow.com/questions/71892543/heroku-and-github-items-could-not-be-retrieved-internal-server-error 
 
 # TASK
 Du ska skapa en webbsida/tjänst/applikation till ett företag eller kommande företag. Projektet ska vara avgränsat så du börjar och slutar projektet under tiden för examensarbete. Kursen är 6 veckor lång på heltid dvs 240 timmars jobb inklusive projektbeskrivning, projektplan, själva "produkten" samt redovisning.

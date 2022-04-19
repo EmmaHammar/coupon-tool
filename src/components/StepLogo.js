@@ -46,7 +46,7 @@ export default function StepLogo(props) {
     <>
       <div id='stepLogoWrapper' className=''>
         <h4>1. Börja med att ladda upp din företagslogga.</h4>
-        <p>Välj bland dina filer samt justera storleken. Välj en fil som har maxstorlek ca 50 K då programmet inte klarar av att ladda upp för stora filer.</p>
+        <p>Välj en logga bland dina filer eller länka till en bildadress. Justera storleken genom att dra i hörnen. Maxstorlek på filen: 50 K.</p>
           <TinyEditor 
             currentStep={props.currentStep}
             content={props.content} 
