@@ -29,7 +29,7 @@ export default function StepSummary(props) {
         <h4>5. Såhär kommer ditt kupongerbjudande att se ut.</h4>
         <p>Mottagaren får ett SMS med en länk som går till kupongerbjudandet.</p>
       </div>
-      <div id='mobileWrapper' className='outline rounded-3xl w-[300px] h-[534px] flex flex-col justify-between mt-3 border-separate'>
+      <div id='mobileWrapper' className='w-[300px] h-[534px] flex flex-col justify-between mt-3'>
         {
           showLoader ? <Loader /> : <Preview />
         }

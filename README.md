@@ -109,3 +109,7 @@ I've chosen to conduct user tests since I think it's a good way fo getting quick
 - Making alt text mandatory for img upload in TinyMCE?
 - Test more on users if switch back to color picker on StepBackground instead of Hex.
 - Add custom fonts possibility: https://www.tiny.cloud/blog/tinymce-custom-font-family/ 
+- Handle warning which occurs sometimes when user toggle between different steps very fast: 
+    'Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.' https://stackoverflow.com/questions/54954385/react-useeffect-causing-cant-perform-a-react-state-update-on-an-unmounted-comp or https://stackoverflow.com/questions/58038008/how-to-stop-memory-leak-in-useeffect-hook-react
+
+    couponStepProduct in StepProduct can be null when trying to add classList. 
