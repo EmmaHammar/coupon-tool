@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function ProductCard(props) {
+  useEffect( () => {
+    if (props.couponStepProduct === '') {
+      props.setIsNextBtnActive(false);
+
+    } else {
+      props.setIsNextBtnActive(true);
+      document.getElementById(props.couponStepProduct).classList.add('btn-primary');
+      document.getElementById(props.couponStepProduct).classList.remove('btn-secondary');
+      document.getElementById(props.couponStepProduct).innerText='TILLAGD';
+    };
+  }, [props.couponStepProduct]);
+
   const handleClick = (evt) => {
     // props.setShowPreview(true);
     

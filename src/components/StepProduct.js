@@ -8,7 +8,6 @@ export default function StepProduct(props) {
   const [couponStepProduct, setCouponStepProduct] = useState('');
   const [productList, setProductList] = useState([]);
   const account = useContext(AccountContext);
-  const [pickedProdId, setPickedProdId] = ('');
   
   //get all products from db in order to print them
   useEffect( () => {
@@ -37,15 +36,6 @@ export default function StepProduct(props) {
   }, []);
 
   useEffect( () => {
-    if (couponStepProduct === '') {
-      props.setIsNextBtnActive(false);
-
-    } else {
-      props.setIsNextBtnActive(true);
-      document.getElementById(couponStepProduct).classList.add('btn-primary');
-      document.getElementById(couponStepProduct).classList.remove('btn-secondary');
-      document.getElementById(couponStepProduct).innerText='TILLAGD';
-    };
       props.setInitialContent('');
       props.setContent('');
   }, [couponStepProduct])
@@ -72,6 +62,8 @@ export default function StepProduct(props) {
                   key={index}
                   setPickedProd={props.setPickedProd}
                   setIsNextBtnActive={props.setIsNextBtnActive}
+                  couponStepProduct={couponStepProduct}
+                  
                   // setShowPreview={props.setShowPreview}
                 /> 
               )

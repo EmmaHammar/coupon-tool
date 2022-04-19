@@ -4,7 +4,6 @@ import { Editor } from '@tinymce/tinymce-react';
 export default function TinyEditor(props) {
 const editorRef = useRef(null);
 const [isToolBar, setIsToolBar] = useState(false);
-const [isLoadingStep, setIsLoadingStep] = useState(true);
 
 //prevent printing Editor before right toolbarOptions is added:
 useEffect( () => {
@@ -12,10 +11,6 @@ useEffect( () => {
 }, [props.toolBarOptions]);
 
 useEffect( () => {
-  setTimeout( () => {
-    setIsLoadingStep(false)
-  }, 500);
-
   //add tab focus for toolbarBtns in TinyEditor
   let toolbarBtns = document.getElementsByClassName('tox-toolbar__group')[0];
   if (toolbarBtns !== undefined) {
