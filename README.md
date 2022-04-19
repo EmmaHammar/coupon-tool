@@ -102,10 +102,9 @@ I've chosen to conduct user tests since I think it's a good way fo getting quick
 - Link my project to the steps before (login and create account, statistics and other functionalities on the userpage) and the steps after (upload receiver list, payment methods, and sms text). 
 - Clickable stepper so the user can take a shortcut to a certain step.
 - Show preview throught the whole create coupon journey. 
-- Connect all buttons such as 'Logga ut' and 'Visa koden'. 
+- Connect all buttons such as 'Logga ut', 'Visa koden', Kampanj 1, Kampanj 2 osv. Add function where click on Create campaign generates a new id, and when saved it's saved on that id. When then visit the userpage, all the saved campaigns are visible and also editable.
 - Test work with storybook since this project will grow and it seems to be a very good way of minimize errors and keep track of all relationships between components. 
 - Evaluate WYSIWYG editor - upgrade TINYMCE or use Summernote (that the LIA company is using today).
-- Add function where click on Create campaign generates a new id, and when saved it's saved on that id. When then visit the userpage, all the saved campaigns are visible and also editable.
 - Making alt text mandatory for img upload in TinyMCE?
 - Test more on users if switch back to color picker on StepBackground instead of Hex.
 - Add custom fonts possibility: https://www.tiny.cloud/blog/tinymce-custom-font-family/ 
