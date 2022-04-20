@@ -74,7 +74,7 @@ export default function Header(props) {
         {
           showCouponHeader ? 
           <div id='couponHeader' className='max-w-4xl'>
-              <h2 className='lg:w-2/5'>Glasskupong mars 2022</h2>
+              <h2 className='lg:w-2/5'>Kampanj: {props.pickedCampaignTitle}</h2>
               <nav className='md:border-solid md:border-blue md:border-2'>
                 <ul className='md:flex md:justify-between md:items-center lg:min-w-fit '>
                   <li>

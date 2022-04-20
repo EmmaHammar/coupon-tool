@@ -17,7 +17,7 @@ export default function Preview() {
       };
 
       const cb = (res) => {
-        console.log("fetch i Preview.js:", res.coupon[0]);
+        // console.log("fetch i Preview.js:", res.coupon[0]);
         setCoupon(res.coupon[0]);
       };
         

@@ -36,6 +36,7 @@ export default function App() {
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
+  const [pickedCampaignTitle, setPickedCampaignTitle] = useState('');
   const [initialProdId, setInitialProdId] = useState('');
 
   const [showCouponId, setShowCouponId] = useState('');
@@ -114,6 +115,7 @@ export default function App() {
                 content={content}
                 initialContent={initialContent}
                 linkPathNext={linkPathNext}
+                pickedCampaignTitle={pickedCampaignTitle}
               /> 
 
               <main className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
@@ -127,7 +129,7 @@ export default function App() {
                           setCurrentStep={setCurrentStep}
                           setShowCouponId={setShowCouponId}
                           setPickedProd={setPickedProd}
-  
+                          setPickedCampaignTitle={setPickedCampaignTitle}
                         />}>
                       </Route>
                       <Route 

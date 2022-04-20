@@ -32,7 +32,7 @@ export default function UserPage(props) {
 
   const navigate = useNavigate(); 
     
-  const handleClickBtn = () => {
+  const clickNewCoupon = () => {
     if (document.getElementById('inputCampaignTitle').value !== '') {
     
       let newCoupon = {
@@ -49,7 +49,7 @@ export default function UserPage(props) {
       };
       // console.log("newCoupon:", newCoupon);
       props.setShowCouponId(newCoupon.couponId);
-
+      props.setPickedCampaignTitle(newCoupon.couponTitle);
       SaveCoupon(newCoupon);
 
       navigate('/steg1');
@@ -63,8 +63,8 @@ export default function UserPage(props) {
   };
 
   const clickSavedCoupon = (evt) => {
-    console.log("clickSavedCoupon:", evt.target.id);
     props.setShowCouponId(evt.target.id);
+    props.setPickedCampaignTitle(evt.target.innerText);
     navigate('/steg1');
   };
 
@@ -78,7 +78,7 @@ export default function UserPage(props) {
             <h3>Kampanjtitel</h3>
             <input id='inputCampaignTitle'type='text' placeholder='Skriv kampanjtitel...' className='cursor-text btn text-center mb-2 w-[200px] md:w-[250px]' onClick={handleClickInput}></input>
           </div>
-          <button className='btn btn-primary-reverse mt-2' onClick={handleClickBtn}>SKAPA NY KAMPANJ</button>
+          <button className='btn btn-primary-reverse mt-2' onClick={clickNewCoupon}>SKAPA NY KAMPANJ</button>
           <p id='errorMsgCampaignTitle' className='errorMsg'></p>
         </div>
         <div className='mt-8'>
