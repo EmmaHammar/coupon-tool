@@ -38,11 +38,14 @@ export default function App() {
   const [pickedProd, setPickedProd] = useState({});
   const [initialProdId, setInitialProdId] = useState('');
 
+  const [showCouponId, setShowCouponId] = useState('');
+
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
     couponIds: ['1', '2', '3'],
-    pickedCouponId: 'couponId1',
+    // pickedCouponId: 'couponId1',
+    pickedCouponId: showCouponId,
   };
 
   useEffect( () => {
@@ -121,6 +124,7 @@ export default function App() {
                           // setShowPreview={setShowPreview}
                           setShowFooter={setShowFooter}
                           setCurrentStep={setCurrentStep}
+                          setShowCouponId={setShowCouponId}
                         />}>
                       </Route>
                       <Route 

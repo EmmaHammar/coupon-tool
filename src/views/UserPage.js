@@ -14,6 +14,33 @@ export default function UserPage(props) {
   const navigate = useNavigate(); 
     
   const handleClick = () => {
+    let newCoupon = {
+      couponId: Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1),
+      couponTitle: '',
+      logo: '',
+      background: '',
+      text: '',
+      prodId: '',
+      prodImg: '',
+      prodImgAltText: '',
+      codeLink: '',
+      terms: '',
+    };
+    console.log("newCoupon:", newCoupon);
+    props.setShowCouponId(newCoupon.couponId);
+
+    fetch('http://localHost:3001/coupons/add', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    }, 
+    body: JSON.stringify(newCoupon)
+  })
+  .then(data => data.json())
+  .then(res => {
+      // console.log("newTask är sparad", res);
+  });
+
     navigate('/steg1');
   };
 
