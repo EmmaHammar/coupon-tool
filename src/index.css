@@ -54,7 +54,6 @@
         p-2
         px-6
         cursor-pointer
-        inline-block
     }
     .btn-primary {
         @apply
@@ -141,6 +140,6 @@
     }
 
     .errorMsg {
-    @apply text-error
+        @apply text-error
     }
 }

@@ -43,6 +43,7 @@ export default function App() {
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
+    userName: 'Frida',
     couponIds: ['1', '2', '3'],
     // pickedCouponId: 'couponId1',
     pickedCouponId: showCouponId,
