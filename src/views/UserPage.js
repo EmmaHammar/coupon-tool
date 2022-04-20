@@ -29,7 +29,8 @@ export default function UserPage(props) {
     console.log("newCoupon:", newCoupon);
     props.setShowCouponId(newCoupon.couponId);
 
-    fetch('http://localHost:3001/coupons/add', {
+    // fetch('http://localHost:3001/coupons/add', {
+    fetch('https://coupon-tool-backend.herokuapp.com/coupons/add', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'
