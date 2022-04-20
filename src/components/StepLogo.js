@@ -6,7 +6,6 @@ import GetCoupon from '../services/GetCoupon';
 export default function StepLogo(props) {
   const [couponStepLogo, setCouponStepLogo] = useState({
     'logo': '',
-    'logo-alt-text': ''
   });
   const account = useContext(AccountContext);
 
@@ -14,7 +13,7 @@ export default function StepLogo(props) {
     // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('logo');
-    props.setLinkPath('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setLinkPathNext('/steg2'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/'); //linkPath for backBtn in Footer
     props.setToolBarOptions(`undo redo | image`);
   });
@@ -25,7 +24,6 @@ export default function StepLogo(props) {
       // console.log("StepLogo.js: hämta fr db", res.coupon[0]);
       setCouponStepLogo({
         'logo': res.coupon[0].logo,
-        // 'logo-alt-text': 'altMock'
       });
     };
 
@@ -46,7 +44,7 @@ export default function StepLogo(props) {
     <>
       <div id='stepLogoWrapper' className=''>
         <h4>1. Börja med att ladda upp din företagslogga.</h4>
-        <p>Välj en logga bland dina filer eller länka till en bildadress. Justera storleken genom att dra i hörnen. Maxstorlek på filen: 50 K.</p>
+        <p>Välj en logga bland dina filer eller klistra in en bildadress. Justera storleken genom att dra i hörnen. Maxstorlek på filen: 50 K.</p>
           <TinyEditor 
             currentStep={props.currentStep}
             content={props.content} 

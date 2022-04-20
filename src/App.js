@@ -29,7 +29,7 @@ export default function App() {
   const [content, setContent] = useState('');
   const [initialContent, setInitialContent] = useState('');
 
-  const [linkPath, setLinkPath] = useState(''); //TODO: Rename: linkPathNext
+  const [linkPathNext, setLinkPathNext] = useState(''); 
   const [linkPathBack, setLinkPathBack] = useState('');
   const [isNextBtnActive, setIsNextBtnActive] = useState(false);
 
@@ -42,7 +42,7 @@ export default function App() {
     accountId: 'accountId1',
     userId: 'userId1',
     couponIds: ['1', '2', '3'],
-    pickedCouponId: '1',
+    pickedCouponId: 'couponId1',
   };
 
   useEffect( () => {
@@ -59,16 +59,14 @@ export default function App() {
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
 
     } else {    
-      //TODO test have let prodObj outside if + try add couponId object to pickedProd (also object) i stil med: prodObj = {'couponId': account.pickedCouponId, pickedProdObj alla object}
-      
       //if StepProduct:
-      if (linkPath === '/steg5') {
-        // console.log("initialProdId??", initialProdId);
+      if (linkPathNext === '/steg5') {
+
         //only save in db if something has changed, i.e. user has added a new product comparing to what's saved in db 
+          //nothing has changed
           if ( (initialProdId !== '') && (document.getElementById(initialProdId).classList.contains('btn-primary')) ) {
-            // console.log("inget har ändrats -> spara EJ");
           } else {
-            // console.log("något har ändrats -> spara i DB");
+            // something has changed
             let prodObj = {
               'couponId': account.pickedCouponId, 
               'prodId': pickedProd.prodId,
@@ -84,10 +82,10 @@ export default function App() {
       else { //if all other step (logo, bg, text):
 
         //save to db only if something has changed
+        //nothing has changed:
         if (initialContent === content) {
-          // console.log("spara EJ, inget har ändrats");
         } else {
-          // console.log("spara, något har ändrats");
+          // something has changed:
           let newCouponObj = {
             'couponId': account.pickedCouponId, 
             [currentStep] : content
@@ -105,14 +103,13 @@ export default function App() {
         <AccountContext.Provider value={ account }>
           { isLoading ? <Loader /> : 
             <div id='app' className='h-screen font-Inter px-6 pt-6 pb-20 md:px-10 md:pb-24 text-blue'>  
-            {/* <div id='app' className='h-screen font-Inter px-6 pt-6 pb-20 md:px-10 md:pb-24 text-blue bg-pink-500 md:bg-green-500 lg:bg-yellow-500'> */}
 
               <Header 
                 currentStep={currentStep}
                 isNextBtnActive={isNextBtnActive}
                 content={content}
                 initialContent={initialContent}
-                linkPath={linkPath}
+                linkPathNext={linkPathNext}
               /> 
 
               <main className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
@@ -139,8 +136,8 @@ export default function App() {
                             initialContent={initialContent}
                             setInitialContent={setInitialContent}
 
-                            linkPath={linkPath}
-                            setLinkPath={setLinkPath}
+                            linkPathNext={linkPathNext}
+                            setLinkPathNext={setLinkPathNext}
                             linkPathBack={linkPathBack}
                             setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
@@ -165,8 +162,8 @@ export default function App() {
                             initialContent={initialContent}
                             setInitialContent={setInitialContent}
 
-                            linkPath={linkPath}
-                            setLinkPath={setLinkPath}
+                            linkPathNext={linkPathNext}
+                            setLinkPathNext={setLinkPathNext}
                             linkPathBack={linkPathBack}
                             setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
@@ -190,8 +187,8 @@ export default function App() {
                             initialContent={initialContent}
                             setInitialContent={setInitialContent}
 
-                            linkPath={linkPath}
-                            setLinkPath={setLinkPath}
+                            linkPathNext={linkPathNext}
+                            setLinkPathNext={setLinkPathNext}
                             linkPathBack={linkPathBack}
                             setLinkPathBack={setLinkPathBack}
                             toolBarOptions={toolBarOptions}
@@ -215,8 +212,8 @@ export default function App() {
                           initialContent={initialContent}
                           setInitialContent={setInitialContent}
 
-                          linkPath={linkPath}
-                          setLinkPath={setLinkPath}
+                          linkPathNext={linkPathNext}
+                          setLinkPathNext={setLinkPathNext}
                           linkPathBack={linkPathBack}
                           setLinkPathBack={setLinkPathBack}
                           pickedProd={pickedProd}
@@ -238,7 +235,7 @@ export default function App() {
                           setCurrentStep={setCurrentStep}  
                           content={content}
                           setContent={setContent}
-                          setLinkPath={setLinkPath}
+                          setLinkPathNext={setLinkPathNext}
                           setLinkPathBack={setLinkPathBack}
                           setIsLoading={setIsLoading}
                           setIsNextBtnActive={setIsNextBtnActive}
@@ -268,11 +265,11 @@ export default function App() {
                 showFooter ? 
                   <Footer 
                     currentStep={currentStep}
-                    linkPath={linkPath} 
+                    linkPathNext={linkPathNext} 
+                    linkPathBack={linkPathBack}
                     isNextBtnActive={isNextBtnActive}
                     setIsNextBtnActive={setIsNextBtnActive}
                     saveClick={saveClick}
-                    linkPathBack={linkPathBack}
                   /> 
                 : ''
               }

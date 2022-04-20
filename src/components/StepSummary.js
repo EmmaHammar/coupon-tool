@@ -10,7 +10,7 @@ export default function StepSummary(props) {
     // props.setShowPreview(true);
     props.setCurrentStep('summary');
     //back to userPage start
-    props.setLinkPath('/'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setLinkPathNext('/'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/steg4'); //linkPath for backBtn in Footer
     props.setIsNextBtnActive(true);
 

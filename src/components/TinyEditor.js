@@ -16,10 +16,8 @@ useEffect( () => {
   if (toolbarBtns !== undefined) {
     if (toolbarBtns.ariaDisabled === true) {
       toolbarBtns.tabIndex = -1;
-      // console.log("tabIndex -1");
     } else {
       toolbarBtns.tabIndex = 0;
-      // console.log("tabIndex 0");
     }
   };
 });
@@ -62,7 +60,6 @@ const onEditorChange = () => {
                 font_size_style_values : "10px,12px,13px,14px,16px,18px,20px",
 
                 height: 300,
-                // width: 348,
                 menubar: false,
                 plugins: [
                   'advlist autolink lists image charmap print preview',

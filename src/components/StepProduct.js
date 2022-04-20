@@ -14,7 +14,7 @@ export default function StepProduct(props) {
     // props.setShowPreview(false);
     props.setShowFooter(true);
     props.setCurrentStep('product');
-    props.setLinkPath('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
+    props.setLinkPathNext('/steg5'); //send linkPath to Footer.js so nextBtn navigate to next step
     props.setLinkPathBack('/steg3'); //linkPath for backBtn in Footer
 
     //get all products from db

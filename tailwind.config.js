@@ -27,13 +27,6 @@ module.exports = {
   plugins: [],
 }
 
-
 // themes: https://tailwindcss.com/docs/adding-custom-styles
-
-//if add 'screens: {}' outside extend: {} -> modify existing rules, ex sm: '100px', ist för '640px' som är default. 
-//if add 'screens: {}' inside extend -> adderar en ny stilregel
-
-
-//FRÅGOR:
-//addera normalize? 
-//hur/ska jag använda base, utilitise osv som jag importerat enl tailwinds installeringsguide? Ska de bara ligga som tomma dok i node_modules? 
+//if add 'screens: {}' outside extend: {} -> modify existing rules, i.e. sm: '100px', instead of '640px' which is default. 
+//if add 'screens: {}' inside extend -> adds a new style rule

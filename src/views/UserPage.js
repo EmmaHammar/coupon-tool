@@ -20,7 +20,7 @@ export default function UserPage(props) {
   return (
     <AccountContext.Consumer>
       { account => 
-      <div id='userPageWrapper' className=''>
+      <div id='userPageStartWrapper'>
         <h2>Hej {account.userId}!</h2>
         <button className='btn btn-primary-reverse mt-2' onClick={handleClick}>SKAPA NY KAMPANJ</button>
         <div className='mt-8'>

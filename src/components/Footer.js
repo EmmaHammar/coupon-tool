@@ -16,7 +16,7 @@ export default function Footer(props) {
       </Link>
       {
         props.isNextBtnActive ? 
-          <Link to={props.linkPath} tabIndex='-1'> 
+          <Link to={props.linkPathNext} tabIndex='-1'> 
             <button id='nextBtn' className='btn btn-primary' onClick={props.saveClick}>{nextBtnText}</button>
           </Link>
       : 

@@ -1,5 +1,5 @@
 # ABOUT PROJECT
-The aim of this project is to launch a user-friendly coupon tool where a user can create a branded digital coupon from a template. 
+The aim of this project is to launch a user-friendly coupon tool where a user can create a branded digital coupon. This project is a part of a larger flow where a user can sign in/sign up, see all saved campaigns, create new campaigns, upload receiver list, write SMS text copy and choose payment methods. In this scope, I focused on the campaign creation steps since that's the main challenge for the LIA company. As a bonus, I added a summary step with a preview and also a userpage where the user can click 'create new campaign". After this project, I'll continue to add more features which I documented in 'future development' section below.
 
 # START PROJECT
 Heroku:
@@ -96,7 +96,7 @@ https://www.youtube.com/watch?v=AoS-lMO4Ad0
 - npm run storybook //Starts Storybook in development mode
 
 # TESTING
-I've chosen to conduct user tests since I think it's a good way fo getting quick feedback of the UX and the main functions. I planned for testing in both sprint3 and sprint4 since I wanted to have the testing in close collaboration with the development. I also made a demo of my progress for my LIA company once a week and asked for feedback that I took into account for the upcoming sprint. 
+I've chosen to conduct user tests since I think it's a good way fo getting quick feedback of the UX and the main functions. I combined user tests on first time users with weekly demos/ testing on 'super users' who are familiar with this type of system. I think this was a good way of getting a wider range of feedback since the first time users were more focused on the concept and the step flow meanwhile the 'super users' were more concerned about certain functionalities and styling opportunities. I wanted to have a balance within this project regarding functionalities and simplicity. Since I got feedback during the whole process, I could evaluate and bring the key findings into the next sprint. 
 
 # FUTURE DEVELOPMENT
 - Link my project to the steps before (login and create account, statistics and other functionalities on the userpage) and the steps after (upload receiver list, payment methods, and sms text). 
