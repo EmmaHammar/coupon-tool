@@ -60,7 +60,6 @@ export default function StepProduct(props) {
                   setPickedProd={props.setPickedProd}
                   setIsNextBtnActive={props.setIsNextBtnActive}
                   couponStepProduct={couponStepProduct}
-                  
                   // setShowPreview={props.setShowPreview}
                 /> 
               )

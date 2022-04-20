@@ -16,18 +16,14 @@ export default function UserPage(props) {
     document.getElementById('errorMsg').innerHTML = '';
   });
 
-
-
   useEffect( () => {
     const cbAllCoupons = (coupons) => {
       // console.log("cbAllCoupons:", coupons);
       setCoupons(coupons);
     };
-
     GetAllCoupons(cbAllCoupons);
 
     props.setPickedProd('');
-
   }, []);
 
   const navigate = useNavigate(); 
@@ -47,7 +43,6 @@ export default function UserPage(props) {
         codeLink: '',
         terms: '',
       };
-      // console.log("newCoupon:", newCoupon);
       props.setShowCouponId(newCoupon.couponId);
       props.setPickedCampaignTitle(newCoupon.couponTitle);
       SaveCoupon(newCoupon);
@@ -95,9 +90,7 @@ export default function UserPage(props) {
                   /> 
                 )
               })
-
             }
-
           </ul>
         </div>
       </div>

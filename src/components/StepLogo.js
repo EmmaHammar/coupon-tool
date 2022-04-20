@@ -26,9 +26,7 @@ export default function StepLogo(props) {
         setCouponStepLogo({
           'logo': res.coupon[0].logo,
         });
-      } else {
-        // console.log("logo finns ej sparad sen innan");
-      }
+      };
     };
 
     GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db

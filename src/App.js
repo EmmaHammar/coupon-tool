@@ -46,7 +46,6 @@ export default function App() {
     userId: 'userId1',
     userName: 'Frida',
     couponIds: ['1', '2', '3'],
-    // pickedCouponId: 'couponId1',
     pickedCouponId: showCouponId,
   };
 

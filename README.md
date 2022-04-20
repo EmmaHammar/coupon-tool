@@ -104,7 +104,7 @@ I've chosen to conduct user tests since I think it's a good way fo getting quick
 - Show preview throught the whole create coupon journey. 
 - Connect all buttons such as 'Logga ut' and 'Visa koden'.
 - Test work with storybook since this project will grow and it seems to be a very good way of minimize errors and keep track of all relationships between components. 
-- Evaluate WYSIWYG editor - upgrade TINYMCE or use Summernote (that the LIA company is using today).
+- Evaluate WYSIWYG editor - upgrade TINYMCE (and handle warnings) or use Summernote (that the LIA company is using today).
 - Making alt text mandatory for img upload in TinyMCE?
 - Make errorMsg more visible if try to upload too big file size in StepLogo.
 - Test more on users if switch back to color picker on StepBackground instead of Hex.
