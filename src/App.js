@@ -57,7 +57,7 @@ export default function App() {
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = (evt) => {
-  //Only save to db if content is correctly filled
+    //Only save to db if content is correctly filled
     if (document.getElementById('nextBtn').classList.contains('btn-primary-inactive') === true) {
       
       document.getElementById('errorMsg').innerHTML = 'Du måste lägga till innehåll för att kunna gå till nästa steg.';
@@ -126,6 +126,8 @@ export default function App() {
                           setShowFooter={setShowFooter}
                           setCurrentStep={setCurrentStep}
                           setShowCouponId={setShowCouponId}
+                          setPickedProd={setPickedProd}
+  
                         />}>
                       </Route>
                       <Route 

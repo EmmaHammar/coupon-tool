@@ -25,6 +25,9 @@ export default function UserPage(props) {
     };
 
     GetAllCoupons(cbAllCoupons);
+
+    props.setPickedProd('');
+
   }, []);
 
   const navigate = useNavigate(); 
@@ -57,7 +60,13 @@ export default function UserPage(props) {
 
   const handleClickInput = (evt) => {
     document.getElementById('errorMsgCampaignTitle').innerHTML='';
-  }
+  };
+
+  const clickSavedCoupon = (evt) => {
+    console.log("clickSavedCoupon:", evt.target.id);
+    props.setShowCouponId(evt.target.id);
+    navigate('/steg1');
+  };
 
   return (
     <AccountContext.Consumer>
@@ -82,6 +91,7 @@ export default function UserPage(props) {
                     couponId={coupon.couponId}
                     couponTitle={coupon.couponTitle}
                     key={index}
+                    clickSavedCoupon={clickSavedCoupon}
                   /> 
                 )
               })
