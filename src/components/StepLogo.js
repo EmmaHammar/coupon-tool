@@ -21,13 +21,13 @@ export default function StepLogo(props) {
   //show initialContent in editor after first render, only if edit old coupon
   useEffect( () => {
     const cbLogo = (res) => {
-      console.log("StepLogo.js: hämta fr db", res.coupon[0]);
+      // console.log("StepLogo.js: hämta fr db", res.coupon[0]);
       if (res.coupon[0] !== undefined) {
         setCouponStepLogo({
           'logo': res.coupon[0].logo,
         });
       } else {
-        console.log("logo finns ej sparad sen innan");
+        // console.log("logo finns ej sparad sen innan");
       }
     };
 

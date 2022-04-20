@@ -20,7 +20,7 @@ export default function UserPage(props) {
 
   useEffect( () => {
     const cbAllCoupons = (coupons) => {
-      console.log("cbAllCoupons:", coupons);
+      // console.log("cbAllCoupons:", coupons);
       setCoupons(coupons);
     };
 
@@ -31,26 +31,25 @@ export default function UserPage(props) {
     
   const handleClickBtn = () => {
     if (document.getElementById('inputCampaignTitle').value !== '') {
-      let newCouponTitle = document.getElementById('inputCampaignTitle').value; 
     
-    let newCoupon = {
-      couponId: Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1),
-      couponTitle: document.getElementById('inputCampaignTitle').value,
-      logo: '',
-      background: '',
-      text: '',
-      prodId: '',
-      prodImg: '',
-      prodImgAltText: '',
-      codeLink: '',
-      terms: '',
-    };
-    // console.log("newCoupon:", newCoupon);
-    props.setShowCouponId(newCoupon.couponId);
+      let newCoupon = {
+        couponId: Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1),
+        couponTitle: document.getElementById('inputCampaignTitle').value,
+        logo: '',
+        background: '',
+        text: '',
+        prodId: '',
+        prodImg: '',
+        prodImgAltText: '',
+        codeLink: '',
+        terms: '',
+      };
+      // console.log("newCoupon:", newCoupon);
+      props.setShowCouponId(newCoupon.couponId);
 
-    SaveCoupon(newCoupon);
+      SaveCoupon(newCoupon);
 
-    navigate('/steg1');
+      navigate('/steg1');
     } else {
       document.getElementById('errorMsgCampaignTitle').innerHTML='Du måste skriva en kampanjtitel för att kunna skapa en kampanj.'
     };
