@@ -29,7 +29,9 @@ export default function StepLogo(props) {
       };
     };
 
-    GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db
+    // GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db
+    GetCoupon(cbLogo, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+    console.log('ls logo:', JSON.parse(localStorage.getItem('showCouponId')));
   }, []);
 
   useEffect( () => {

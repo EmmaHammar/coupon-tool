@@ -44,7 +44,9 @@ export default function UserPage(props) {
         terms: '',
       };
       props.setShowCouponId(newCoupon.couponId);
-      props.setPickedCampaignTitle(newCoupon.couponTitle);
+      localStorage.setItem('showCouponId', JSON.stringify(newCoupon.couponId)); //save couponId to ls so it survives refresh of page and is reachable for other components
+
+      props.setPickedCampaignTitle(newCoupon.couponTitle); 
       SaveCoupon(newCoupon);
 
       navigate('/steg1');
@@ -59,6 +61,7 @@ export default function UserPage(props) {
 
   const clickSavedCoupon = (evt) => {
     props.setShowCouponId(evt.target.id);
+    localStorage.setItem('showCouponId', JSON.stringify(evt.target.id)); //save couponId to ls so it survives refresh of page and is reachable for other components
     props.setPickedCampaignTitle(evt.target.innerText);
     navigate('/steg1');
   };

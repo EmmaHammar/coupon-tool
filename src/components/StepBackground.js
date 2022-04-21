@@ -30,7 +30,9 @@ export default function StepBackground(props) {
       setCouponStepBackground(res.coupon[0].background);
     };
 
-      GetCoupon(cbBackground, {'pickedCouponId': account.pickedCouponId}); //get data from db
+      // GetCoupon(cbBackground, {'pickedCouponId': account.pickedCouponId}); //get data from db
+      GetCoupon(cbBackground, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+      console.log('ls bg:', JSON.parse(localStorage.getItem('showCouponId')));
   }, []);
 
   useEffect( () => {

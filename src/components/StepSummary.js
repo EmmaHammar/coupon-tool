@@ -31,7 +31,7 @@ export default function StepSummary(props) {
       </div>
       <div id='mobileWrapper' className='w-[300px] h-[534px] flex flex-col justify-between mt-3'>
         {
-          showLoader ? <Loader /> : <Preview />
+          showLoader ? <Loader /> : <Preview showCouponId={props.showCouponId}/>
         }
       </div>
     </>

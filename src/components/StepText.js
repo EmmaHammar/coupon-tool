@@ -25,7 +25,9 @@ export default function StepText(props) {
       setCouponStepText(res.coupon[0].text);
     };
 
-    GetCoupon(cbText, {'pickedCouponId': account.pickedCouponId}); //get data from db
+    // GetCoupon(cbText, {'pickedCouponId': account.pickedCouponId}); //get data from db
+    GetCoupon(cbText, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+    console.log('ls text:', JSON.parse(localStorage.getItem('showCouponId')));
   }, []);
 
   useEffect( () => {

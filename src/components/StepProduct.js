@@ -29,7 +29,9 @@ export default function StepProduct(props) {
       setCouponStepProduct(res.coupon[0].prodId);
     };
 
-    GetCoupon(cbProduct, {'pickedCouponId': account.pickedCouponId}); //get data from db
+    // GetCoupon(cbProduct, {'pickedCouponId': account.pickedCouponId}); //get data from db
+    GetCoupon(cbProduct, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+    console.log('ls prod:', JSON.parse(localStorage.getItem('showCouponId')));
   }, []);
 
   useEffect( () => {

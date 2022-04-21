@@ -46,7 +46,7 @@ export default function App() {
     userId: 'userId1',
     userName: 'Frida',
     couponIds: ['1', '2', '3'],
-    pickedCouponId: showCouponId,
+    // pickedCouponId: showCouponId,
   };
 
   useEffect( () => {
@@ -72,7 +72,8 @@ export default function App() {
           } else {
             // something has changed
             let prodObj = {
-              'couponId': account.pickedCouponId, 
+              // 'couponId': account.pickedCouponId, 
+              'couponId': JSON.parse(localStorage.getItem('showCouponId')), 
               'prodId': pickedProd.prodId,
               'prodImg': pickedProd.prodImg,
               'prodImgAltText': pickedProd.prodImgAltText,
@@ -91,7 +92,8 @@ export default function App() {
         } else {
           // something has changed:
           let newCouponObj = {
-            'couponId': account.pickedCouponId, 
+            // 'couponId': account.pickedCouponId, 
+            'couponId': JSON.parse(localStorage.getItem('showCouponId')),
             [currentStep] : content
           };     
 
@@ -129,7 +131,8 @@ export default function App() {
                           setShowCouponId={setShowCouponId}
                           setPickedProd={setPickedProd}
                           setPickedCampaignTitle={setPickedCampaignTitle}
-                        />}>
+                        />
+                      }>
                       </Route>
                       <Route 
                         exact path='/steg1' 
@@ -153,6 +156,8 @@ export default function App() {
 
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+
+                            showCouponId={showCouponId}
                           />
                         }>
                       </Route>
@@ -178,6 +183,8 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+
+                            showCouponId={showCouponId}
                           />
                         }>
                       </Route>
@@ -203,6 +210,8 @@ export default function App() {
                             setToolBarOptions={setToolBarOptions}
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
+
+                            showCouponId={showCouponId}
                           />
                         }>
                       </Route>
@@ -230,6 +239,8 @@ export default function App() {
                           
                           isNextBtnActive={isNextBtnActive}
                           setIsNextBtnActive={setIsNextBtnActive}
+
+                          showCouponId={showCouponId}
                           />
                         }>
 
@@ -247,6 +258,8 @@ export default function App() {
                           setLinkPathBack={setLinkPathBack}
                           setIsLoading={setIsLoading}
                           setIsNextBtnActive={setIsNextBtnActive}
+
+                          showCouponId={showCouponId}
                         />
                       }>
 

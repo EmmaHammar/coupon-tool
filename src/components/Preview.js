@@ -13,8 +13,11 @@ export default function Preview() {
       
       let info = 
       {
-        'pickedCouponId': account.pickedCouponId, 
+        // 'pickedCouponId': account.pickedCouponId, 
+        'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))
       };
+      console.log('ls preview (summary):', info);
+
 
       const cb = (res) => {
         // console.log("fetch i Preview.js:", res.coupon[0]);
