@@ -45,8 +45,6 @@ export default function UserPage(props) {
         codeLink: '',
         terms: '',
       };
-      // props.setShowCouponId(newCoupon.couponId);
-      // localStorage.setItem('showCouponId', JSON.stringify(newCoupon.couponId));
 
       let pickedNewCampaign = {'couponId': newCoupon.couponId, 'couponTitle': newCoupon.couponTitle};
       localStorage.setItem('pickedCampaign', JSON.stringify(pickedNewCampaign)); //save couponId to ls so it survives refresh of page and is reachable for other components
@@ -64,9 +62,6 @@ export default function UserPage(props) {
   };
 
   const clickSavedCoupon = (evt) => {
-    // props.setShowCouponId(evt.target.id);
-    // localStorage.setItem('showCouponId', JSON.stringify(evt.target.id)); 
- 
     let pickedSavedCampaign = {'couponId': evt.target.id, 'couponTitle': evt.target.innerText};
     localStorage.setItem('pickedCampaign', JSON.stringify(pickedSavedCampaign)); //save couponId to ls so it survives refresh of page and is reachable for other components
 

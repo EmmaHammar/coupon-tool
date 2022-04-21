@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AccountContext } from '../App';
+import React, { useState, useEffect } from 'react';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepBackground(props) {
   const [couponStepBackground, setCouponStepBackground] = useState('');
   const [bgColor, setBgColor] = useState('');
-  const account = useContext(AccountContext);
 
   useEffect( () => {
     // props.setShowPreview(false);
@@ -29,12 +27,7 @@ export default function StepBackground(props) {
       // console.log("StepBackground.js: hämta fr db", res.coupon[0]);
       setCouponStepBackground(res.coupon[0].background);
     };
-
-      // GetCoupon(cbBackground, {'pickedCouponId': account.pickedCouponId}); //get data from db
-      // GetCoupon(cbBackground, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
-      // console.log('ls bg:', JSON.parse(localStorage.getItem('showCouponId')));
       GetCoupon(cbBackground, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
-      console.log('ls bg:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {

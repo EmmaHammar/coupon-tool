@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import GetProducts from '../services/GetProducts';
-import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepProduct(props) {
   const [couponStepProduct, setCouponStepProduct] = useState('');
   const [productList, setProductList] = useState([]);
-  const account = useContext(AccountContext);
   
   //get all products from db in order to print them
   useEffect( () => {
@@ -28,12 +26,7 @@ export default function StepProduct(props) {
       // console.log("StepLogo.js: hämta fr db", res.coupon[0]);
       setCouponStepProduct(res.coupon[0].prodId);
     };
-
-    // GetCoupon(cbProduct, {'pickedCouponId': account.pickedCouponId}); //get data from db
-    // GetCoupon(cbProduct, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
-    // console.log('ls prod:', JSON.parse(localStorage.getItem('showCouponId')));
     GetCoupon(cbProduct, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
-    console.log('ls prod:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {

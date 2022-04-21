@@ -7,7 +7,6 @@ export default function StepsHeader(props) {
     useEffect( () => {
         //get couponTitle from lS if it exists, else it's ''
         if (JSON.parse(localStorage.getItem('pickedCampaign')) !== null) {
-            console.log("sätt campaignTitle");
             setCampaignTitle(JSON.parse(localStorage.getItem('pickedCampaign')).couponTitle);
         };
     }, []);

@@ -41,15 +41,11 @@ export default function App() {
   const [initialProdId, setInitialProdId] = useState('');
   const [showStepsHeader, setShowStepsHeader] = useState(false);
 
-
-  // const [showCouponId, setShowCouponId] = useState('');
-
   const account = {
     accountId: 'accountId1',
     userId: 'userId1',
     userName: 'Frida',
     couponIds: ['1', '2', '3'],
-    // pickedCouponId: showCouponId,
   };
 
   useEffect( () => {
@@ -61,11 +57,8 @@ export default function App() {
   useEffect( () => {
     if (currentStep === 'userpage') {
       setShowStepsHeader(false);
-      // document.getElementById('couponTitleHolder').innerHTML='';              
     } else {
       setShowStepsHeader(true);
-      // document.getElementById('couponTitleHolder').innerHTML=`Kampanj: ${JSON.parse(localStorage.getItem('pickedCampaign')).couponTitle}`;              
-
     }
   }, [currentStep]);
 
@@ -86,8 +79,6 @@ export default function App() {
           } else {
             // something has changed
             let prodObj = {
-              // 'couponId': account.pickedCouponId, 
-              // 'couponId': JSON.parse(localStorage.getItem('showCouponId')), 
               'couponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId, 
               'prodId': pickedProd.prodId,
               'prodImg': pickedProd.prodImg,
@@ -107,8 +98,6 @@ export default function App() {
         } else {
           // something has changed:
           let newCouponObj = {
-            // 'couponId': account.pickedCouponId, 
-            // 'couponId': JSON.parse(localStorage.getItem('showCouponId')),
             'couponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId, 
             [currentStep] : content
           };     
@@ -133,171 +122,161 @@ export default function App() {
                 initialContent={initialContent}
                 linkPathNext={linkPathNext}
               /> 
+              <main>
                 {
                   showStepsHeader ? <StepsHeader currentStep={currentStep} />  : ''
                 }
 
-              <main className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
+                <div className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
 
-
-                <div id='userPageWrapper' className='pb-16 max-w-full'>
-                    <Routes>
-                      <Route exact path='/' element={
-                        <UserPage 
-                          // setShowPreview={setShowPreview}
-                          setShowFooter={setShowFooter}
-                          setCurrentStep={setCurrentStep}
-                          // setShowCouponId={setShowCouponId}
-                          setPickedProd={setPickedProd}
-                        />
-                      }>
-                      </Route>
-                      <Route 
-                        exact path='/steg1' 
-                        element= { 
-                          <StepLogo 
+                  <div id='userPageWrapper' className='pb-16 max-w-full'>
+                      <Routes>
+                        <Route exact path='/' element={
+                          <UserPage 
                             // setShowPreview={setShowPreview}
                             setShowFooter={setShowFooter}
-                            currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}
-                            content={content}
-                            setContent={setContent}
-                            initialContent={initialContent}
-                            setInitialContent={setInitialContent}
-
-                            linkPathNext={linkPathNext}
-                            setLinkPathNext={setLinkPathNext}
-                            linkPathBack={linkPathBack}
-                            setLinkPathBack={setLinkPathBack}
-                            toolBarOptions={toolBarOptions}
-                            setToolBarOptions={setToolBarOptions}
-
-                            isNextBtnActive={isNextBtnActive}
-                            setIsNextBtnActive={setIsNextBtnActive}
-
-                            // showCouponId={showCouponId}
+                            setPickedProd={setPickedProd}
                           />
                         }>
-                      </Route>
+                        </Route>
+                        <Route 
+                          exact path='/steg1' 
+                          element= { 
+                            <StepLogo 
+                              // setShowPreview={setShowPreview}
+                              setShowFooter={setShowFooter}
+                              currentStep={currentStep} 
+                              setCurrentStep={setCurrentStep}
+                              content={content}
+                              setContent={setContent}
+                              initialContent={initialContent}
+                              setInitialContent={setInitialContent}
 
-                      <Route 
-                        exact path='/steg2' 
-                        element= {
-                          <StepBackground 
-                            // setShowPreview={setShowPreview}
-                            setShowFooter={setShowFooter}
-                            currentStep={currentStep} 
-                            setCurrentStep={setCurrentStep}
-                            content={content}
-                            setContent={setContent}
-                            initialContent={initialContent}
-                            setInitialContent={setInitialContent}
+                              linkPathNext={linkPathNext}
+                              setLinkPathNext={setLinkPathNext}
+                              linkPathBack={linkPathBack}
+                              setLinkPathBack={setLinkPathBack}
+                              toolBarOptions={toolBarOptions}
+                              setToolBarOptions={setToolBarOptions}
 
-                            linkPathNext={linkPathNext}
-                            setLinkPathNext={setLinkPathNext}
-                            linkPathBack={linkPathBack}
-                            setLinkPathBack={setLinkPathBack}
-                            toolBarOptions={toolBarOptions}
-                            setToolBarOptions={setToolBarOptions}
-                            isNextBtnActive={isNextBtnActive}
-                            setIsNextBtnActive={setIsNextBtnActive}
+                              isNextBtnActive={isNextBtnActive}
+                              setIsNextBtnActive={setIsNextBtnActive}
+                            />
+                          }>
+                        </Route>
 
-                            // showCouponId={showCouponId}
-                          />
-                        }>
-                      </Route>
+                        <Route 
+                          exact path='/steg2' 
+                          element= {
+                            <StepBackground 
+                              // setShowPreview={setShowPreview}
+                              setShowFooter={setShowFooter}
+                              currentStep={currentStep} 
+                              setCurrentStep={setCurrentStep}
+                              content={content}
+                              setContent={setContent}
+                              initialContent={initialContent}
+                              setInitialContent={setInitialContent}
 
-                      <Route 
-                        exact path='/steg3' 
-                        element= {
-                          <StepText 
+                              linkPathNext={linkPathNext}
+                              setLinkPathNext={setLinkPathNext}
+                              linkPathBack={linkPathBack}
+                              setLinkPathBack={setLinkPathBack}
+                              toolBarOptions={toolBarOptions}
+                              setToolBarOptions={setToolBarOptions}
+                              isNextBtnActive={isNextBtnActive}
+                              setIsNextBtnActive={setIsNextBtnActive}
+                            />
+                          }>
+                        </Route>
+
+                        <Route 
+                          exact path='/steg3' 
+                          element= {
+                            <StepText 
+                              // setShowPreview={setShowPreview}
+                              setShowFooter={setShowFooter}
+                              currentStep={currentStep} 
+                              setCurrentStep={setCurrentStep}  
+                              content={content}
+                              setContent={setContent}
+                              initialContent={initialContent}
+                              setInitialContent={setInitialContent}
+
+                              linkPathNext={linkPathNext}
+                              setLinkPathNext={setLinkPathNext}
+                              linkPathBack={linkPathBack}
+                              setLinkPathBack={setLinkPathBack}
+                              toolBarOptions={toolBarOptions}
+                              setToolBarOptions={setToolBarOptions}
+                              isNextBtnActive={isNextBtnActive}
+                              setIsNextBtnActive={setIsNextBtnActive}
+                            />
+                          }>
+                        </Route>
+
+                        <Route 
+                          exact path='/steg4' 
+                          element= {
+                            <StepProduct 
+                              // setShowPreview={setShowPreview}
+                              setShowFooter={setShowFooter}
+                              currentStep={currentStep} 
+                              setCurrentStep={setCurrentStep}  
+                              content={content}
+                              setContent={setContent}
+                              initialContent={initialContent}
+                              setInitialContent={setInitialContent}
+
+                              linkPathNext={linkPathNext}
+                              setLinkPathNext={setLinkPathNext}
+                              linkPathBack={linkPathBack}
+                              setLinkPathBack={setLinkPathBack}
+                              pickedProd={pickedProd}
+                              setPickedProd={setPickedProd}
+                              setInitialProdId={setInitialProdId}
+                              
+                              isNextBtnActive={isNextBtnActive}
+                              setIsNextBtnActive={setIsNextBtnActive}
+                            />
+                          }>
+
+                        </Route>
+
+                        <Route exact path='/steg5' element= {
+                          <StepSummary
                             // setShowPreview={setShowPreview}
                             setShowFooter={setShowFooter}
                             currentStep={currentStep} 
                             setCurrentStep={setCurrentStep}  
                             content={content}
                             setContent={setContent}
-                            initialContent={initialContent}
-                            setInitialContent={setInitialContent}
-
-                            linkPathNext={linkPathNext}
                             setLinkPathNext={setLinkPathNext}
-                            linkPathBack={linkPathBack}
                             setLinkPathBack={setLinkPathBack}
-                            toolBarOptions={toolBarOptions}
-                            setToolBarOptions={setToolBarOptions}
-                            isNextBtnActive={isNextBtnActive}
+                            setIsLoading={setIsLoading}
                             setIsNextBtnActive={setIsNextBtnActive}
-
-                            // showCouponId={showCouponId}
-                          />
-                        }>
-                      </Route>
-
-                      <Route 
-                        exact path='/steg4' 
-                        element= {
-                          <StepProduct 
-                          // setShowPreview={setShowPreview}
-                          setShowFooter={setShowFooter}
-                          currentStep={currentStep} 
-                          setCurrentStep={setCurrentStep}  
-                          content={content}
-                          setContent={setContent}
-                          initialContent={initialContent}
-                          setInitialContent={setInitialContent}
-
-                          linkPathNext={linkPathNext}
-                          setLinkPathNext={setLinkPathNext}
-                          linkPathBack={linkPathBack}
-                          setLinkPathBack={setLinkPathBack}
-                          pickedProd={pickedProd}
-                          setPickedProd={setPickedProd}
-                          setInitialProdId={setInitialProdId}
-                          
-                          isNextBtnActive={isNextBtnActive}
-                          setIsNextBtnActive={setIsNextBtnActive}
-
-                          // showCouponId={showCouponId}
                           />
                         }>
 
-                      </Route>
+                        </Route>
+                        <Route exact path='*' element={
+                          <NotFound 
+                            // setShowPreview={setShowPreview}
+                          />}>
+                        </Route>
+                      </Routes>
+                    
+                      <div id='errorWrapper'>
+                        <p id='errorMsg' className='errorMsg'></p>
+                      </div> 
 
-                      <Route exact path='/steg5' element= {
-                        <StepSummary
-                          // setShowPreview={setShowPreview}
-                          setShowFooter={setShowFooter}
-                          currentStep={currentStep} 
-                          setCurrentStep={setCurrentStep}  
-                          content={content}
-                          setContent={setContent}
-                          setLinkPathNext={setLinkPathNext}
-                          setLinkPathBack={setLinkPathBack}
-                          setIsLoading={setIsLoading}
-                          setIsNextBtnActive={setIsNextBtnActive}
-
-                          // showCouponId={showCouponId}
-                        />
-                      }>
-
-                      </Route>
-                      <Route exact path='*' element={
-                        <NotFound 
-                          // setShowPreview={setShowPreview}
-                        />}>
-                      </Route>
-                    </Routes>
+                  </div>
+                  {/* {
+                    showPreview ? <Preview isLoading={isLoading} setIsLoading={setIsLoading}/> : ''
+                  } */}
                   
-                    <div id='errorWrapper'>
-                      <p id='errorMsg' className='errorMsg'></p>
-                    </div> 
-
                 </div>
-                {/* {
-                  showPreview ? <Preview isLoading={isLoading} setIsLoading={setIsLoading}/> : ''
-                } */}
-                
               </main>
 
               {

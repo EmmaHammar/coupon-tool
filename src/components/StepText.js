@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import TinyEditor from './TinyEditor';
-import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepText(props) {
   const [couponStepText, setCouponStepText] = useState('');
-  const account = useContext(AccountContext);
 
   useEffect( () => {
     // props.setShowPreview(false);
@@ -24,12 +22,7 @@ export default function StepText(props) {
       // console.log("StepText.js: hämta fr db", res.coupon[0].text);
       setCouponStepText(res.coupon[0].text);
     };
-
-    // GetCoupon(cbText, {'pickedCouponId': account.pickedCouponId}); //get data from db
-    // GetCoupon(cbText, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
-    // console.log('ls text:', JSON.parse(localStorage.getItem('showCouponId')));
     GetCoupon(cbText, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
-    console.log('ls text:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {

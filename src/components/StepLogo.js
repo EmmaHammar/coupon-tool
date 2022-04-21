@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import TinyEditor from './TinyEditor';
-import { AccountContext } from '../App';
 import GetCoupon from '../services/GetCoupon';
 
 export default function StepLogo(props) {
   const [couponStepLogo, setCouponStepLogo] = useState({
     'logo': '',
   });
-  const account = useContext(AccountContext);
 
   useEffect( () => {
     // props.setShowPreview(false);
@@ -28,11 +26,7 @@ export default function StepLogo(props) {
         });
       };
     };
-
-    // GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db
-    // GetCoupon(cbLogo, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
     GetCoupon(cbLogo, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
-    console.log('ls logo:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {

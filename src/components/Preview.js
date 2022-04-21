@@ -1,24 +1,17 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import GetCoupon from '../services/GetCoupon';
-import { AccountContext } from '../App';
 
 export default function Preview() {
     const [coupon, setCoupon] = useState({});
     const [couponTemplate, setCouponTemplate] = useState('');
-
-    const account = useContext(AccountContext);
 
     useEffect( () => {
       document.getElementById('errorMsg').innerHTML = '';
       
       let info = 
       {
-        // 'pickedCouponId': account.pickedCouponId, 
-        // 'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))
         'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId
       };
-      console.log('ls preview (summary):', info);
-
 
       const cb = (res) => {
         // console.log("fetch i Preview.js:", res.coupon[0]);

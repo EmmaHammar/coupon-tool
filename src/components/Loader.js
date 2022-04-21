@@ -1,5 +1,6 @@
 import React from 'react';
 import adoveoLogo from '../img/adoveo-logo.png';
+
 export default function Loader() {
   return (
     <div id='loaderWrapper' className='flex justify-center items-center h-screen'>
