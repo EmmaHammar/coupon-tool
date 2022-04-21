@@ -26,8 +26,10 @@ export default function StepText(props) {
     };
 
     // GetCoupon(cbText, {'pickedCouponId': account.pickedCouponId}); //get data from db
-    GetCoupon(cbText, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
-    console.log('ls text:', JSON.parse(localStorage.getItem('showCouponId')));
+    // GetCoupon(cbText, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+    // console.log('ls text:', JSON.parse(localStorage.getItem('showCouponId')));
+    GetCoupon(cbText, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
+    console.log('ls text:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {

@@ -9,6 +9,8 @@ import Loader from './components/Loader';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
 import UserPage from './views/UserPage';
+
+import StepsHeader from './components/StepsHeader';
 import StepLogo from './components/StepLogo';
 import StepBackground from './components/StepBackground';
 import StepText from './components/StepText';
@@ -36,10 +38,11 @@ export default function App() {
   const [toolBarOptions, setToolBarOptions] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [pickedProd, setPickedProd] = useState({});
-  const [pickedCampaignTitle, setPickedCampaignTitle] = useState('');
   const [initialProdId, setInitialProdId] = useState('');
+  const [showStepsHeader, setShowStepsHeader] = useState(false);
 
-  const [showCouponId, setShowCouponId] = useState('');
+
+  // const [showCouponId, setShowCouponId] = useState('');
 
   const account = {
     accountId: 'accountId1',
@@ -54,6 +57,17 @@ export default function App() {
       setIsLoading(false)
     }, 1000);
   });
+
+  useEffect( () => {
+    if (currentStep === 'userpage') {
+      setShowStepsHeader(false);
+      // document.getElementById('couponTitleHolder').innerHTML='';              
+    } else {
+      setShowStepsHeader(true);
+      // document.getElementById('couponTitleHolder').innerHTML=`Kampanj: ${JSON.parse(localStorage.getItem('pickedCampaign')).couponTitle}`;              
+
+    }
+  }, [currentStep]);
 
   //click Save/NextBtn in Footer.js, this function is in Context:
   const saveClick = (evt) => {
@@ -73,7 +87,8 @@ export default function App() {
             // something has changed
             let prodObj = {
               // 'couponId': account.pickedCouponId, 
-              'couponId': JSON.parse(localStorage.getItem('showCouponId')), 
+              // 'couponId': JSON.parse(localStorage.getItem('showCouponId')), 
+              'couponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId, 
               'prodId': pickedProd.prodId,
               'prodImg': pickedProd.prodImg,
               'prodImgAltText': pickedProd.prodImgAltText,
@@ -93,7 +108,8 @@ export default function App() {
           // something has changed:
           let newCouponObj = {
             // 'couponId': account.pickedCouponId, 
-            'couponId': JSON.parse(localStorage.getItem('showCouponId')),
+            // 'couponId': JSON.parse(localStorage.getItem('showCouponId')),
+            'couponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId, 
             [currentStep] : content
           };     
 
@@ -116,10 +132,13 @@ export default function App() {
                 content={content}
                 initialContent={initialContent}
                 linkPathNext={linkPathNext}
-                pickedCampaignTitle={pickedCampaignTitle}
               /> 
+                {
+                  showStepsHeader ? <StepsHeader currentStep={currentStep} />  : ''
+                }
 
               <main className='flex flex-row flex-wrap justify-around gap-x-4 items-start pt-6 pb-28 md:pt-10'>
+
 
                 <div id='userPageWrapper' className='pb-16 max-w-full'>
                     <Routes>
@@ -128,9 +147,8 @@ export default function App() {
                           // setShowPreview={setShowPreview}
                           setShowFooter={setShowFooter}
                           setCurrentStep={setCurrentStep}
-                          setShowCouponId={setShowCouponId}
+                          // setShowCouponId={setShowCouponId}
                           setPickedProd={setPickedProd}
-                          setPickedCampaignTitle={setPickedCampaignTitle}
                         />
                       }>
                       </Route>
@@ -157,7 +175,7 @@ export default function App() {
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
 
-                            showCouponId={showCouponId}
+                            // showCouponId={showCouponId}
                           />
                         }>
                       </Route>
@@ -184,7 +202,7 @@ export default function App() {
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
 
-                            showCouponId={showCouponId}
+                            // showCouponId={showCouponId}
                           />
                         }>
                       </Route>
@@ -211,7 +229,7 @@ export default function App() {
                             isNextBtnActive={isNextBtnActive}
                             setIsNextBtnActive={setIsNextBtnActive}
 
-                            showCouponId={showCouponId}
+                            // showCouponId={showCouponId}
                           />
                         }>
                       </Route>
@@ -240,7 +258,7 @@ export default function App() {
                           isNextBtnActive={isNextBtnActive}
                           setIsNextBtnActive={setIsNextBtnActive}
 
-                          showCouponId={showCouponId}
+                          // showCouponId={showCouponId}
                           />
                         }>
 
@@ -259,7 +277,7 @@ export default function App() {
                           setIsLoading={setIsLoading}
                           setIsNextBtnActive={setIsNextBtnActive}
 
-                          showCouponId={showCouponId}
+                          // showCouponId={showCouponId}
                         />
                       }>
 

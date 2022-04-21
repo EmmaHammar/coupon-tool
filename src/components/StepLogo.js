@@ -30,8 +30,9 @@ export default function StepLogo(props) {
     };
 
     // GetCoupon(cbLogo, {'pickedCouponId': account.pickedCouponId}); //get data from db
-    GetCoupon(cbLogo, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
-    console.log('ls logo:', JSON.parse(localStorage.getItem('showCouponId')));
+    // GetCoupon(cbLogo, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+    GetCoupon(cbLogo, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
+    console.log('ls logo:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {

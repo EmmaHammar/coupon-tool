@@ -14,7 +14,8 @@ export default function Preview() {
       let info = 
       {
         // 'pickedCouponId': account.pickedCouponId, 
-        'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))
+        // 'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))
+        'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId
       };
       console.log('ls preview (summary):', info);
 

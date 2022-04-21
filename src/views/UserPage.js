@@ -24,6 +24,8 @@ export default function UserPage(props) {
     GetAllCoupons(cbAllCoupons);
 
     props.setPickedProd('');
+
+    localStorage.removeItem('pickedCampaign');
   }, []);
 
   const navigate = useNavigate(); 
@@ -43,10 +45,12 @@ export default function UserPage(props) {
         codeLink: '',
         terms: '',
       };
-      props.setShowCouponId(newCoupon.couponId);
-      localStorage.setItem('showCouponId', JSON.stringify(newCoupon.couponId)); //save couponId to ls so it survives refresh of page and is reachable for other components
+      // props.setShowCouponId(newCoupon.couponId);
+      // localStorage.setItem('showCouponId', JSON.stringify(newCoupon.couponId));
 
-      props.setPickedCampaignTitle(newCoupon.couponTitle); 
+      let pickedNewCampaign = {'couponId': newCoupon.couponId, 'couponTitle': newCoupon.couponTitle};
+      localStorage.setItem('pickedCampaign', JSON.stringify(pickedNewCampaign)); //save couponId to ls so it survives refresh of page and is reachable for other components
+
       SaveCoupon(newCoupon);
 
       navigate('/steg1');
@@ -60,9 +64,12 @@ export default function UserPage(props) {
   };
 
   const clickSavedCoupon = (evt) => {
-    props.setShowCouponId(evt.target.id);
-    localStorage.setItem('showCouponId', JSON.stringify(evt.target.id)); //save couponId to ls so it survives refresh of page and is reachable for other components
-    props.setPickedCampaignTitle(evt.target.innerText);
+    // props.setShowCouponId(evt.target.id);
+    // localStorage.setItem('showCouponId', JSON.stringify(evt.target.id)); 
+ 
+    let pickedSavedCampaign = {'couponId': evt.target.id, 'couponTitle': evt.target.innerText};
+    localStorage.setItem('pickedCampaign', JSON.stringify(pickedSavedCampaign)); //save couponId to ls so it survives refresh of page and is reachable for other components
+
     navigate('/steg1');
   };
 

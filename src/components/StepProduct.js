@@ -30,8 +30,10 @@ export default function StepProduct(props) {
     };
 
     // GetCoupon(cbProduct, {'pickedCouponId': account.pickedCouponId}); //get data from db
-    GetCoupon(cbProduct, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
-    console.log('ls prod:', JSON.parse(localStorage.getItem('showCouponId')));
+    // GetCoupon(cbProduct, {'pickedCouponId': JSON.parse(localStorage.getItem('showCouponId'))}); //get data from db
+    // console.log('ls prod:', JSON.parse(localStorage.getItem('showCouponId')));
+    GetCoupon(cbProduct, {'pickedCouponId': JSON.parse(localStorage.getItem('pickedCampaign')).couponId}); //get id from localStorage and send the id to get right data from db
+    console.log('ls prod:', JSON.parse(localStorage.getItem('pickedCampaign')).couponId);
   }, []);
 
   useEffect( () => {
