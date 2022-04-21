@@ -47,8 +47,8 @@ const onEditorChange = () => {
               init={{
 
                 force_br_newlines : true, //don't wrap in p tag
-                force_p_newlines : false, //don't wrap in p tag
-                forced_root_block : '', //don't wrap in p tag
+                // force_p_newlines : false, //don't wrap in p tag
+                // forced_root_block : '', //don't wrap in p tag
 
                 entity_encoding : "raw", //allow åäö
           
@@ -90,7 +90,8 @@ const onEditorChange = () => {
 
                       let imageSize = blobInfo.blob().size / 1000; //image size in kbytes
                       if (imageSize > 50) {
-                        document.getElementById('errorMsg').innerHTML = 'Bildstorleken är för stor, testa att ladda upp en logga som är mindre än 50 K.';
+                        // document.getElementById('errorMsg').innerHTML = 'Bildstorleken är för stor, testa att ladda upp en logga som är mindre än 50 K.';
+                        alert('Bildstorleken är för stor, testa att ladda upp en logga som är mindre än 50 K.');
                       } else {
                         blobCache.add(blobInfo);
                         cb(blobInfo.blobUri(), { title: file.name });

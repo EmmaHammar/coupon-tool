@@ -76,7 +76,7 @@ export default function UserPage(props) {
         <div id='campaignTitleWrapper' className='flex flex-col mt-8'>
           <div>
             <h3>Kampanjtitel</h3>
-            <input id='inputCampaignTitle'type='text' placeholder='Skriv kampanjtitel...' className='cursor-text btn text-center mb-2 w-[200px] md:w-[250px]' onClick={handleClickInput}></input>
+            <input id='inputCampaignTitle'type='text' placeholder='Skriv kampanjtitel...' className='cursor-text btn mb-2 w-[200px] md:w-[250px] border-blue' onClick={handleClickInput}></input>
           </div>
           <button className='btn btn-primary-reverse mt-2' onClick={clickNewCoupon}>SKAPA NY KAMPANJ</button>
           <p id='errorMsgCampaignTitle' className='errorMsg'></p>
