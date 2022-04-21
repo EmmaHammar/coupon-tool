@@ -48,10 +48,17 @@ export default function App() {
     couponIds: ['1', '2', '3'],
   };
 
+  // Check if user is in Safari Browser: 
+  let isSafari = window.safari;
+  if (isSafari) {
+    alert('Denna applikation funkar inte i Safaris webbläsare, testa ex Chrome istället!')
+  }; 
+
   useEffect( () => {
     setTimeout( () => {
       setIsLoading(false)
     }, 1000);
+
   });
 
   useEffect( () => {

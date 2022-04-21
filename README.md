@@ -103,10 +103,12 @@ I've chosen to conduct user tests since I think it's a good way fo getting quick
 - Clickable stepper so the user can take a shortcut to a certain step.
 - Show preview throught the whole create coupon journey. 
 - Connect all buttons such as 'Logga ut' and 'Visa koden'.
+- Saved campaign list: sort, check for not saving same couponTitle, remove function
+- Background: controll for format (else error) and add color picker option
 - Test work with storybook since this project will grow and it seems to be a very good way of minimize errors and keep track of all relationships between components. 
 - Evaluate WYSIWYG editor - upgrade TINYMCE (and handle warnings) or use Summernote (that the LIA company is using today).
 - Making alt text mandatory for img upload in TinyMCE?
-- Make errorMsg more visible if try to upload too big file size in StepLogo.
+- Change alert() to divs + style them
 - Test more on users if switch back to color picker on StepBackground instead of Hex.
 - Add custom fonts possibility: https://www.tiny.cloud/blog/tinymce-custom-font-family/ 
 
