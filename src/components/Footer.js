@@ -10,7 +10,7 @@ export default function Footer(props) {
   };
   
   return (
-    <footer id='navFooter' className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10 flex justify-between items-center'>
+    <footer id='navFooter' className='outline h-16 md:h-20 bg-blue fixed bottom-0 inset-x-0 px-10 flex justify-between items-center z-50'>
       <Link to={props.linkPathBack} tabIndex='-1'>
         <button id='backBtn' className='btn btn-primary-reverse' tabIndex='0' onClick={props.saveClick}>TILLBAKA</button>
       </Link>
